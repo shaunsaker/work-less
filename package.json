@@ -7,8 +7,5 @@
   "workspaces": [
     "packages/*"
   ],
-  "scripts": {
-    "db-builder:build:watch": "yarn workspace db-builder build:watch",
-    "db-builder:dev": "yarn workspace db-builder dev"
-  }
+  "scripts": {}
 }
