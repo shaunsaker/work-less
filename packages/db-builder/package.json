@@ -1,5 +1,5 @@
 {
-  "name": "db-builders",
+  "name": "db-builder",
   "version": "0.0.0",
   "devDependencies": {
     "@types/jest": "^24.0.18",
