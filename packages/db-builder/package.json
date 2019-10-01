@@ -1,13 +1,11 @@
 {
   "name": "db-builders",
   "version": "0.0.0",
-  "engines": {
-    "node": ">= 10.13 <11"
-  },
   "devDependencies": {
     "@types/jest": "^24.0.18",
     "@types/node": "^10.14.17",
     "jest": "~24.9.0",
+    "nodemon": "^1.19.3",
     "prettier": "~1.18.2",
     "rimraf": "^3.0.0",
     "ts-jest": "^24.0.0",
@@ -21,6 +19,7 @@
     "clean": "rimraf coverage build tmp",
     "build": "tsc -p tsconfig.release.json",
     "build:watch": "tsc -w -p tsconfig.release.json",
+    "dev": "nodemon ./build/src/main.js",
     "lint": "tslint -t stylish --project \"tsconfig.json\"",
     "test": "jest --coverage",
     "test:watch": "jest --watch"
