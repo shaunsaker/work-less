@@ -61,10 +61,8 @@ export const getPublicHolidays = functions.https.onRequest(
             "We require both the country and lang to complete the request"
           );
         } else {
-          const ref = db
-            .collection("publicHolidays")
-            .doc(country)
-            .collection("data");
+          const countryRef = db.collection("publicHolidays").doc(country);
+          const ref = countryRef.collection("data");
 
           try {
             const collection = await ref.get();
@@ -80,28 +78,40 @@ export const getPublicHolidays = functions.https.onRequest(
               /*
                * If there are no public holidays in the db
                * Go and get them
-               * Else, just return them
                */
               try {
-                const data = await getHolidays({ country, lang });
-
                 /*
-                 * Add each holiday in data as a new document to the ref
+                 * Let's first create a document at the countryRef
+                 * and set it to active so that irt's not a phantom
                  */
-                const batch = db.batch();
-
-                for (const holiday of data) {
-                  const id = getId();
-                  const holidayRef = ref.doc(id);
-
-                  batch.set(holidayRef, holiday);
-                }
+                await countryRef.set({
+                  isActive: true
+                });
 
                 try {
-                  await batch.commit();
+                  const data = await getHolidays({ country, lang });
 
-                  response.status(200);
-                  response.send(data);
+                  /*
+                   * Add each holiday in data as a new document to the ref
+                   */
+                  const batch = db.batch();
+
+                  for (const holiday of data) {
+                    const id = getId();
+                    const holidayRef = ref.doc(id);
+
+                    batch.set(holidayRef, holiday);
+                  }
+
+                  try {
+                    await batch.commit();
+
+                    response.status(200);
+                    response.send(data);
+                  } catch (error) {
+                    response.status(500);
+                    response.send(error.message);
+                  }
                 } catch (error) {
                   response.status(500);
                   response.send(error.message);
