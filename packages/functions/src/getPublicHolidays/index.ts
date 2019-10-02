@@ -2,6 +2,7 @@ import * as functions from "firebase-functions";
 import { getHolidays } from "public-holidays";
 
 import admin from "../firebase";
+import getId from "../helpers/getId";
 
 const db = admin.firestore();
 
@@ -63,9 +64,7 @@ export const getPublicHolidays = functions.https.onRequest(
           const ref = db
             .collection("publicHolidays")
             .doc(country)
-            .collection("languages")
-            .doc(lang)
-            .collection("publicHolidays");
+            .collection("data");
 
           try {
             const collection = await ref.get();
@@ -89,16 +88,25 @@ export const getPublicHolidays = functions.https.onRequest(
                 /*
                  * Add each holiday in data as a new document to the ref
                  */
+                const batch = db.batch();
+
                 for (const holiday of data) {
-                  await ref.add(holiday);
+                  const id = getId();
+                  const holidayRef = ref.doc(id);
+
+                  batch.set(holidayRef, holiday);
                 }
 
-                response.status(200);
-                response.send(data);
+                try {
+                  await batch.commit();
+
+                  response.status(200);
+                  response.send(data);
+                } catch (error) {
+                  response.status(500);
+                  response.send(error.message);
+                }
               } catch (error) {
-                /*
-                 * Internal server error
-                 */
                 response.status(500);
                 response.send(error.message);
               }
@@ -107,9 +115,6 @@ export const getPublicHolidays = functions.https.onRequest(
               response.send(data);
             }
           } catch (error) {
-            /*
-             * Internal server error
-             */
             response.status(500);
             response.send(error.message);
           }
