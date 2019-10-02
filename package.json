@@ -9,6 +9,7 @@
   ],
   "scripts": {
     "functions:start": "yarn workspace functions start",
-    "functions:deploy": "yarn workspace functions deploy"
+    "functions:deploy:dev": "yarn workspace functions deploy:dev",
+    "functions:deploy:prod": "yarn workspace functions deploy:prod"
   }
 }

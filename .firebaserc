@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "work-less-development"
+    "default": "work-less-development",
+    "development": "work-less-development",
+    "production": "work-less-production"
   }
 }
