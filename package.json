@@ -8,6 +8,9 @@
     "packages/*"
   ],
   "scripts": {
+    "app:start:web": "yarn workspace app start:web",
+    "app:start:android": "yarn workspace app start:android",
+    "app:start:ios": "yarn workspace app start:ios",
     "functions:start": "yarn workspace functions start",
     "functions:deploy:dev": "yarn workspace functions deploy:dev",
     "functions:deploy:prod": "yarn workspace functions deploy:prod",
