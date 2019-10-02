@@ -2,7 +2,6 @@
   "name": "root",
   "private": true,
   "devDependencies": {
-    "firestore-backup-restore": "^1.3.1",
     "lerna": "^3.16.4"
   },
   "workspaces": [
@@ -12,8 +11,8 @@
     "functions:start": "yarn workspace functions start",
     "functions:deploy:dev": "yarn workspace functions deploy:dev",
     "functions:deploy:prod": "yarn workspace functions deploy:prod",
-    "database:backup": "firestore-backup-restore --accountCredentials ./packages/keys/firebase/development/credentials.json --backupPath ./packages/database",
-    "database:restore:dev": "firestore-backup-restore --restoreAccountCredentials ./packages/keys/firebase/development/credentials.json --backupPath ./packages/database",
-    "database:restore:prod": "firestore-backup-restore --restoreAccountCredentials ./packages/keys/firebase/production/credentials.json --backupPath ./packages/database"
+    "database:backup": "yarn workspace database backup",
+    "database:restore:dev": "yarn workspace database restore:dev",
+    "database:restore:prod": "yarn workspace database restore:prod"
   }
 }
