@@ -1,0 +1,14 @@
+{
+  "name": "database",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "firestore-backup-restore": "^1.3.1"
+  },
+  "scripts": {
+    "backup": "firestore-backup-restore --accountCredentials ../keys/firebase/development/credentials.json --backupPath ./src",
+    "restore:dev": "firestore-backup-restore --restoreAccountCredentials ../keys/firebase/development/credentials.json --backupPath ./src",
+    "restore:prod": "firestore-backup-restore --restoreAccountCredentials ../keys/firebase/production/credentials.json --backupPath ./src"
+  }
+}
