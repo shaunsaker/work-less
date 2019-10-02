@@ -8,6 +8,7 @@
     "packages/*"
   ],
   "scripts": {
-    "functions:start": "yarn workspace functions start"
+    "functions:start": "yarn workspace functions start",
+    "functions:deploy": "yarn workspace functions deploy"
   }
 }
