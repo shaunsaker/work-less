@@ -12,6 +12,8 @@
     "functions:start": "yarn workspace functions start",
     "functions:deploy:dev": "yarn workspace functions deploy:dev",
     "functions:deploy:prod": "yarn workspace functions deploy:prod",
-    "database:backup": "firestore-backup-restore --accountCredentials ./packages/keys/firebase/development/credentials.json --backupPath ./packages/database"
+    "database:backup": "firestore-backup-restore --accountCredentials ./packages/keys/firebase/development/credentials.json --backupPath ./packages/database",
+    "database:restore:dev": "firestore-backup-restore --restoreAccountCredentials ./packages/keys/firebase/development/credentials.json --backupPath ./packages/database",
+    "database:restore:prod": "firestore-backup-restore --restoreAccountCredentials ./packages/keys/firebase/production/credentials.json --backupPath ./packages/database"
   }
 }
