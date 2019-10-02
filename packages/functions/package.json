@@ -1,13 +1,20 @@
 {
   "name": "functions",
   "version": "0.0.1",
+  "engines": {
+    "node": "8"
+  },
   "scripts": {
     "lint": "tslint --project tsconfig.json",
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "start": "concurrently \"yarn run build:watch\" \"firebase serve --only functions\"",
+    "env:dev": "firebase use development && cp ./src/credentials-dev.json ./src/credentials.json",
+    "env:prod": "firebase use production && cp ./src/credentials-prod.json ./src/credentials.json",
+    "start": "yarn run env:dev && concurrently \"yarn run build:watch\" \"sleep 1 && firebase serve --only functions\"",
     "predeploy": "yarn run build",
-    "deploy": "firebase deploy --only functions"
+    "deploy": "firebase deploy --only functions",
+    "deploy:dev": "yarn run env:dev && yarn run deploy",
+    "deploy:prod": "yarn run env:prod && yarn run deploy"
   },
   "main": "dist/index.js",
   "dependencies": {

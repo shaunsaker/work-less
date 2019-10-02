@@ -60,10 +60,6 @@ export const getPublicHolidays = functions.https.onRequest(
             "We require both the country and lang to complete the request"
           );
         } else {
-          /*
-           * TODO: We need to check that the country code and language codes are valid
-           */
-
           const ref = db
             .collection("publicHolidays")
             .doc(country)
