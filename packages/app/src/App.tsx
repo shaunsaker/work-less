@@ -1,6 +1,8 @@
 import React from "react";
 import RX from "reactxp";
 
+import Routes from "./Routes";
+
 const _styles = {
   main: RX.Styles.createViewStyle({
     justifyContent: "center",
@@ -79,6 +81,8 @@ export class App extends RX.Component {
             Extensions
           </RX.Link>
         </RX.View>
+
+        <Routes />
       </RX.View>
     );
   }
