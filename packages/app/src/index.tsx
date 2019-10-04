@@ -1,7 +1,7 @@
 import React from 'react';
-import RX from 'reactxp';
-import { App } from './App';
+import { App, UserInterface } from 'reactxp';
+import MainApp from './App';
 import { DEBUG, DEV } from './config';
 
-RX.App.initialize(DEBUG, DEV);
-RX.UserInterface.setMainView(<App />);
+App.initialize(DEBUG, DEV);
+UserInterface.setMainView(<MainApp />);
