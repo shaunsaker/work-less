@@ -11,7 +11,11 @@
     ],
     "nohoist": [
       "**/react-native",
-      "**/react-native/**"
+      "**/react-native/**",
+      "**/reactxp/**",
+      "**/reactxp/**",
+      "**/reactxp-navigation/**",
+      "**/reactxp-navigation/**"
     ]
   },
   "scripts": {
