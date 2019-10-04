@@ -8,7 +8,7 @@ interface Props {
 
 const Test: React.FC<Props> = ({ handleBackPress }) => {
   return (
-    <View>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Button onPress={handleBackPress}>
         <Text>Go back</Text>
       </Button>

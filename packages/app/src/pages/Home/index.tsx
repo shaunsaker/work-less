@@ -10,7 +10,7 @@ interface Props {
 
 const Home: React.FC<Props> = ({ handleNavigatePress }) => {
   return (
-    <View>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Button onPress={() => handleNavigatePress(routeIds.Test)}>
         <Text>Go to Test</Text>
       </Button>
