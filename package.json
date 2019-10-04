@@ -11,11 +11,7 @@
     ],
     "nohoist": [
       "**/react-native",
-      "**/react-native/**",
-      "**/reactxp",
-      "**/reactxp/**",
-      "**/react-router",
-      "**/react-router/**"
+      "**/react-native/**"
     ]
   },
   "scripts": {
@@ -23,7 +19,6 @@
     "app:start:android": "yarn workspace app start:android",
     "app:start:ios": "yarn workspace app start:ios",
     "app:start:storybook": "yarn workspace app start:storybook",
-    "app:start:rn-dev-server": "yarn workspace app start:rn-dev-server",
     "functions:start": "yarn workspace functions start",
     "functions:deploy:dev": "yarn workspace functions deploy:dev",
     "functions:deploy:prod": "yarn workspace functions deploy:prod",
