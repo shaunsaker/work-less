@@ -6,7 +6,7 @@ import styles from './styles';
 const LOGO = require('../../assets/images/logo.png');
 
 interface Props {
-  showShadow: boolean;
+  showShadow?: boolean;
 }
 
 const HeaderBar: React.FC<Props> = ({ showShadow }) => {
