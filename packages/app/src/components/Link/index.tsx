@@ -1,30 +1,39 @@
 import React from 'react';
-import { Link as LinkComponent, Types, Animated } from 'reactxp';
+import { Animated, Styles } from 'reactxp';
 
-import styles from './styles';
-import withHoverStyles from '../../enhancers/withHoverStyles';
+import Link, { LinkType } from './Link';
 
-interface Props {
-  url: string;
-  text: string;
-  hoverStyles?: Types.AnimatedTextStyle;
-  handleHoverStart?: () => void;
-  handleHoverEnd?: () => void;
-}
+interface Props extends LinkType {}
 
-const Link: React.FC<Props> = ({ url, text, hoverStyles, handleHoverStart, handleHoverEnd }) => {
+const LinkContainer: React.FC<Props> = (props: Props) => {
+  const initialValue = 0.85;
+  const finalValue = 1.0;
+  const animatedValue = Animated.createValue(initialValue);
+  const animatedStyle = Styles.createAnimatedTextStyle({
+    opacity: animatedValue,
+  });
+  const animate = (toValue: number) => {
+    Animated.timing(animatedValue, {
+      toValue,
+      duration: 250,
+      easing: Animated.Easing.InOut(),
+    }).start();
+  };
+  const onHoverStart = () => {
+    animate(finalValue);
+  };
+  const onHoverEnd = () => {
+    animate(initialValue);
+  };
+
   return (
-    <LinkComponent
-      url={url}
-      style={styles.container}
-      onHoverStart={handleHoverStart}
-      onHoverEnd={handleHoverEnd}
-    >
-      <Animated.Text style={[styles.text, hoverStyles]}>{text}</Animated.Text>
-    </LinkComponent>
+    <Link
+      {...props}
+      hoverStyles={animatedStyle}
+      handleHoverStart={onHoverStart}
+      handleHoverEnd={onHoverEnd}
+    />
   );
 };
 
-const LinkWithHoverStyles = withHoverStyles(Link);
-
-export default LinkWithHoverStyles;
+export default LinkContainer;

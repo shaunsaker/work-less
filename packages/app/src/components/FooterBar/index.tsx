@@ -3,18 +3,21 @@ import { View, Text } from 'reactxp';
 
 import styles from './styles';
 import LINKS from './links';
+
 import Link from '../Link';
 
-interface Props {}
+interface Props {
+  handleLinkPress: (url: string) => void;
+}
 
-const FooterBar: React.FC<Props> = () => {
+const FooterBar: React.FC<Props> = ({ handleLinkPress }) => {
   return (
     <View style={styles.container}>
       <View style={styles.linksContainer}>
         {LINKS.map((item) => {
           return (
             <View key={item.text} style={styles.linkContainer}>
-              <Link url={item.url} text={item.text} />
+              <Link text={item.text} handlePress={() => handleLinkPress(item.url)} />
             </View>
           );
         })}
