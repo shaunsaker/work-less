@@ -8,10 +8,10 @@ const styles = {
     paddingVertical: rhythm.vt / 2,
     paddingHorizontal: rhythm.hz,
     borderRadius: 8,
-  }),
-  secondaryContainer: Styles.createButtonStyle({}),
-  shadow: Styles.createButtonStyle({
     ...shadows.regular,
+  }),
+  secondaryContainer: Styles.createButtonStyle({
+    ...shadows.small,
   }),
   text: Styles.createTextStyle({
     fontFamily: 'Roboto-Bold',

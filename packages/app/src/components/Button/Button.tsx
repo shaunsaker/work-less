@@ -30,12 +30,7 @@ const Button: React.FC<Props> = ({
       onPress={handlePress}
     >
       <Animated.View
-        style={[
-          styles.container,
-          isSecondary ? styles.secondaryContainer : {},
-          !isSecondary ? styles.shadow : {},
-          hoverStyles,
-        ]}
+        style={[styles.container, isSecondary ? styles.secondaryContainer : {}, hoverStyles]}
       >
         <Text style={styles.text}>{text.toUpperCase()}</Text>
       </Animated.View>
