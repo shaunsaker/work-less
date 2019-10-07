@@ -1423,6 +1423,17 @@
     google-gax "^1.6.3"
     through2 "^3.0.0"
 
+"@google-cloud/firestore@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@google-cloud/firestore/-/firestore-2.4.0.tgz#d2f9977cf7e2424eec444f16040d0d07d1ef7268"
+  integrity sha512-F6jXdfQAjfzY5svOJpCZeayQeCAdZ3mjpaDTCfv6YEaxfxxyGODHV8ZEuD6CHnY6jGPEdJz/1EOG3ENJhnWhmw==
+  dependencies:
+    bun "^0.0.12"
+    deep-equal "^1.0.1"
+    functional-red-black-tree "^1.0.1"
+    google-gax "^1.6.3"
+    through2 "^3.0.0"
+
 "@google-cloud/paginator@^2.0.0":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@google-cloud/paginator/-/paginator-2.0.1.tgz#89ca97933eecfdd7eaa07bd79ed01c9869c9531b"
