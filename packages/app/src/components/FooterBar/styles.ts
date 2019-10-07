@@ -19,14 +19,18 @@ const styles = {
   linkContainer: Styles.createViewStyle({
     marginRight: rhythm.hz,
   }),
-  link: Styles.createButtonStyle({}),
   text: Styles.createTextStyle({
     fontFamily: 'Roboto-Regular',
     fontSize: 16,
     color: 'white',
   }),
+  link: Styles.createLinkStyle({
+    textDecorationLine: 'none',
+  }),
   linkText: Styles.createTextStyle({
     fontFamily: 'Roboto-Bold',
+    fontSize: 16,
+    color: 'white',
   }),
   illustrationTextContainer: Styles.createViewStyle({
     flexDirection: 'row',

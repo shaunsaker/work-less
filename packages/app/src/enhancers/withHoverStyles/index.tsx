@@ -26,7 +26,7 @@ const withHoverStyles = <Props extends object>(Component: React.ComponentType<Pr
     return (
       <Component
         {...props}
-        hoverStyles={animatedStyle}
+        style={animatedStyle}
         handleHoverStart={onHoverStart}
         handleHoverEnd={onHoverEnd}
       />
