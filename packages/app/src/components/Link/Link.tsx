@@ -4,13 +4,13 @@ import { Link as LinkComponent, Button, Types, Animated } from 'reactxp';
 import styles from './styles';
 
 export interface LinkType {
-  url?: string;
+  url: string;
   text: string;
   handlePress?: () => void;
 }
 
 interface Props extends LinkType {
-  hoverStyles?: Types.AnimatedTextStyle;
+  hoverStyles: Types.AnimatedTextStyleRuleSet;
   handleHoverStart?: () => void;
   handleHoverEnd?: () => void;
 }
