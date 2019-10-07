@@ -10,9 +10,9 @@ module.exports = ({ config, mode }) => {
       },
     },
     {
-      test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+      test: /\.(woff|woff2|eot|ttf)$/,
       loaders: ['file-loader'],
-      include: path.resolve(__dirname, '../'),
+      include: path.resolve(__dirname, '../src'),
     },
   );
   config.resolve.extensions.push('.ts', '.tsx');
