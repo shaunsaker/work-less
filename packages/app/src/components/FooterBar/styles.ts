@@ -21,12 +21,12 @@ const styles = {
   }),
   link: Styles.createButtonStyle({}),
   text: Styles.createTextStyle({
-    fontFamily: 'sans-serif', // TODO:
+    fontFamily: 'Roboto-Regular',
     fontSize: 16,
     color: 'white',
   }),
   linkText: Styles.createTextStyle({
-    fontWeight: 'bold',
+    fontFamily: 'Roboto-Bold',
   }),
   illustrationTextContainer: Styles.createViewStyle({
     flexDirection: 'row',
