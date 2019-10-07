@@ -5,10 +5,10 @@ import LINKS from './links';
 
 interface Props {}
 
-const onLinkPress = (href: string) => {};
-const onIllustrationLinkPress = () => {};
-
 const FooterBarContainer: React.FC<Props> = () => {
+  const onLinkPress = (href: string) => {};
+  const onIllustrationLinkPress = () => {};
+
   return (
     <FooterBar
       links={LINKS}
