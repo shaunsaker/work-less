@@ -1,25 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>app</title>
-  <style>
-    html,
-    body,
-    .app-container {
-      font-family: proxima-nova, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-      padding: 0;
-      margin: 0;
-      border: none;
-      height: 100%;
-      width: 100%;
-    }
-    *:focus {
+  <head>
+    <meta charset="utf-8" />
+    <title>app</title>
+    <style>
+      @font-face {
+        font-family: 'Raleway-Bold';
+        src: url('../src/assets/fonts/Raleway-Bold.ttf') format('truetype');
+      }
+
+      @font-face {
+        font-family: 'Roboto-Bold';
+        src: url('../src/assets/fonts/Roboto-Bold.ttf') format('truetype');
+      }
+
+      @font-face {
+        font-family: 'Roboto-Regular';
+        src: url('../src/assets/fonts/Roboto-Regular.ttf') format('truetype');
+      }
+
+      html,
+      body,
+      .app-container {
+        font-family: 'Roboto-Regular', sans-serif;
+        padding: 0;
+        margin: 0;
+        border: none;
+        height: 100%;
+        width: 100%;
+      }
+      *:focus {
         outline: 0;
-    }
-  </style>
-</head>
-<body>
-  <div class="app-container"></div>
-</body>
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-container"></div>
+  </body>
 </html>
