@@ -1,21 +1,32 @@
 import React from 'react';
+import { View, Text } from 'reactxp';
 
-import FooterBar from './FooterBar';
+import styles from './styles';
 import LINKS from './links';
+import Link from '../Link';
 
 interface Props {}
 
-const FooterBarContainer: React.FC<Props> = () => {
-  const onLinkPress = (href: string) => {};
-  const onIllustrationLinkPress = () => {};
-
+const FooterBar: React.FC<Props> = () => {
   return (
-    <FooterBar
-      links={LINKS}
-      handleLinkPress={onLinkPress}
-      handleIllustrationLinkPress={onIllustrationLinkPress}
-    />
+    <View style={styles.container}>
+      <View style={styles.linksContainer}>
+        {LINKS.map((item) => {
+          return (
+            <View key={item.text} style={styles.linkContainer}>
+              <Link url={item.url} text={item.text} />
+            </View>
+          );
+        })}
+      </View>
+
+      <View style={styles.illustrationTextContainer}>
+        <Text style={styles.text}>Illustration by </Text>
+
+        <Link url="https://icons8.com" text="Ouch.pics" />
+      </View>
+    </View>
   );
 };
 
-export default FooterBarContainer;
+export default FooterBar;
