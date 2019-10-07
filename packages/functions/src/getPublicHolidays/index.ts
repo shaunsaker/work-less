@@ -1,8 +1,8 @@
-import * as functions from "firebase-functions";
-import { getHolidays } from "public-holidays";
+import * as functions from 'firebase-functions';
+import { getHolidays } from 'public-holidays';
 
-import admin from "../firebase";
-import getId from "../helpers/getId";
+import admin from '../firebase';
+import getId from '../helpers/getId';
 
 const db = admin.firestore();
 
@@ -38,80 +38,73 @@ interface Holiday {
   id: string;
 }
 
-export const getPublicHolidays = functions.https.onRequest(
-  async (request, response) => {
-    const { query } = request;
-    const { key }: Query = query;
+export const getPublicHolidays = functions.https.onRequest(async (request, response) => {
+  const { query } = request;
+  const { key }: Query = query;
 
-    if (key) {
-      try {
-        /*
-         * Does the user exist?
-         */
-        await admin.auth().getUser(key);
+  if (key) {
+    try {
+      /*
+       * Does the user exist?
+       */
+      await admin.auth().getUser(key);
 
-        /*
-         * If we make it here, it means the user exists
-         */
-        const { country, lang }: Query = query;
+      /*
+       * If we make it here, it means the user exists
+       */
+      const { country, lang }: Query = query;
 
-        if (!country || !lang) {
-          response.status(400);
-          response.send(
-            "We require both the country and lang to complete the request"
-          );
-        } else {
-          const countryRef = db.collection("publicHolidays").doc(country);
-          const ref = countryRef.collection("data");
+      if (!country || !lang) {
+        response.status(400);
+        response.send('We require both the country and lang to complete the request');
+      } else {
+        const countryRef = db.collection('publicHolidays').doc(country);
+        const ref = countryRef.collection('data');
 
-          try {
-            const collection = await ref.get();
-            const data: Holiday[] = [];
+        try {
+          const collection = await ref.get();
+          const data: Holiday[] = [];
 
-            collection.forEach(doc => {
-              const { name, date, id } = doc.data();
+          collection.forEach((doc) => {
+            const { name, date, id } = doc.data();
 
-              data.push({ name, date, id });
-            });
+            data.push({ name, date, id });
+          });
 
-            if (!data.length) {
+          if (!data.length) {
+            /*
+             * If there are no public holidays in the db
+             * Go and get them
+             */
+            try {
               /*
-               * If there are no public holidays in the db
-               * Go and get them
+               * Let's first create a document at the countryRef
+               * and set it to active so that irt's not a phantom
                */
+              await countryRef.set({
+                isActive: true,
+              });
+
               try {
+                const data = await getHolidays({ country, lang });
+
                 /*
-                 * Let's first create a document at the countryRef
-                 * and set it to active so that irt's not a phantom
+                 * Add each holiday in data as a new document to the ref
                  */
-                await countryRef.set({
-                  isActive: true
-                });
+                const batch = db.batch();
+
+                for (const holiday of data) {
+                  const id = getId();
+                  const holidayRef = ref.doc(id);
+
+                  batch.set(holidayRef, holiday);
+                }
 
                 try {
-                  const data = await getHolidays({ country, lang });
+                  await batch.commit();
 
-                  /*
-                   * Add each holiday in data as a new document to the ref
-                   */
-                  const batch = db.batch();
-
-                  for (const holiday of data) {
-                    const id = getId();
-                    const holidayRef = ref.doc(id);
-
-                    batch.set(holidayRef, holiday);
-                  }
-
-                  try {
-                    await batch.commit();
-
-                    response.status(200);
-                    response.send(data);
-                  } catch (error) {
-                    response.status(500);
-                    response.send(error.message);
-                  }
+                  response.status(200);
+                  response.send(data);
                 } catch (error) {
                   response.status(500);
                   response.send(error.message);
@@ -120,24 +113,27 @@ export const getPublicHolidays = functions.https.onRequest(
                 response.status(500);
                 response.send(error.message);
               }
-            } else {
-              response.status(200);
-              response.send(data);
+            } catch (error) {
+              response.status(500);
+              response.send(error.message);
             }
-          } catch (error) {
-            response.status(500);
-            response.send(error.message);
+          } else {
+            response.status(200);
+            response.send(data);
           }
+        } catch (error) {
+          response.status(500);
+          response.send(error.message);
         }
-      } catch (error) {
-        response.status(401);
-        response.send("Key is invalid");
       }
-    } else {
+    } catch (error) {
       response.status(401);
-      response.send("Key was not supplied");
+      response.send('Key is invalid');
     }
+  } else {
+    response.status(401);
+    response.send('Key was not supplied');
   }
-);
+});
 
 export default getPublicHolidays;
