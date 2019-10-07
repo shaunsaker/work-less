@@ -1,20 +1,20 @@
 export interface Link {
   text: string;
-  href: string;
+  url: string;
 }
 
 const links: Link[] = [
   {
     text: 'Support',
-    href: '/support',
+    url: '/support',
   },
   {
     text: 'Terms',
-    href: '/terms',
+    url: '/terms',
   },
   {
     text: 'Privacy',
-    href: '/privacy',
+    url: '/privacy',
   },
 ];
 

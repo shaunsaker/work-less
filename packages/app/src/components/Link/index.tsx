@@ -9,7 +9,7 @@ interface Props {
 }
 
 const LinkContainer: React.FC<Props> = ({ url, text }) => {
-  const initialValue = 0.8;
+  const initialValue = 0.85;
   const finalValue = 1.0;
   const animatedValue = Animated.createValue(initialValue);
   const animatedStyle = Styles.createAnimatedTextStyle({
