@@ -1,0 +1,17 @@
+{
+  "name": "create-countries",
+  "version": "0.0.1",
+  "scripts": {
+    "lint": "tslint --project tsconfig.json",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "start": "yarn run build:watch"
+  },
+  "main": "dist/index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "tslint": "^5.12.0",
+    "typescript": "^3.2.2"
+  },
+  "private": true
+}
