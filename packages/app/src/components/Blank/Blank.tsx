@@ -1,12 +1,12 @@
 import React from 'react';
-import { TextInput as TextInputComponent } from 'reactxp';
+import { View } from 'reactxp';
 
 import styles from './styles';
 
 interface Props {}
 
-const TextInput: React.FC<Props> = ({}) => {
-  return <TextInputComponent style={styles.container} />;
+const Blank: React.FC<Props> = ({}) => {
+  return <View style={styles.container} />;
 };
 
-export default TextInput;
+export default Blank;
