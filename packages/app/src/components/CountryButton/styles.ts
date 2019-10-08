@@ -1,28 +1,34 @@
 import { Styles } from 'reactxp';
 
-import { colors, rhythm } from '../../styleConstants';
+import { colors, rhythm, shadows } from '../../styleConstants';
+
+const IMAGE_SIZE = 24;
 
 const styles = {
   container: Styles.createViewStyle({
-    backgroundColor: 'white',
+    width: 240,
     borderWidth: 2,
     borderColor: colors.primaryText,
     borderRadius: 8,
-    paddingHorizontal: rhythm.hz,
-    flexDirection: 'row',
-    alignItems: 'center',
-    height: 55,
+    ...shadows.small,
   }),
+  contentContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    paddingTop: rhythm.vt,
+    paddingBottom: rhythm.vt,
+    paddingLeft: rhythm.hz / 2,
+    paddingRight: rhythm.hz,
+  },
   imageContainer: Styles.createViewStyle({
-    marginRight: rhythm.hz,
+    marginRight: rhythm.hz / 2,
   }),
   image: Styles.createImageStyle({
-    width: 24,
-    height: 24,
+    width: IMAGE_SIZE,
+    height: IMAGE_SIZE,
   }),
-  textContainer: Styles.createViewStyle({
-    paddingVertical: rhythm.vt,
-  }),
+  textContainer: Styles.createViewStyle({}),
   text: Styles.createTextStyle({
     fontFamily: 'Roboto-Bold',
     fontSize: 16,

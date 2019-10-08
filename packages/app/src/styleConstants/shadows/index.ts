@@ -7,8 +7,6 @@ const getShadowProps = (height: number, opacity: number) => {
     shadowRadius: height,
     shadowOffset: { height: 1, width: 1 },
     shadowOpacity: 1,
-    borderBottomWidth: 0.1,
-    borderColor: getPrimaryTextColor(opacity),
   };
 };
 

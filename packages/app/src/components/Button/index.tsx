@@ -1,43 +1,40 @@
 import React from 'react';
-import { Animated, Styles } from 'reactxp';
+import { Text } from 'reactxp';
 
-import animate from '../../helpers/animate';
+import styles from './styles';
 import { colors } from '../../styleConstants';
 
-import Button, { ButtonType } from './Button';
+import ButtonWithBgHoverEffect from '../ButtonWithBgHoverEffect';
 
-interface Props extends ButtonType {}
+interface Props {
+  text: string;
+  isSecondary?: boolean;
+  handlePress: () => void;
+}
 
-const ButtonContainer: React.FC<Props> = (props) => {
-  const { isSecondary } = props;
-  const initialBackgroundColor = isSecondary ? colors.primaryText : colors.primary;
-  const finalBackgroundColor = isSecondary ? colors.secondaryText : colors.darkPrimary;
-  const initialValue = 0.85;
-  const finalValue = 1;
-  const animatedValue = Animated.createValue(initialValue);
-  const animatedBackgroundColor = Animated.interpolate(
-    animatedValue,
-    [initialValue, finalValue],
-    [initialBackgroundColor, finalBackgroundColor],
-  );
-  const animatedStyle = Styles.createAnimatedViewStyle({
-    backgroundColor: animatedBackgroundColor,
-  });
-  const onHoverStart = () => {
-    animate(animatedValue, finalValue);
-  };
-  const onHoverEnd = () => {
-    animate(animatedValue, initialValue);
-  };
+const Button: React.FC<Props> = ({ text, isSecondary, handlePress }) => {
+  let color;
+  let amount;
+
+  if (isSecondary) {
+    color = colors.primaryText;
+    amount = 0.25;
+  } else {
+    color = colors.primary;
+    amount = 0.15;
+  }
 
   return (
-    <Button
-      {...props}
-      hoverStyles={animatedStyle}
-      handleHoverStart={onHoverStart}
-      handleHoverEnd={onHoverEnd}
-    />
+    <ButtonWithBgHoverEffect
+      color={color}
+      amount={amount}
+      contentContainerStyle={styles.contentContainer} // FIXME:
+      style={[styles.container, isSecondary ? styles.secondaryContainer : {}]}
+      onPress={handlePress}
+    >
+      <Text style={styles.text}>{text.toUpperCase()}</Text>
+    </ButtonWithBgHoverEffect>
   );
 };
 
-export default ButtonContainer;
+export default Button;

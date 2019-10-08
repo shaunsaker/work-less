@@ -1,15 +1,18 @@
 import { Styles } from 'reactxp';
 
-import { colors, rhythm, shadows } from '../../styleConstants';
+import { rhythm, shadows } from '../../styleConstants';
 
 const styles = {
   container: Styles.createButtonStyle({
-    backgroundColor: colors.primary,
-    paddingVertical: rhythm.vt / 2,
-    paddingHorizontal: rhythm.hz,
     borderRadius: 8,
     ...shadows.regular,
   }),
+  contentContainer: {
+    paddingTop: rhythm.vt,
+    paddingBottom: rhythm.vt,
+    paddingRight: rhythm.hz,
+    paddingLeft: rhythm.hz,
+  },
   secondaryContainer: Styles.createButtonStyle({
     ...shadows.small,
   }),
