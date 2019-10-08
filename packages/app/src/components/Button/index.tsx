@@ -8,7 +8,7 @@ import Button, { ButtonType } from './Button';
 
 interface Props extends ButtonType {}
 
-const ButtonContainer: React.FC<Props> = (props: Props) => {
+const ButtonContainer: React.FC<Props> = (props) => {
   const { isSecondary } = props;
   const initialBackgroundColor = isSecondary ? colors.primaryText : colors.primary;
   const finalBackgroundColor = isSecondary ? colors.secondaryText : colors.darkPrimary;

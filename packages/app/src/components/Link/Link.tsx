@@ -4,7 +4,7 @@ import { Link as LinkComponent, Button, Types, Animated } from 'reactxp';
 import styles from './styles';
 
 export interface LinkType {
-  url: string;
+  url?: string;
   text: string;
   handlePress?: () => void;
 }

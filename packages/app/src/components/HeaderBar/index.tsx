@@ -11,7 +11,7 @@ interface Props {
 
 const HeaderBar: React.FC<Props> = ({ showShadow }) => {
   return (
-    <View style={[styles.container, showShadow && styles.shadow]}>
+    <View style={[styles.container, showShadow ? styles.shadow : {}]}>
       <Image source={LOGO} style={styles.image} />
     </View>
   );
