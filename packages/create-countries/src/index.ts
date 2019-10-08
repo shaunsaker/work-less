@@ -16,7 +16,7 @@ fs.readdir(directoryPath, (error, files) => {
     files.forEach((fileName) => {
       if (fileName !== indexFileName) {
         const code = fileName.split('.')[0];
-        const line = `const ${code} = require('./${fileName}');\n`;
+        const line = `const ${code}Image = require('./${fileName}');\n`;
 
         indexFile += line;
       }
@@ -31,7 +31,7 @@ fs.readdir(directoryPath, (error, files) => {
     files.forEach((fileName) => {
       if (fileName !== indexFileName) {
         const code = fileName.split('.')[0];
-        const line = `${code},\n`;
+        const line = `'${code}': ${code}Image,\n`;
 
         indexFile += line;
       }
