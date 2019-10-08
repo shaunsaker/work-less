@@ -1,11 +1,11 @@
 import React from 'react';
 
-import TextInput from './TextInput';
+import Blank from './Blank';
 
 interface Props {}
 
-const TextInputContainer: React.FC<Props> = (props) => {
-  return <TextInput />;
+const BlankContainer: React.FC<Props> = (props) => {
+  return <Blank />;
 };
 
-export default TextInputContainer;
+export default BlankContainer;

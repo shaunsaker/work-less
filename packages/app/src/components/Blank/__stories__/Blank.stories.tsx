@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line
 
-import TextInput from '..';
+import Blank from '..';
 
-storiesOf('Components|Blank', module).add('default', () => <TextInput />);
+storiesOf('Components|Blank', module).add('default', () => <Blank />);
