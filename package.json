@@ -23,11 +23,12 @@
     "app:start:android": "yarn workspace app start:android",
     "app:start:ios": "yarn workspace app start:ios",
     "app:start:storybook": "yarn workspace app start:storybook",
-    "functions:start": "yarn workspace functions start",
-    "functions:deploy:dev": "yarn workspace functions deploy:dev",
-    "functions:deploy:prod": "yarn workspace functions deploy:prod",
+    "cc:start": "yarn workspace create-countries start",
     "database:backup": "yarn workspace database backup",
     "database:restore:dev": "yarn workspace database restore:dev",
-    "database:restore:prod": "yarn workspace database restore:prod"
+    "database:restore:prod": "yarn workspace database restore:prod",
+    "functions:start": "yarn workspace functions start",
+    "functions:deploy:dev": "yarn workspace functions deploy:dev",
+    "functions:deploy:prod": "yarn workspace functions deploy:prod"
   }
 }
