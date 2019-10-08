@@ -47,7 +47,9 @@ const TextInputContainer: React.FC<Props> = ({ label, handleChange, handleSubmit
   });
   const onRef = (element: TextInputComponent) => (textInput = element);
   const onLabelPress = () => {
-    textInput.focus();
+    if (!isFocussed) {
+      textInput.focus();
+    }
   };
   const onChangeText = (text: string) => {
     setValue(text);
