@@ -1,18 +1,38 @@
 import React from 'react';
+import { View, Image, Text } from 'reactxp';
 
+import styles from './styles';
 import COUNTRIES from '../../assets/images/countries';
 
-import CountryButton, { CountryButtonProps } from './CountryButton';
+import ButtonWithBgHoverEffect from '../ButtonWithBgHoverEffect';
 
-interface Props extends CountryButtonProps {
+interface Props {
   id: string;
+  name: string;
+  handlePress: () => void;
 }
 
-const CountryButtonContainer: React.FC<Props> = (props) => {
-  const { id } = props;
-  const imageSrc = COUNTRIES[id];
+const CountryButton: React.FC<Props> = ({ id, name, handlePress }) => {
+  const imageSrc = COUNTRIES[id]; // FIXME:
 
-  return <CountryButton {...props} imageSrc={imageSrc} />;
+  return (
+    <ButtonWithBgHoverEffect
+      color="white"
+      amount={0.1}
+      style={styles.container}
+      onPress={handlePress}
+    >
+      <View style={styles.contentContainer}>
+        <View style={styles.imageContainer}>
+          <Image source={imageSrc} style={styles.image} />
+        </View>
+
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>{name}</Text>
+        </View>
+      </View>
+    </ButtonWithBgHoverEffect>
+  );
 };
 
-export default CountryButtonContainer;
+export default CountryButton;

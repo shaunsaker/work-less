@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'reactxp';
+import { View, Text } from 'reactxp';
 
 import styles from './styles';
 import { colors } from '../../styleConstants';
@@ -28,11 +28,12 @@ const Button: React.FC<Props> = ({ text, isSecondary, handlePress }) => {
     <ButtonWithBgHoverEffect
       color={color}
       amount={amount}
-      contentContainerStyle={styles.contentContainer} // FIXME:
       style={[styles.container, isSecondary ? styles.secondaryContainer : {}]}
       onPress={handlePress}
     >
-      <Text style={styles.text}>{text.toUpperCase()}</Text>
+      <View style={styles.contentContainer}>
+        <Text style={styles.text}>{text.toUpperCase()}</Text>
+      </View>
     </ButtonWithBgHoverEffect>
   );
 };

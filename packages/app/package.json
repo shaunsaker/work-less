@@ -68,5 +68,10 @@
     "reactxp": "2.0.0-rc.1",
     "reactxp-navigation": "^2.0.0-rc.1",
     "rnpm-plugin-windows": "^0.3.5"
+  },
+  "workspaces": {
+    "nohoist": [
+      "**"
+    ]
   }
 }

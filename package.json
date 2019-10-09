@@ -8,20 +8,13 @@
   "workspaces": {
     "packages": [
       "packages/*"
-    ],
-    "nohoist": [
-      "**/react-native",
-      "**/react-native/**",
-      "**/reactxp/**",
-      "**/reactxp/**",
-      "**/reactxp-navigation/**",
-      "**/reactxp-navigation/**"
     ]
   },
   "scripts": {
     "app:start:web": "yarn workspace app start:web",
     "app:start:android": "yarn workspace app start:android",
     "app:start:ios": "yarn workspace app start:ios",
+    "app:start:rn-dev-server": "yarn workspace app start:rn-dev-server",
     "app:start:storybook": "yarn workspace app start:storybook",
     "cc:start": "yarn workspace create-countries start",
     "cc:populate": "cp -R ./packages/create-countries/dist/images/* ./packages/app/src/assets/images/countries",
