@@ -4,15 +4,13 @@ import { Button, Animated, Styles, Types } from 'reactxp';
 import animate from '../../helpers/animate';
 import getFinalColor from './getFinalColor';
 
-interface Props {
+interface Props extends Types.ButtonProps {
   color: string;
   amount: number;
-  contentContainerStyle: Types.AnimatedViewStyle;
-  children: React.ReactNode;
 }
 
 const ButtonWithBgHoverEffect: React.FC<Props> = (props) => {
-  const { color, amount, contentContainerStyle, children } = props;
+  const { color, amount, children } = props;
   const initialColor = color;
   const finalColor = getFinalColor(color, amount);
   const initialValue = 0;
@@ -35,7 +33,7 @@ const ButtonWithBgHoverEffect: React.FC<Props> = (props) => {
 
   return (
     <Button {...props} onHoverStart={onHoverStart} onHoverEnd={onHoverEnd}>
-      <Animated.View style={[contentContainerStyle, animatedStyle]}>{children}</Animated.View>
+      <Animated.View style={animatedStyle}>{children}</Animated.View>
     </Button>
   );
 };

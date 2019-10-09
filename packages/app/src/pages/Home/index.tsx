@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Button, Text } from 'reactxp';
+import { View, Text } from 'reactxp';
 
 import { routeIds } from '../../App';
-import FooterBar from '../../components/FooterBar';
+import Button from '../../components/Button';
 
 interface Props {
   handleNavigatePress: Function;
@@ -12,11 +12,7 @@ interface Props {
 const Home: React.FC<Props> = ({ handleNavigatePress }) => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Button onPress={() => handleNavigatePress(routeIds.Test)}>
-        <Text>Go to Test</Text>
-      </Button>
-
-      <FooterBar />
+      <Button text="Let's get crackalacking" handlePress={() => console.log('')} />
     </View>
   );
 };
