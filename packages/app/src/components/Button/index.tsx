@@ -29,6 +29,7 @@ const Button: React.FC<Props> = ({ text, isSecondary, handlePress }) => {
       color={color}
       amount={amount}
       style={[styles.container, isSecondary ? styles.secondaryContainer : {}]}
+      accessibilityLabel={text}
       onPress={handlePress}
     >
       <View style={styles.contentContainer}>
