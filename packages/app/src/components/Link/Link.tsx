@@ -16,7 +16,7 @@ interface Props extends LinkType {
 }
 
 const Link: React.FC<Props> = ({
-  url,
+  url = '',
   text,
   hoverStyles,
   handleHoverStart,
@@ -24,27 +24,23 @@ const Link: React.FC<Props> = ({
   handlePress,
 }) => {
   const textComponent = <Animated.Text style={[styles.text, hoverStyles]}>{text}</Animated.Text>;
+  const sharedProps = {
+    style: styles.container,
+    accessibilityLabel: text,
+    onHoverStart: handleHoverStart,
+    onHoverEnd: handleHoverEnd,
+  };
 
   if (handlePress) {
     return (
-      <Button
-        style={styles.container}
-        onHoverStart={handleHoverStart}
-        onHoverEnd={handleHoverEnd}
-        onPress={handlePress}
-      >
+      <Button {...sharedProps} onPress={handlePress}>
         {textComponent}
       </Button>
     );
   }
 
   return (
-    <LinkComponent
-      url={url}
-      style={styles.container}
-      onHoverStart={handleHoverStart}
-      onHoverEnd={handleHoverEnd}
-    >
+    <LinkComponent {...sharedProps} url={url}>
       {textComponent}
     </LinkComponent>
   );
