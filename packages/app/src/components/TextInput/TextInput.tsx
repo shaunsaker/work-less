@@ -34,6 +34,7 @@ const TextInput: React.FC<Props> = ({
         ref={handleRef}
         value={value}
         style={styles.input}
+        accessibilityLabel={label}
         onChangeText={handleChangeText}
         onSubmitEditing={handleSubmitEditing}
         onFocus={handleFocus}
