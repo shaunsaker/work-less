@@ -20,6 +20,7 @@ const CountryButton: React.FC<Props> = ({ id, name, handlePress }) => {
       color="white"
       amount={0.1}
       style={styles.container}
+      accessibilityLabel={name}
       onPress={handlePress}
     >
       <View style={styles.contentContainer}>
