@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line
 
 import TitleText from '..';
+import withResponsiveViews from '../../../../.storybook/decorators/withResponsiveViews';
 
 const textArray = [
   {
@@ -16,4 +17,6 @@ const textArray = [
   },
 ];
 
-storiesOf('Components|TitleText', module).add('default', () => <TitleText textArray={textArray} />);
+storiesOf('Components|TitleText', module)
+  .addDecorator(withResponsiveViews)
+  .add('default', () => <TitleText textArray={textArray} />);
