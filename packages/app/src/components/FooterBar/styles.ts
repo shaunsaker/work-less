@@ -5,7 +5,7 @@ import { colors, rhythm } from '../../styleConstants';
 const styles = {
   container: Styles.createViewStyle({
     backgroundColor: colors.primaryText,
-    paddingVertical: rhythm.vt,
+    paddingBottom: rhythm.vt, // in case of wrap
     paddingHorizontal: rhythm.hz,
     flexDirection: 'row',
     alignItems: 'center',
@@ -17,6 +17,7 @@ const styles = {
     marginRight: rhythm.hz,
   }),
   linkContainer: Styles.createViewStyle({
+    marginTop: rhythm.vt, // in case of wrap
     marginRight: rhythm.hz,
   }),
   text: Styles.createTextStyle({
@@ -34,6 +35,7 @@ const styles = {
   }),
   illustrationTextContainer: Styles.createViewStyle({
     flexDirection: 'row',
+    marginTop: rhythm.vt, // in case of wrap
   }),
 };
 
