@@ -1,4 +1,4 @@
-const dates = [
+const datesOfSignificance = [
   {
     date: new Date(2019, 9, 1),
     isPrimary: true,
@@ -10,4 +10,4 @@ const dates = [
   },
 ];
 
-export default dates;
+export default datesOfSignificance;

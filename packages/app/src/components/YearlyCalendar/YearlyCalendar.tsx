@@ -8,7 +8,7 @@ import { DateObject } from './Calendar';
 
 interface Props {
   months: Date[];
-  datesOfSignificance: DateObject[];
+  datesOfSignificance?: DateObject[];
 }
 
 const YearlyCalendar: React.FC<Props> = ({ months, datesOfSignificance }) => {
