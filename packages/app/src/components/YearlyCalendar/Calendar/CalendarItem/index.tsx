@@ -3,8 +3,11 @@ import { View, Text } from 'reactxp';
 
 import styles from './styles';
 
+import Tooltip from './Tooltip';
+
 export interface Props {
   day: number | null;
+  tooltip?: string;
   isPrimary?: boolean;
   isSecondary?: boolean;
   isDisabled?: boolean;
@@ -12,12 +15,13 @@ export interface Props {
 
 const CalendarItem: React.FC<Props> = ({
   day,
+  tooltip,
   isPrimary,
   isSecondary,
   isDisabled,
   ...props
 }: Props) => {
-  return (
+  const calendarItemComponent = (
     <View
       {...props}
       style={[
@@ -39,6 +43,12 @@ const CalendarItem: React.FC<Props> = ({
       </Text>
     </View>
   );
+
+  if (tooltip) {
+    return <Tooltip text={tooltip}>{calendarItemComponent}</Tooltip>;
+  }
+
+  return calendarItemComponent;
 };
 
 export default CalendarItem;

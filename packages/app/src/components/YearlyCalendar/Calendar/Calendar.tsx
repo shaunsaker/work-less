@@ -8,7 +8,7 @@ import CalendarItem, { Props as Day } from './CalendarItem';
 
 const CALENDAR_ITEM_SIZE = 32;
 
-interface Props {
+export interface Props {
   month: string; // FIXME: One of type
   weeks: Day[][];
 }
