@@ -9,7 +9,7 @@ export interface SignificantDate {
 }
 
 interface Props {
-  datesOfSignificance: SignificantDate[];
+  datesOfSignificance?: SignificantDate[];
 }
 
 const YearlyCalendarContainer: React.FC<Props> = ({ datesOfSignificance }) => {
