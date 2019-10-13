@@ -1,0 +1,22 @@
+import { Styles } from 'reactxp';
+
+import { rhythm, shadows } from '../../../../../styleConstants';
+import { getPrimaryTextColor } from '../../../../../styleConstants/colors';
+
+const styles = {
+  wrapper: Styles.createViewStyle({}),
+  container: Styles.createViewStyle({
+    backgroundColor: getPrimaryTextColor(0.85),
+    paddingVertical: rhythm.vt / 2,
+    paddingHorizontal: rhythm.hz / 2,
+    borderRadius: 4,
+    ...shadows.large,
+  }),
+  text: Styles.createTextStyle({
+    fontFamily: 'Roboto-Bold',
+    fontSize: 10,
+    color: 'white',
+  }),
+};
+
+export default styles;
