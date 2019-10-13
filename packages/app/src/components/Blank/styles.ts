@@ -1,7 +1,7 @@
 import { Styles } from 'reactxp';
 
 const styles = {
-  container: Styles.createTextInputStyle({}),
+  container: Styles.createViewStyle({}),
 };
 
 export default styles;
