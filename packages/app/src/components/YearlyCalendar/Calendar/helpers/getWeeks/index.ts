@@ -1,11 +1,14 @@
-import { Props as Day } from '../../CalendarItem';
 import getFirstMonthDay from '../getFirstMonthDay';
 import getLastMonthDay from '../getLastMonthDay';
 import getNumberOfWeeksTheMonthFallsInto from '../getNumberOfWeeksTheMonthFallsInto';
 import getTomorrow from './getTomorrow';
 import DAYS from '../../days';
+import { Props as Day } from '../../CalendarItem';
+import { DateObject } from '../..';
 
-const getWeeks = (date: Date) => {
+const WEEKEND_DAYS = [0, 6];
+
+const getWeeks = (date: Date, datesOfSignificance: DateObject[] | undefined) => {
   const firstMonthDay = getFirstMonthDay(date);
   const lastMonthDay = getLastMonthDay(date);
   const numberOfWeeksTheMonthFallsInto = getNumberOfWeeksTheMonthFallsInto(date);
@@ -14,9 +17,33 @@ const getWeeks = (date: Date) => {
     const week: Day[] = DAYS.map((_, dayIndex) => {
       const nextMonthDayIndex = nextMonthDay.getDay();
       let day;
+      let isDisabled;
+      let extraProps = {};
 
       if (nextMonthDayIndex === dayIndex) {
         day = nextMonthDay.getDate();
+
+        /*
+         * If they day is a weekend day, it should be disabled
+         */
+        if (WEEKEND_DAYS.includes(nextMonthDayIndex)) {
+          isDisabled = true;
+        }
+
+        /*
+         * If the day is significant, add the extra props
+         */
+        if (datesOfSignificance) {
+          const significantDate = datesOfSignificance.filter(
+            (item) => item.date.getTime() === nextMonthDay.getTime(),
+          )[0];
+
+          if (significantDate) {
+            extraProps = {
+              ...significantDate,
+            };
+          }
+        }
 
         /*
          * Only forward to the next day if we are not on the last day of the month
@@ -30,6 +57,8 @@ const getWeeks = (date: Date) => {
 
       return {
         day,
+        isDisabled,
+        ...extraProps,
       };
     });
 
