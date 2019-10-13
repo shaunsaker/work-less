@@ -4,7 +4,7 @@ import Blank from './Blank';
 
 interface Props {}
 
-const BlankContainer: React.FC<Props> = (props) => {
+const BlankContainer: React.FC<Props> = () => {
   return <Blank />;
 };
 

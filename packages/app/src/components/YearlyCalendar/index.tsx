@@ -4,7 +4,7 @@ import YearlyCalendar from './YearlyCalendar';
 
 interface Props {}
 
-const YearlyCalendarContainer: React.FC<Props> = (props) => {
+const YearlyCalendarContainer: React.FC<Props> = () => {
   return <YearlyCalendar />;
 };
 

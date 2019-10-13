@@ -4,12 +4,12 @@ import { colors, rhythm, shadows } from '../../../styleConstants';
 
 const styles = {
   container: Styles.createViewStyle({
+    backgroundColor: 'white',
     borderWidth: 1,
     borderColor: colors.primaryText,
     borderBottomLeftRadius: 8,
     borderBottomRightRadius: 8,
     ...shadows.small,
-    maxWidth: 360, // TODO: Should this be controlled by the parent?
   }),
   monthTextContainer: Styles.createViewStyle({
     borderBottomWidth: 1,
@@ -39,6 +39,7 @@ const styles = {
     flex: 1,
     alignItems: 'center',
     paddingVertical: rhythm.vt / 2,
+    paddingHorizontal: rhythm.hz / 4,
   }),
 };
 

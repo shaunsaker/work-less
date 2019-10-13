@@ -10,7 +10,7 @@ const styles = {
     paddingVertical: rhythm.vt / 2,
     paddingHorizontal: rhythm.hz / 2,
     borderRadius: 4,
-    ...shadows.large,
+    ...shadows.regular,
   }),
   text: Styles.createTextStyle({
     fontFamily: 'Roboto-Bold',

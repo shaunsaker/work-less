@@ -4,7 +4,7 @@ import { Popup, Button, Types } from 'reactxp';
 import Tooltip from './Tooltip';
 
 interface Props {
-  id: string;
+  id?: string;
   text: string;
   children: React.ReactElement;
 }
@@ -27,7 +27,7 @@ interface PopupOptions {
  */
 const TooltipContainer: React.FC<Props> = ({ id, text, children }: Props) => {
   const ref = useRef<any>(null); // FIXME:
-  const popupId = id;
+  const popupId = id || text;
   const bottom = 'bottom' as const;
   const top = 'top' as const;
   const right = 'right' as const;
@@ -50,6 +50,11 @@ const TooltipContainer: React.FC<Props> = ({ id, text, children }: Props) => {
   const dismissPopup = () => {
     Popup.dismiss(popupId);
   };
+  const onPress = () => {
+    if (!Popup.isDisplayed) {
+      showPopup();
+    }
+  };
   const onFocus = () => {
     showPopup();
   };
@@ -66,10 +71,12 @@ const TooltipContainer: React.FC<Props> = ({ id, text, children }: Props) => {
   return (
     <Button
       ref={ref}
+      onPress={onPress}
       onFocus={onFocus}
       onBlur={onBlur}
       onHoverStart={onHoverStart}
       onHoverEnd={onHoverEnd}
+      style={{ padding: 0 }} // remove base styles
     >
       {children}
     </Button>

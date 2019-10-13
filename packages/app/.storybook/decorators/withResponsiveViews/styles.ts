@@ -1,6 +1,6 @@
 import { Styles } from 'reactxp';
 
-import { colors, rhythm, shadows } from '../../../src/styleConstants';
+import { colors, rhythm } from '../../../src/styleConstants';
 
 const styles = {
   container: Styles.createViewStyle({}),

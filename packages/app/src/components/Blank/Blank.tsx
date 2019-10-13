@@ -5,7 +5,7 @@ import styles from './styles';
 
 interface Props {}
 
-const Blank: React.FC<Props> = ({}) => {
+const Blank: React.FC<Props> = () => {
   return <View style={styles.container} />;
 };
 

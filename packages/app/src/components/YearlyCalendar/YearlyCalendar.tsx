@@ -5,7 +5,7 @@ import styles from './styles';
 
 interface Props {}
 
-const YearlyCalendar: React.FC<Props> = ({}) => {
+const YearlyCalendar: React.FC<Props> = () => {
   return <View style={styles.container} />;
 };
 
