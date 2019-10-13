@@ -1,8 +1,9 @@
 import React from 'react';
 import { View } from 'reactxp';
 
-import Calendar from '../../components/YearlyCalendar/Calendar/Calendar';
-import WEEKS from '../../components/YearlyCalendar/Calendar/__stories__/weeks';
+import Calendar from '../../components/YearlyCalendar/Calendar';
+
+const DATE = new Date();
 
 interface Props {
   handleNavigatePress: Function;
@@ -12,7 +13,7 @@ interface Props {
 const Home: React.FC<Props> = () => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Calendar month="October" weeks={WEEKS} />
+      <Calendar date={DATE} />
     </View>
   );
 };
