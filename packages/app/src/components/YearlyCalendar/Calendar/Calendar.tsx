@@ -21,9 +21,11 @@ const Calendar: React.FC<Props> = ({ month, weeks }) => {
       </View>
 
       <View style={styles.row}>
-        {DAY_ITEMS.map((item) => {
+        {DAY_ITEMS.map((item, index) => {
+          const key = `${item}${index}`;
+
           return (
-            <View key={item} style={styles.contentItemContainer}>
+            <View key={key} style={styles.contentItemContainer}>
               <View style={[styles.dayTextContainer, { width: CALENDAR_ITEM_SIZE }]}>
                 <Text style={styles.dayText}>{item}</Text>
               </View>
