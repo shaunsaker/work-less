@@ -2,26 +2,26 @@ import React from 'react';
 import { View, Text } from 'reactxp';
 
 import styles from './styles';
-import DAY_ITEMS from './dayItems';
+import DAYS from './days';
 
 import CalendarItem, { Props as Day } from './CalendarItem';
 
 const CALENDAR_ITEM_SIZE = 32;
 
 export interface Props {
-  month: string; // FIXME: One of type
+  title: string;
   weeks: Day[][];
 }
 
-const Calendar: React.FC<Props> = ({ month, weeks }) => {
+const Calendar: React.FC<Props> = ({ title, weeks }) => {
   return (
     <View style={styles.container}>
-      <View style={styles.monthTextContainer}>
-        <Text style={styles.monthText}>{month}</Text>
+      <View style={styles.titleTextContainer}>
+        <Text style={styles.titleText}>{title}</Text>
       </View>
 
       <View style={styles.row}>
-        {DAY_ITEMS.map((item, index) => {
+        {DAYS.map((item, index) => {
           const key = `${item}${index}`;
 
           return (

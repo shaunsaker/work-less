@@ -51,7 +51,7 @@ const TooltipContainer: React.FC<Props> = ({ id, text, children }: Props) => {
     Popup.dismiss(popupId);
   };
   const onPress = () => {
-    if (!Popup.isDisplayed) {
+    if (!Popup.isDisplayed()) {
       showPopup();
     }
   };

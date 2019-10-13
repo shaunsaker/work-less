@@ -10,8 +10,9 @@ const styles = {
     borderBottomLeftRadius: 8,
     borderBottomRightRadius: 8,
     ...shadows.small,
+    maxWidth: 360,
   }),
-  monthTextContainer: Styles.createViewStyle({
+  titleTextContainer: Styles.createViewStyle({
     borderBottomWidth: 1,
     borderColor: colors.primaryText,
     paddingVertical: rhythm.vt / 2,
@@ -19,7 +20,7 @@ const styles = {
     alignItems: 'center',
     backgroundColor: colors.lightPrimaryText,
   }),
-  monthText: Styles.createTextStyle({
+  titleText: Styles.createTextStyle({
     fontSize: 16,
     fontFamily: 'Roboto-Bold',
     color: colors.primaryText,

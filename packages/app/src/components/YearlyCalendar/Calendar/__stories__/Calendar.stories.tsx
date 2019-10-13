@@ -1,11 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line
 
-import Calendar from '../Calendar'; // TODO:
-import weeks from './weeks';
+import Calendar from '..';
 
-const month = 'October';
+const date = new Date(2018, 8, 1);
 
-storiesOf('Components|Calendar', module).add('default', () => (
-  <Calendar month={month} weeks={weeks} />
-));
+/*
+ * TODO: Pass in dates of significance
+ */
+storiesOf('Components|Calendar', module).add('default', () => <Calendar date={date} />);
