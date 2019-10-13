@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text } from 'reactxp';
+import { View } from 'reactxp';
 
-import { routeIds } from '../../App';
-import Button from '../../components/Button';
+import Tooltip from '../../components/YearlyCalendar/Calendar/CalendarItem/Tooltip';
+import CalendarItem from '../../components/YearlyCalendar/Calendar/CalendarItem';
 
 interface Props {
   handleNavigatePress: Function;
@@ -10,9 +10,13 @@ interface Props {
 }
 
 const Home: React.FC<Props> = ({ handleNavigatePress }) => {
+  const text = 'Heritage Day';
+
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Button text="Let's get crackalacking" handlePress={() => console.log('')} />
+      <Tooltip id={text} text={text}>
+        <CalendarItem day={14} isSecondary />
+      </Tooltip>
     </View>
   );
 };
