@@ -2,6 +2,7 @@ import getFirstMonthDay from '../getFirstMonthDay';
 import getLastMonthDay from '../getLastMonthDay';
 import getNumberOfWeeksTheMonthFallsInto from '../getNumberOfWeeksTheMonthFallsInto';
 import getTomorrow from './getTomorrow';
+import areDatesOnSameDay from './areDatesOnSameDay';
 import DAYS from '../../days';
 import { Props as Day } from '../../CalendarItem';
 import { DateObject } from '../..';
@@ -34,9 +35,10 @@ const getWeeks = (date: Date, datesOfSignificance: DateObject[] | undefined) => 
          * If the day is significant, add the extra props
          */
         if (datesOfSignificance) {
-          const significantDate = datesOfSignificance.filter(
-            (item) => item.date.getTime() === nextMonthDay.getTime(),
+          const significantDate = datesOfSignificance.filter((item) =>
+            areDatesOnSameDay(item.date, nextMonthDay),
           )[0];
+          // console.log({ datesOfSignificance, significantDate });
 
           if (significantDate) {
             extraProps = {
