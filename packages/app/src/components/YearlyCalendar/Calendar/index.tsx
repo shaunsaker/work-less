@@ -15,9 +15,6 @@ interface Props {
   datesOfSignificance?: DateObject[];
 }
 
-/*
- * TODO: Accept dates of significance
- */
 const CalendarContainer: React.FC<Props> = ({ date, datesOfSignificance }) => {
   const title = getTitle(date);
   const weeks = getWeeks(date, datesOfSignificance);
