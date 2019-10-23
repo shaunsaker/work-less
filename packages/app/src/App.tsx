@@ -10,7 +10,9 @@ import Test from './pages/Test';
 
 export enum routeIds {
   Home,
-  Test,
+  Support,
+  Terms,
+  Privacy,
 }
 
 export class App extends Component<CommonProps, Stateless> {
@@ -56,7 +58,13 @@ export class App extends Component<CommonProps, Stateless> {
       case routeIds.Home:
         return <Home {...routeProps} />;
 
-      case routeIds.Test:
+      case routeIds.Support:
+        return <Test {...routeProps} />;
+
+      case routeIds.Terms:
+        return <Test {...routeProps} />;
+
+      case routeIds.Privacy:
         return <Test {...routeProps} />;
     }
 

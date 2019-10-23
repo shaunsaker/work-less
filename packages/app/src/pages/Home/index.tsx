@@ -1,21 +1,14 @@
 import React from 'react';
-import { View } from 'reactxp';
 
-import Calendar from '../../components/YearlyCalendar/Calendar';
-
-const DATE = new Date();
+import Home from './Home';
 
 interface Props {
   handleNavigatePress: Function;
   handleBackPress: () => void;
 }
 
-const Home: React.FC<Props> = () => {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Calendar date={DATE} />
-    </View>
-  );
+const HomeContainer: React.FC<Props> = ({ handleNavigatePress }) => {
+  return <Home handleFooterLinkPress={handleNavigatePress} />;
 };
 
-export default Home;
+export default HomeContainer;
