@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Home from '../Home';
+import Home from '..';
 
-const handleFooterLinkPress = (link: string) => console.log(link);
+const handleNavigatePress = (link: string) => console.log(link);
 
 storiesOf('Pages|Home', module).add('default', () => (
-  <Home handleFooterLinkPress={handleFooterLinkPress} />
+  <Home handleNavigatePress={handleNavigatePress} />
 ));
