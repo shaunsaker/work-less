@@ -4,6 +4,7 @@ import { rhythm, shadows } from '../../styleConstants';
 
 const styles = {
   container: Styles.createViewStyle({
+    alignSelf: 'stretch',
     backgroundColor: 'white',
     height: 64,
     justifyContent: 'center',
