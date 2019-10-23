@@ -7,7 +7,7 @@ import LINKS from './links';
 import Link from '../Link';
 
 interface Props {
-  handleLinkPress: (url: string) => void;
+  handleLinkPress: Function;
 }
 
 const FooterBar: React.FC<Props> = ({ handleLinkPress }) => {
