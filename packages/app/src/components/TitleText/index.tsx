@@ -3,13 +3,13 @@ import { View, Text } from 'reactxp';
 
 import styles from './styles';
 
-interface Text {
+interface Text_ {
   text: string;
   isHighlighted?: boolean;
 }
 
 interface Props {
-  textArray: Text[];
+  textArray: Text_[];
 }
 
 const TitleText: React.FC<Props> = ({ textArray }) => {
