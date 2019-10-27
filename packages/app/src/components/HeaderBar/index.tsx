@@ -2,8 +2,7 @@ import React from 'react';
 import { View, Image } from 'reactxp';
 
 import styles from './styles';
-
-const LOGO = require('../../assets/images/logo.png');
+import ASSETS from '../../assets';
 
 interface Props {
   showShadow?: boolean;
@@ -12,7 +11,7 @@ interface Props {
 const HeaderBar: React.FC<Props> = ({ showShadow }) => {
   return (
     <View style={[styles.container, showShadow ? styles.shadow : {}]}>
-      <Image source={LOGO} style={styles.image} />
+      <Image source={ASSETS.logo} style={styles.image} />
     </View>
   );
 };
