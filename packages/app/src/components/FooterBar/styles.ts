@@ -16,6 +16,7 @@ const styles = {
     flexWrap: 'wrap',
   }),
   linksContainer: Styles.createViewStyle({
+    flex: 1,
     flexDirection: 'row',
     marginRight: rhythm.hz,
   }),
