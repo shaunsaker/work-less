@@ -13,7 +13,7 @@ interface Props {
 }
 
 const CountryButton: React.FC<Props> = ({ id, name, handlePress }) => {
-  const imageSrc = COUNTRIES[id]; // FIXME:
+  const imageSrc = COUNTRIES[id];
 
   return (
     <ButtonWithBgHoverEffect
