@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 
 module.exports = ({ config, mode }) => {
@@ -16,5 +17,10 @@ module.exports = ({ config, mode }) => {
     },
   );
   config.resolve.extensions.push('.ts', '.tsx');
+  config.plugins.push(
+    new webpack.DefinePlugin({
+      __DEV__: mode === 'DEVELOPMENT',
+    }),
+  );
   return config;
 };
