@@ -17,7 +17,7 @@
     "app:start:rn-dev-server": "yarn workspace app start:rn-dev-server",
     "app:start:storybook": "yarn workspace app start:storybook",
     "cc:start": "yarn workspace create-countries start",
-    "cc:populate": "cp -R ./packages/create-countries/dist/images/* ./packages/app/src/assets/images/countries",
+    "cc:populate": "yarn workspace create-countries populate && cp -R ./packages/create-countries/dist/images/* ./packages/app/src/assets/images/countries",
     "database:backup": "yarn workspace database backup",
     "database:restore:dev": "yarn workspace database restore:dev",
     "database:restore:prod": "yarn workspace database restore:prod",

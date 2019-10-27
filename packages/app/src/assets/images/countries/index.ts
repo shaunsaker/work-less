@@ -59,6 +59,7 @@ const deImage = require('./de.png');
 const djImage = require('./dj.png');
 const dkImage = require('./dk.png');
 const dmImage = require('./dm.png');
+const doImage = require('./do.png');
 const dzImage = require('./dz.png');
 const ecImage = require('./ec.png');
 const eeImage = require('./ee.png');
@@ -249,7 +250,11 @@ const zaImage = require('./za.png');
 const zmImage = require('./zm.png');
 const zwImage = require('./zw.png');
 
-const countries = {
+interface ICountries {
+  [key: string]: string;
+}
+
+const countries: ICountries = {
   ad: adImage,
   ae: aeImage,
   af: afImage,
@@ -311,6 +316,7 @@ const countries = {
   dj: djImage,
   dk: dkImage,
   dm: dmImage,
+  do: doImage,
   dz: dzImage,
   ec: ecImage,
   ee: eeImage,
