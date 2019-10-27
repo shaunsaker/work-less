@@ -6,8 +6,9 @@
     "build": "tsc",
     "build:watch": "tsc --watch",
     "watch": "nodemon ./dist/index.js",
-    "copy-images": "cp -R ./src/images ./dist/images",
-    "start": "yarn run copy-images && concurrently \"yarn run build:watch\" \"sleep 1 && yarn run watch\""
+    "copy-images": "cp -R ./src/images ./dist",
+    "start": "yarn run copy-images && concurrently \"yarn run build:watch\" \"sleep 1 && yarn run watch\"",
+    "populate": "yarn run copy-images && yarn run build && node ./dist/index.js"
   },
   "main": "dist/index.js",
   "dependencies": {},

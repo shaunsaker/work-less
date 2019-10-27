@@ -23,10 +23,18 @@ fs.readdir(directoryPath, (error, files) => {
     });
 
     /*
+     * Create the interface
+     */
+    indexFile += '\n';
+    indexFile += 'interface ICountries {\n';
+    indexFile += '[key: string]: string;\n';
+    indexFile += '};\n';
+
+    /*
      * Create the object
      */
     indexFile += '\n';
-    indexFile += 'const countries = {\n';
+    indexFile += 'const countries: ICountries = {\n';
 
     files.forEach((fileName) => {
       if (fileName !== indexFileName) {
