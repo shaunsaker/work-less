@@ -31,3 +31,6 @@ build/
 
 # Functions
 credentials.json
+
+# Firebase
+.firebase
