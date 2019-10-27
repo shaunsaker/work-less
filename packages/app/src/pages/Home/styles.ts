@@ -13,16 +13,11 @@ const styles = {
     backgroundColor: 'white',
     paddingTop: STATUS_BAR_HEIGHT,
   }),
-  contentWrapper: Styles.createScrollViewStyle({
-    flex: 1,
-    backgroundColor: 'green',
-  }),
   contentContainer: Styles.createViewStyle({
     flex: 1,
     justifyContent: 'center',
     paddingTop: VERTICAL_PADDING, // paddingBottom comes from buttonContainer
     paddingHorizontal: rhythm.hz,
-    backgroundColor: 'red',
   }),
   textContainer: Styles.createViewStyle({
     maxWidth: 480,
