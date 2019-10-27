@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView, Image } from 'reactxp';
+import { View, ScrollView } from 'reactxp';
 
 import styles from './styles';
 

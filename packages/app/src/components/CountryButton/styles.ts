@@ -12,7 +12,7 @@ const styles = {
     borderRadius: 8,
     ...shadows.small,
   }),
-  contentContainer: {
+  contentContainer: Styles.createViewStyle({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -20,7 +20,7 @@ const styles = {
     paddingBottom: rhythm.vt,
     paddingLeft: rhythm.hz / 2,
     paddingRight: rhythm.hz,
-  },
+  }),
   imageContainer: Styles.createViewStyle({
     marginRight: rhythm.hz / 2,
   }),
