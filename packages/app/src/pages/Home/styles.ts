@@ -28,7 +28,10 @@ const styles = {
   imageContainer: Styles.createViewStyle({
     backgroundColor: 'blue',
   }),
-  image: Styles.createImageStyle({}),
+  image: Styles.createImageStyle({
+    width: 300,
+    height: 300,
+  }),
   paragraphTextContainer: Styles.createViewStyle({
     marginBottom: rhythm.vt * 2,
   }),
