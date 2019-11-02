@@ -21,10 +21,6 @@ interface PopupOptions {
   onDismiss: () => void;
 }
 
-/*
- * TODO: If children is a button, use that hover start and end
- * TODO: Animation
- */
 const TooltipContainer: React.FC<Props> = ({ id, text, children }: Props) => {
   const ref = useRef<any>(null); // FIXME:
   const popupId = id || text;

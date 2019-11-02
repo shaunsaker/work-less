@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Animated, Styles, Types } from 'reactxp';
 
 import animate from '../../helpers/animate';
-import getFinalColor from './getFinalColor';
+import getFinalColor from './helpers/getFinalColor';
 
 interface Props extends Types.ButtonProps {
   color: string;
