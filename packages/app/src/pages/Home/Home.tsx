@@ -16,6 +16,9 @@ interface Props {
 }
 
 const Home: React.FC<Props> = ({ handleSubmitPress, handleFooterLinkPress }) => {
+  const titleHighlightText = 'consecutive time-off';
+  const titleText = `Maximise your ${titleHighlightText}`;
+
   return (
     <View style={styles.container}>
       <HeaderBar />
@@ -23,13 +26,7 @@ const Home: React.FC<Props> = ({ handleSubmitPress, handleFooterLinkPress }) => 
       <View style={styles.contentContainer}>
         <View style={styles.textContainer}>
           <View style={styles.titleTextContainer}>
-            <TitleText
-              textArray={[
-                { text: 'Maximise your ' },
-                { text: 'consecutive time off', isHighlighted: true },
-                { text: '.' },
-              ]}
-            />
+            <TitleText text={titleText} highlightText={titleHighlightText} />
           </View>
 
           <View style={styles.paragraphTextContainer}>
@@ -46,9 +43,9 @@ const Home: React.FC<Props> = ({ handleSubmitPress, handleFooterLinkPress }) => 
           </View>
         </View>
 
-        <View style={styles.imageContainer}>
+        {/* <View style={styles.imageContainer}>
           <Image source={ASSETS.home} resizeMode="contain" style={styles.image} />
-        </View>
+        </View> */}
       </View>
 
       <FooterBar handleLinkPress={handleFooterLinkPress} />
