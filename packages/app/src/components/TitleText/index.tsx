@@ -2,24 +2,23 @@ import React from 'react';
 import { View, Text } from 'reactxp';
 
 import styles from './styles';
+import getStringPartsWithMatches from './helpers/getStringPartsWithMatches';
 
-interface Text_ {
+interface IProps {
   text: string;
-  isHighlighted?: boolean;
+  highlightText?: string;
 }
 
-interface Props {
-  textArray: Text_[];
-}
+const TitleText: React.FC<IProps> = ({ text, highlightText = '' }) => {
+  const stringPartsWithMatches = getStringPartsWithMatches({ string: text, match: highlightText });
 
-const TitleText: React.FC<Props> = ({ textArray }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>
-        {textArray.map((item) => {
+        {stringPartsWithMatches.map((item) => {
           return (
-            <Text key={item.text} style={item.isHighlighted ? styles.highlightedText : {}}>
-              {item.text}
+            <Text key={item.string} style={item.isMatch ? styles.highlightedText : {}}>
+              {item.string}
             </Text>
           );
         })}
