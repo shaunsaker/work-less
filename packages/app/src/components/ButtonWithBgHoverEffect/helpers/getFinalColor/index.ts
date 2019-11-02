@@ -1,6 +1,5 @@
 import Color from 'color';
 
-// TODO: Testing
 const getFinalColor = (color: string, amount: number) => {
   const colorObject = Color(color);
   const isLight = colorObject.isLight();
