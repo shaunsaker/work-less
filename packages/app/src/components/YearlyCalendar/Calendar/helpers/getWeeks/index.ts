@@ -1,6 +1,6 @@
 import getFirstMonthDay from '../getFirstMonthDay';
 import getLastMonthDay from '../getLastMonthDay';
-import getNumberOfWeeksOfMonthDate from '../getNumberOfWeeksOfMonthDate';
+import getNumberOfWeeksOfMonth from '../getNumberOfWeeksOfMonth';
 import getTomorrowsDate from './getTomorrowsDate';
 import areDatesOnSameDay from './areDatesOnSameDay';
 import DAYS from '../../days';
@@ -9,10 +9,10 @@ import { DateObject } from '../..';
 
 const WEEKEND_DAYS = [0, 6];
 
-const getWeeks = (date: Date, datesOfSignificance: DateObject[] | undefined) => {
+const getWeeks = (date: Date, datesOfSignificance?: DateObject[]) => {
   const firstMonthDay = getFirstMonthDay(date);
   const lastMonthDay = getLastMonthDay(date);
-  const numberOfWeeksTheMonthFallsInto = getNumberOfWeeksOfMonthDate(date);
+  const numberOfWeeksTheMonthFallsInto = getNumberOfWeeksOfMonth(date);
   let nextMonthDay = firstMonthDay;
   const weeks = Array.from(Array(numberOfWeeksTheMonthFallsInto)).map(() => {
     const week: Day[] = DAYS.map((_, dayIndex) => {
