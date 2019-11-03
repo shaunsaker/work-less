@@ -16,6 +16,7 @@ export interface Props {
   imageSource: string;
   children?: Types.ReactNode;
   buttons?: ButtonProps[];
+  alignCenter: boolean;
   handleFooterLinkPress: Function;
 }
 
@@ -26,6 +27,7 @@ const Layout: React.FC<Props> = ({
   imageSource,
   children,
   buttons,
+  alignCenter,
   handleFooterLinkPress,
 }) => {
   const paragraphTextComponent = paragraphText ? (
@@ -37,7 +39,7 @@ const Layout: React.FC<Props> = ({
   return (
     <View style={styles.wrapper}>
       <ScrollView style={styles.container}>
-        <View style={styles.contentContainer}>
+        <View style={[styles.contentContainer, alignCenter ? styles.centeredContentContainer : {}]}>
           <View style={styles.imageContainer}>
             <Image source={imageSource} resizeMode="contain" style={styles.image} />
           </View>

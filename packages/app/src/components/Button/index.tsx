@@ -9,10 +9,11 @@ import ButtonWithBgHoverEffect from '../ButtonWithBgHoverEffect';
 export interface Props {
   text: string;
   isSecondary?: boolean;
+  isDisabled?: boolean;
   handlePress: () => void;
 }
 
-const Button: React.FC<Props> = ({ text, isSecondary, handlePress }) => {
+const Button: React.FC<Props> = ({ text, isSecondary, isDisabled, handlePress }) => {
   let color;
   let amount;
 
@@ -30,6 +31,7 @@ const Button: React.FC<Props> = ({ text, isSecondary, handlePress }) => {
       amount={amount}
       style={[styles.container, isSecondary ? styles.secondaryContainer : {}]}
       accessibilityLabel={text}
+      disabled={isDisabled}
       onPress={handlePress}
     >
       <View style={styles.contentContainer}>

@@ -12,6 +12,7 @@ import CountryButton from '../../components/CountryButton';
 interface Props {
   country: string;
   countries: Country[];
+  isSubmitDisabled: boolean;
   handleSelectCountry: (country: Country) => void;
   handleChangeCountry: (text: string) => void;
   handleSubmit: () => void;
@@ -21,6 +22,7 @@ interface Props {
 const SelectCountry: React.FC<Props> = ({
   country,
   countries,
+  isSubmitDisabled,
   handleChangeCountry,
   handleSelectCountry,
   handleSubmit,
@@ -33,6 +35,7 @@ const SelectCountry: React.FC<Props> = ({
   const buttons = [
     {
       text: 'SUBMIT',
+      isDisabled: isSubmitDisabled,
       handlePress: handleSubmit,
     },
   ];

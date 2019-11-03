@@ -10,7 +10,7 @@ interface Props extends Types.ButtonProps {
 }
 
 const ButtonWithBgHoverEffect: React.FC<Props> = (props) => {
-  const { color, amount, children } = props;
+  const { color, amount, disabled, children } = props;
   const initialColor = color;
   const finalColor = getFinalColor(color, amount);
   const initialValue = 0;
@@ -25,7 +25,9 @@ const ButtonWithBgHoverEffect: React.FC<Props> = (props) => {
     backgroundColor: animatedBackgroundColor,
   });
   const onHoverStart = () => {
-    animate(animatedValue, finalValue);
+    if (!disabled) {
+      animate(animatedValue, finalValue);
+    }
   };
   const onHoverEnd = () => {
     animate(animatedValue, initialValue);

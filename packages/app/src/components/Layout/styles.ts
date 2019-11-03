@@ -28,6 +28,8 @@ const styles = {
     minHeight: WINDOW_HEIGHT,
     paddingTop: VERTICAL_PADDING + HEADER_HEIGHT, // paddingBottom comes from buttonContainer
     flexDirection: 'row',
+  }),
+  centeredContentContainer: Styles.createViewStyle({
     alignItems: 'center',
   }),
   textContainer: Styles.createViewStyle({
