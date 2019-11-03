@@ -2,11 +2,7 @@ import React, { useState } from 'react';
 import Fuse from 'fuse.js';
 
 import SelectCountry from './SelectCountry';
-
-interface Country {
-  name: string;
-  id: string;
-}
+import Country from '../../types/Country';
 
 interface Props {
   countries: Country[];

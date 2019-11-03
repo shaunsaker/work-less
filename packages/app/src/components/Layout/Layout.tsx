@@ -16,7 +16,7 @@ export interface Props {
   imageSource: string;
   children?: Types.ReactNode;
   buttons?: ButtonProps[];
-  alignCenter: boolean;
+  alignCenter?: boolean;
   handleFooterLinkPress: Function;
 }
 
