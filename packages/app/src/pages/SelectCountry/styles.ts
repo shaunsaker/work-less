@@ -52,9 +52,6 @@ const styles = {
     width: IMAGE_SIZE,
     height: IMAGE_SIZE,
   }),
-  paragraphTextContainer: Styles.createViewStyle({
-    marginBottom: rhythm.vt * 2,
-  }),
   buttonContainer: Styles.createViewStyle({
     alignItems: 'flex-start',
     paddingBottom: VERTICAL_PADDING, // add it here for shadow
