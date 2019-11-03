@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Calendar from './Calendar';
-import getTitle from './helpers/getTitle';
+import getMonthYearString from './helpers/getMonthYearString';
 import getWeeks from './helpers/getWeeks';
 
 export interface DateObject {
@@ -16,7 +16,7 @@ interface Props {
 }
 
 const CalendarContainer: React.FC<Props> = ({ date, datesOfSignificance }) => {
-  const title = getTitle(date);
+  const title = getMonthYearString(date);
   const weeks = getWeeks(date, datesOfSignificance);
 
   return <Calendar title={title} weeks={weeks} />;

@@ -1,6 +1,6 @@
 import getMonthFromDate from './getMonthFromDate';
 
-const getTitle = (date: Date) => {
+const getMonthYearString = (date: Date) => {
   const month = getMonthFromDate(date);
   const year = date.getFullYear();
   const title = `${month} ${year}`;
@@ -8,4 +8,4 @@ const getTitle = (date: Date) => {
   return title;
 };
 
-export default getTitle;
+export default getMonthYearString;
