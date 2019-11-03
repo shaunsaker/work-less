@@ -3,12 +3,11 @@ import { View, Image, Text } from 'reactxp';
 
 import styles from './styles';
 import COUNTRIES from '../../assets/images/countries';
+import Country from '../../types/Country';
 
 import ButtonWithBgHoverEffect from '../ButtonWithBgHoverEffect';
 
-export interface Props {
-  id: string;
-  name: string;
+export interface Props extends Country {
   handlePress: () => void;
 }
 
