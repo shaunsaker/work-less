@@ -10,7 +10,7 @@ const styles = {
     borderBottomLeftRadius: 8,
     borderBottomRightRadius: 8,
     ...shadows.small,
-    maxWidth: 360,
+    maxWidth: 240,
   }),
   titleTextContainer: Styles.createViewStyle({
     borderBottomWidth: 1,

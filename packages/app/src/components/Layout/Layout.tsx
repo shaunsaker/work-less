@@ -40,7 +40,7 @@ const Layout: React.FC<Props> = ({
     <View style={styles.wrapper}>
       <ScrollView style={styles.container}>
         <View style={[styles.contentContainer, alignCenter ? styles.centeredContentContainer : {}]}>
-          <View style={styles.imageContainer}>
+          <View style={[styles.imageContainer, alignCenter ? styles.centeredImageContainer : {}]}>
             <Image source={imageSource} resizeMode="contain" style={styles.image} />
           </View>
 
