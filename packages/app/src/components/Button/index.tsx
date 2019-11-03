@@ -6,7 +6,7 @@ import { colors } from '../../styleConstants';
 
 import ButtonWithBgHoverEffect from '../ButtonWithBgHoverEffect';
 
-interface Props {
+export interface Props {
   text: string;
   isSecondary?: boolean;
   handlePress: () => void;
