@@ -2,7 +2,7 @@ import getFirstMonthDay from '../getFirstMonthDay';
 import getLastMonthDay from '../getLastMonthDay';
 import getNumberOfDaysBetweenDates from '../getNumberOfDaysBetweenDates';
 
-const getNumberOfWeeksTheMonthFallsInto = (date: Date) => {
+const getNumberOfWeeksOfMonthDate = (date: Date) => {
   const firstMonthDay = getFirstMonthDay(date);
   const lastMonthDay = getLastMonthDay(date);
   const numberOfDaysInMonth = getNumberOfDaysBetweenDates(lastMonthDay, firstMonthDay);
@@ -12,4 +12,4 @@ const getNumberOfWeeksTheMonthFallsInto = (date: Date) => {
   return numberOfWeeksTheMonthFallsInto;
 };
 
-export default getNumberOfWeeksTheMonthFallsInto;
+export default getNumberOfWeeksOfMonthDate;
