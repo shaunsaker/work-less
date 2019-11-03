@@ -1,6 +1,6 @@
 const MS_PER_DAY = 1000 * 60 * 60 * 24;
 
-const getNumberOfDaysInMonth = (date1: Date, date2: Date) => {
+const getNumberOfDaysBetweenDates = (date1: Date, date2: Date) => {
   const time1 = date1.getTime();
   const time2 = date2.getTime();
   const timeDifference = Math.abs(time1 - time2);
@@ -10,4 +10,4 @@ const getNumberOfDaysInMonth = (date1: Date, date2: Date) => {
   return numberOfDaysInMonth;
 };
 
-export default getNumberOfDaysInMonth;
+export default getNumberOfDaysBetweenDates;

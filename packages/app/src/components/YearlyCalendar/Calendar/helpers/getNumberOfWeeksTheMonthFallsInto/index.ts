@@ -1,11 +1,11 @@
 import getFirstMonthDay from '../getFirstMonthDay';
 import getLastMonthDay from '../getLastMonthDay';
-import getNumberOfDaysInMonth from '../getNumberOfDaysInMonth';
+import getNumberOfDaysBetweenDates from '../getNumberOfDaysBetweenDates';
 
 const getNumberOfWeeksTheMonthFallsInto = (date: Date) => {
   const firstMonthDay = getFirstMonthDay(date);
   const lastMonthDay = getLastMonthDay(date);
-  const numberOfDaysInMonth = getNumberOfDaysInMonth(lastMonthDay, firstMonthDay);
+  const numberOfDaysInMonth = getNumberOfDaysBetweenDates(lastMonthDay, firstMonthDay);
   const firstMonthDayIndex = firstMonthDay.getDay();
   const numberOfWeeksTheMonthFallsInto = Math.ceil((numberOfDaysInMonth + firstMonthDayIndex) / 7);
 
