@@ -16,6 +16,8 @@
     "app:start:ios": "yarn workspace app start:ios",
     "app:start:rn-dev-server": "yarn workspace app start:rn-dev-server",
     "app:start:storybook": "yarn workspace app start:storybook",
+    "app:build:web:dev": "yarn workspace app build:web:dev",
+    "app:build:web:prod": "yarn workspace app build:web:prod",
     "app:deploy:web:dev": "yarn workspace app deploy:web:dev",
     "app:deploy:web:prod": "yarn workspace app deploy:web:prod",
     "app:test": "yarn workspace app test",
