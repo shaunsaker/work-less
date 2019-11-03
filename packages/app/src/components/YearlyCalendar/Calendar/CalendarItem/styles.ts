@@ -3,7 +3,7 @@ import { Styles } from 'reactxp';
 import { colors } from '../../../../styleConstants';
 import { getPrimaryTextColor } from '../../../../styleConstants/colors';
 
-const CONTAINER_SIZE = 32;
+const CONTAINER_SIZE = 24;
 
 const styles = {
   container: Styles.createViewStyle({

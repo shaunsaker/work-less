@@ -48,8 +48,10 @@ const styles = {
     top: 0,
     bottom: 0,
     right: IMAGE_SIZE / -10,
-    justifyContent: 'center',
     paddingTop: IMAGE_SIZE / 10,
+  }),
+  centeredImageContainer: Styles.createViewStyle({
+    justifyContent: 'center',
   }),
   image: Styles.createImageStyle({
     width: IMAGE_SIZE,
