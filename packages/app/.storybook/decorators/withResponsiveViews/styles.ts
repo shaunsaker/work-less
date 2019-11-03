@@ -25,7 +25,7 @@ const styles = {
     borderWidth: 1,
     borderStyle: 'dashed',
     borderColor: colors.primaryText,
-    borderRadius: 8,
+    borderRadius: rhythm.br,
   }),
 };
 

@@ -9,7 +9,7 @@ const styles = {
     backgroundColor: getPrimaryTextColor(0.85),
     paddingVertical: rhythm.vt / 2,
     paddingHorizontal: rhythm.hz / 2,
-    borderRadius: 4,
+    borderRadius: rhythm.br,
     ...shadows.regular,
   }),
   text: Styles.createTextStyle({

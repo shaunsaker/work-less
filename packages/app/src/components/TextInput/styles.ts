@@ -13,9 +13,9 @@ const styles = {
   }),
   input: Styles.createTextInputStyle({
     backgroundColor: 'white',
-    borderWidth: 2,
+    borderWidth: rhythm.bw,
     borderColor: colors.primaryText,
-    borderRadius: 8,
+    borderRadius: rhythm.br,
     paddingVertical: rhythm.vt,
     paddingHorizontal: PADDING_HORIZONTAL,
     fontFamily: 'Roboto-Bold',
