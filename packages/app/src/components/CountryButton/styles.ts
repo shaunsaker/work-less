@@ -7,9 +7,9 @@ const IMAGE_SIZE = 24;
 const styles = {
   container: Styles.createViewStyle({
     width: 240,
-    borderWidth: 2,
+    borderWidth: rhythm.bw,
     borderColor: colors.primaryText,
-    borderRadius: 8,
+    borderRadius: rhythm.br,
     ...shadows.small,
   }),
   contentContainer: Styles.createViewStyle({

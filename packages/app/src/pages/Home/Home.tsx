@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image } from 'reactxp';
+import { View, Image, ScrollView } from 'reactxp';
 
 import styles from './styles';
 import ASSETS from '../../assets';
@@ -20,10 +20,14 @@ const Home: React.FC<Props> = ({ handleSubmitPress, handleFooterLinkPress }) => 
   const titleText = `Maximise your ${titleHighlightText}`;
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <HeaderBar />
 
       <View style={styles.contentContainer}>
+        <View style={styles.imageContainer}>
+          <Image source={ASSETS.home} resizeMode="auto" style={styles.image} />
+        </View>
+
         <View style={styles.textContainer}>
           <View style={styles.titleTextContainer}>
             <TitleText text={titleText} highlightText={titleHighlightText} />
@@ -42,14 +46,10 @@ const Home: React.FC<Props> = ({ handleSubmitPress, handleFooterLinkPress }) => 
             <Button text="LET'S GET CRACKALACKING" handlePress={handleSubmitPress} />
           </View>
         </View>
-
-        {/* <View style={styles.imageContainer}>
-          <Image source={ASSETS.home} resizeMode="contain" style={styles.image} />
-        </View> */}
       </View>
 
       <FooterBar handleLinkPress={handleFooterLinkPress} />
-    </View>
+    </ScrollView>
   );
 };
 

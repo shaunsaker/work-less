@@ -4,7 +4,7 @@ import { rhythm, shadows } from '../../styleConstants';
 
 const styles = {
   container: Styles.createButtonStyle({
-    borderRadius: 8,
+    borderRadius: rhythm.br,
     ...shadows.regular,
   }),
   contentContainer: {
