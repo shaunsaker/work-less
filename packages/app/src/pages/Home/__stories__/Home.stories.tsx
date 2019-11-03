@@ -3,8 +3,6 @@ import { storiesOf } from '@storybook/react';
 
 import Home from '..';
 
-const handleNavigatePress = (link: string) => console.log(link);
+const handleNavigate = (link: string) => console.log(link);
 
-storiesOf('Pages|Home', module).add('default', () => (
-  <Home handleNavigatePress={handleNavigatePress} />
-));
+storiesOf('Pages|Home', module).add('default', () => <Home handleNavigate={handleNavigate} />);

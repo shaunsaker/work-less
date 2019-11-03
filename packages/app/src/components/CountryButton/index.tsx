@@ -6,7 +6,7 @@ import COUNTRIES from '../../assets/images/countries';
 
 import ButtonWithBgHoverEffect from '../ButtonWithBgHoverEffect';
 
-interface Props {
+export interface Props {
   id: string;
   name: string;
   handlePress: () => void;
