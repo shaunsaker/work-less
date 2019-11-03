@@ -42,10 +42,17 @@ const SelectCountryContainer: React.FC<Props> = ({ countries, handleNavigate }) 
     countryResults = fuse.search(country);
   }
 
+  /*
+   * Disable the submit button if there is a country match
+   * in countries (case sensitive)
+   */
+  const isSubmitDisabled = Boolean(!countries.filter((item) => item.name === country).length);
+
   return (
     <SelectCountry
       country={country}
       countries={countryResults}
+      isSubmitDisabled={isSubmitDisabled}
       handleChangeCountry={onChangeCountry}
       handleSelectCountry={onSelectCountry}
       handleSubmit={onSubmit}

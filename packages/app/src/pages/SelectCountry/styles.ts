@@ -12,7 +12,7 @@ const styles = {
   }),
   resultsContainer: Styles.createViewStyle({}),
   countryButtonContainer: Styles.createViewStyle({
-    marginBottom: rhythm.vt,
+    paddingBottom: rhythm.vt,
   }),
 };
 

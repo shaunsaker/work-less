@@ -29,6 +29,7 @@ const Home: React.FC<Props> = ({ handleSubmit, handleFooterLinkPress }) => {
       paragraphText={paragraphText}
       imageSource={imageSource}
       buttons={buttons}
+      alignCenter
       handleFooterLinkPress={handleFooterLinkPress}
     />
   );
