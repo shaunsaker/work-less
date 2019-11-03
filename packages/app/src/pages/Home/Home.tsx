@@ -5,11 +5,11 @@ import ASSETS from '../../assets';
 import Layout from '../../components/Layout';
 
 interface Props {
-  handleSubmitPress: () => void;
+  handleSubmit: () => void;
   handleFooterLinkPress: Function;
 }
 
-const Home: React.FC<Props> = ({ handleSubmitPress, handleFooterLinkPress }) => {
+const Home: React.FC<Props> = ({ handleSubmit, handleFooterLinkPress }) => {
   const titleHighlightText = 'consecutive time-off';
   const titleText = `Maximise your ${titleHighlightText}`;
   const paragraphText =
@@ -18,7 +18,7 @@ const Home: React.FC<Props> = ({ handleSubmitPress, handleFooterLinkPress }) => 
   const buttons = [
     {
       text: "LET'S GET CRACKALACKING!",
-      handlePress: handleSubmitPress,
+      handlePress: handleSubmit,
     },
   ];
 

@@ -3,6 +3,7 @@ import { TextInput as TextInputComponent, Animated, Styles } from 'reactxp';
 
 import animate from '../../helpers/animate';
 import { colors } from '../../styleConstants';
+import { getPrimaryTextColor } from '../../styleConstants/colors';
 
 import TextInput from './TextInput';
 
@@ -39,7 +40,7 @@ const TextInputContainer: React.FC<Props> = ({ label, handleChange, handleSubmit
   const labelFontColor = Animated.interpolate(
     animatedValue,
     [initialValue, finalValue],
-    [colors.primaryText, colors.secondary],
+    [getPrimaryTextColor(0.5), colors.secondary],
   );
   const labelStyles = Styles.createAnimatedTextStyle({
     fontSize: labelFontSize,

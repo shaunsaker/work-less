@@ -2,14 +2,14 @@ import React from 'react';
 import { View, Button, Text } from 'reactxp';
 
 interface Props {
-  handleNavigatePress: Function;
-  handleBackPress: () => void;
+  handleNavigate: Function;
+  handleBack: () => void;
 }
 
-const Test: React.FC<Props> = ({ handleBackPress }) => {
+const Test: React.FC<Props> = ({ handleBack }) => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Button onPress={handleBackPress}>
+      <Button onPress={handleBack}>
         <Text>Go back</Text>
       </Button>
     </View>

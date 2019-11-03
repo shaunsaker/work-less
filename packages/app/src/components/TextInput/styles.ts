@@ -9,7 +9,7 @@ const styles = {
   container: Styles.createViewStyle({
     marginTop: 8, // required for label positioning = label height / 2
     overflow: 'visible',
-    width: 240,
+    alignSelf: 'stretch',
   }),
   input: Styles.createTextInputStyle({
     backgroundColor: 'white',
@@ -36,7 +36,6 @@ const styles = {
   label: Styles.createTextStyle({
     fontFamily: 'Roboto-Bold',
     fontSize: 16,
-    color: colors.primaryText,
   }),
 };
 

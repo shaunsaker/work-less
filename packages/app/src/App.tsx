@@ -33,7 +33,7 @@ export class App extends Component<CommonProps, Stateless> {
     }
   }
 
-  private onNavigatePress = (routeId: number) => {
+  private onNavigate = (routeId: number) => {
     if (this.navigator) {
       this.navigator.push({
         sceneConfigType: NavigatorTypes.NavigatorSceneConfigType.FloatFromBottom,
@@ -42,7 +42,7 @@ export class App extends Component<CommonProps, Stateless> {
     }
   };
 
-  private onBackPress = () => {
+  private onBack = () => {
     if (this.navigator) {
       this.navigator.pop();
     }
@@ -50,8 +50,8 @@ export class App extends Component<CommonProps, Stateless> {
 
   private renderScene = (navigatorRoute: NavigatorTypes.NavigatorRoute) => {
     const routeProps = {
-      handleNavigatePress: this.onNavigatePress,
-      handleBackPress: this.onBackPress,
+      handleNavigate: this.onNavigate,
+      handleBack: this.onBack,
     };
 
     switch (navigatorRoute.routeId) {

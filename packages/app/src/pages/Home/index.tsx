@@ -3,14 +3,14 @@ import React from 'react';
 import Home from './Home';
 
 interface Props {
-  handleNavigatePress: Function;
-  handleBackPress?: () => void;
+  handleNavigate: Function;
+  handleBack?: () => void;
 }
 
-const HomeContainer: React.FC<Props> = ({ handleNavigatePress }) => {
-  const onSubmitPress = () => {};
+const HomeContainer: React.FC<Props> = ({ handleNavigate }) => {
+  const onSubmit = () => {};
 
-  return <Home handleSubmitPress={onSubmitPress} handleFooterLinkPress={handleNavigatePress} />;
+  return <Home handleSubmit={onSubmit} handleFooterLinkPress={handleNavigate} />;
 };
 
 export default HomeContainer;
