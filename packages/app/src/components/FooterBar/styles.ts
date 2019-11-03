@@ -38,8 +38,10 @@ const styles = {
     color: 'white',
   }),
   illustrationTextContainer: Styles.createViewStyle({
+    flex: 1,
     flexDirection: 'row',
     marginTop: rhythm.vt, // in case of wrap
+    justifyContent: 'flex-end',
   }),
 };
 
