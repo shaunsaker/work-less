@@ -1,7 +1,7 @@
 import getFirstMonthDay from '../getFirstMonthDay';
 import getLastMonthDay from '../getLastMonthDay';
 import getNumberOfWeeksOfMonthDate from '../getNumberOfWeeksOfMonthDate';
-import getTomorrow from './getTomorrow';
+import getTomorrowsDate from './getTomorrowsDate';
 import areDatesOnSameDay from './areDatesOnSameDay';
 import DAYS from '../../days';
 import { Props as Day } from '../../CalendarItem';
@@ -51,7 +51,7 @@ const getWeeks = (date: Date, datesOfSignificance: DateObject[] | undefined) => 
          * Only forward to the next day if we are not on the last day of the month
          */
         if (nextMonthDay.getTime() !== lastMonthDay.getTime()) {
-          nextMonthDay = getTomorrow(nextMonthDay);
+          nextMonthDay = getTomorrowsDate(nextMonthDay);
         }
       } else {
         day = null;
