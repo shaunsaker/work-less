@@ -6,7 +6,7 @@ const IMAGE_SIZE = 24;
 
 const styles = {
   container: Styles.createViewStyle({
-    width: 240,
+    alignSelf: 'stretch',
     borderWidth: rhythm.bw,
     borderColor: colors.primaryText,
     borderRadius: rhythm.br,

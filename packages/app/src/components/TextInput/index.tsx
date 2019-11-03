@@ -9,12 +9,12 @@ import TextInput from './TextInput';
 
 interface Props {
   label: string;
+  value: string;
   handleChange: (value: string) => void;
   handleSubmit: (value: string) => void;
 }
 
-const TextInputContainer: React.FC<Props> = ({ label, handleChange, handleSubmit }) => {
-  const [value, setValue] = useState('');
+const TextInputContainer: React.FC<Props> = ({ label, value, handleChange, handleSubmit }) => {
   const [isFocussed, setIsFocussed] = useState(false);
   let textInput: TextInputComponent; // aka the ref
   const initialValue = 0;
@@ -53,7 +53,6 @@ const TextInputContainer: React.FC<Props> = ({ label, handleChange, handleSubmit
     }
   };
   const onChangeText = (text: string) => {
-    setValue(text);
     handleChange(text);
   };
   const onSubmit = () => {

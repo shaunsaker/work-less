@@ -10,6 +10,7 @@ const styles = {
     alignSelf: 'stretch',
     marginBottom: rhythm.vt,
   }),
+  resultsContainer: Styles.createViewStyle({}),
   countryButtonContainer: Styles.createViewStyle({
     marginBottom: rhythm.vt,
   }),

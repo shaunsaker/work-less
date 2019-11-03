@@ -3,19 +3,26 @@ import { View } from 'reactxp';
 
 import ASSETS from '../../assets';
 import styles from './styles';
+import Country from '../../types/Country';
 
 import Layout from '../../components/Layout';
 import TextInput from '../../components/TextInput';
 import CountryButton from '../../components/CountryButton';
 
 interface Props {
+  country: string;
+  countries: Country[];
+  handleSelectCountry: (country: Country) => void;
   handleChangeCountry: (text: string) => void;
   handleSubmit: () => void;
   handleFooterLinkPress: Function;
 }
 
 const SelectCountry: React.FC<Props> = ({
+  country,
+  countries,
   handleChangeCountry,
+  handleSelectCountry,
   handleSubmit,
   handleFooterLinkPress,
 }) => {
@@ -42,9 +49,21 @@ const SelectCountry: React.FC<Props> = ({
         <View style={styles.textInputContainer}>
           <TextInput
             label={textInputLabel}
+            value={country}
             handleChange={handleChangeCountry}
             handleSubmit={handleSubmit}
           />
+        </View>
+
+        <View style={styles.resultsContainer}>
+          {countries &&
+            countries.map((item) => {
+              return (
+                <View style={styles.countryButtonContainer}>
+                  <CountryButton {...item} handlePress={() => handleSelectCountry(item)} />
+                </View>
+              );
+            })}
         </View>
       </View>
     </Layout>
