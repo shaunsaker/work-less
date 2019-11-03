@@ -1,6 +1,6 @@
 import { Styles, Platform, UserInterface } from 'reactxp';
 
-import { rhythm } from '../../styleConstants';
+import { rhythm, shadows } from '../../styleConstants';
 import isIPhoneX from '../../helpers/isIPhoneX';
 
 const isIOS = Platform.getType() === 'ios';
@@ -11,14 +11,22 @@ const { height: WINDOW_HEIGHT } = UserInterface.measureWindow();
 const HEADER_HEIGHT = 60;
 
 const styles = {
-  container: Styles.createViewStyle({
-    height: WINDOW_HEIGHT,
+  wrapper: Styles.createViewStyle({
+    minHeight: WINDOW_HEIGHT,
+  }),
+  container: Styles.createScrollViewStyle({
     backgroundColor: 'white',
+  }),
+  headerBarContainer: Styles.createViewStyle({
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    left: 0,
     paddingTop: STATUS_BAR_HEIGHT,
   }),
   contentContainer: Styles.createViewStyle({
-    height: WINDOW_HEIGHT - HEADER_HEIGHT,
-    paddingTop: VERTICAL_PADDING, // paddingBottom comes from buttonContainer
+    minHeight: WINDOW_HEIGHT,
+    paddingTop: VERTICAL_PADDING + HEADER_HEIGHT, // paddingBottom comes from buttonContainer
     flexDirection: 'row',
     alignItems: 'center',
   }),
@@ -30,7 +38,7 @@ const styles = {
     borderRadius: rhythm.br,
   }),
   titleTextContainer: Styles.createViewStyle({
-    marginBottom: rhythm.vt,
+    marginBottom: rhythm.vt * 2,
   }),
   imageContainer: Styles.createViewStyle({
     position: 'absolute',

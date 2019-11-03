@@ -7,6 +7,7 @@ const styles = {
     fontFamily: 'Roboto-Regular',
     fontSize: 16,
     color: colors.primaryText,
+    fontWeight: '500',
   }),
 };
 
