@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TextInput as TextInputComponent, Animated, Styles } from 'reactxp';
 
 import animate from '../../helpers/animate';
@@ -71,6 +71,17 @@ const TextInputContainer: React.FC<Props> = ({ label, value, handleChange, handl
       setIsFocussed(false);
     }
   };
+
+  /*
+   * If a value came in and the value was ""
+   * but the input is not focussed, ie. externally controlled value
+   * Animate the label
+   */
+  useEffect(() => {
+    if (value && !isFocussed) {
+      animate(animatedValue, finalValue);
+    }
+  }, [value]);
 
   return (
     <TextInput
