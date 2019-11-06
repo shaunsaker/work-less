@@ -8,72 +8,61 @@ import * as fs from 'fs';
  * This is done because ReactXP does not have built in support for
  * local URIs on the web.
  */
+const initialDirectoryPath = path.join(__dirname, '../../app/src/assets/images');
+console.log(initialDirectoryPath);
 
-console.log(__dirname);
+/*
+ * We first need to collect all of the images (including subdirs)
+ * and attach their paths
+ * Then we can iterate over that to create our index files
+ */
+interface File {
+  name: string;
+  path: string;
+}
 
-// const directoryPath = path.join(__dirname, 'images');
+const filesArray: File[] = [];
 
-// fs.readdir(directoryPath, (error, files) => {
-//   if (error) {
-//     console.log(error);
-//   } else {
-//     let indexFile = '';
-//     const indexFileName = 'index.ts';
+const getFiles = (directoryPath: string) => {
+  fs.readdir(directoryPath, (error, files) => {
+    if (error) {
+      console.log(error);
+    } else {
+      files.forEach((fileName) => {
+        console.log(fileName);
+        /*
+         * Test if the file is a folder
+         * and recurse, passing the new dir in
+         */
+        const filePath = path.join(directoryPath, fileName);
 
-//     /*
-//      * Create the require statements
-//      */
-//     files.forEach((fileName) => {
-//       if (fileName !== indexFileName) {
-//         const code = fileName.split('.')[0];
-//         const line = `const ${code}Image = require('./${fileName}');\n`;
+        fs.lstat(filePath, (error, stats) => {
+          if (error) {
+            console.log(error);
+          } else {
+            const isDirectory = stats.isDirectory();
 
-//         indexFile += line;
-//       }
-//     });
+            if (isDirectory) {
+              /*
+               * Recurse using the filePath as the directoryPath
+               */
+              getFiles(filePath);
+            } else {
+              const file = {
+                name: fileName,
+                path: filePath, // TODO: Need the relative file path
+              };
+              console.log(file);
 
-//     /*
-//      * Create the interface
-//      */
-//     indexFile += '\n';
-//     indexFile += 'interface ICountries {\n';
-//     indexFile += '[key: string]: string;\n';
-//     indexFile += '};\n';
+              filesArray.push(file);
+            }
+          }
+        });
+      });
+    }
+  });
+};
 
-//     /*
-//      * Create the object
-//      */
-//     indexFile += '\n';
-//     indexFile += 'const countries: ICountries = {\n';
+getFiles(initialDirectoryPath);
 
-//     files.forEach((fileName) => {
-//       if (fileName !== indexFileName) {
-//         const code = fileName.split('.')[0];
-//         const line = `'${code}': ${code}Image,\n`;
-
-//         indexFile += line;
-//       }
-//     });
-
-//     indexFile += '};\n';
-//     indexFile += '\n';
-
-//     /*
-//      * Create the export
-//      */
-//     indexFile += 'export default countries;\n';
-
-//     /*
-//      * Write the file
-//      */
-//     const indexFilePath = path.join(directoryPath, indexFileName);
-
-//     fs.writeFile(indexFilePath, indexFile, (error) => {
-//       if (error) {
-//         console.log(error);
-//       } else {
-//         console.log('Success.');
-//       }
-//     });
-//   }
-// });
+// TODO: How do we wait for all files before continuing?
