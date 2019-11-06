@@ -14,7 +14,7 @@ interface Props {
   handleSubmit: (value: string) => void;
 }
 
-const TextInputContainer: React.FC<Props> = ({ label, value, handleChange, handleSubmit }) => {
+const TextInputContainer: React.FC<Props> = ({ label, value = '', handleChange, handleSubmit }) => {
   const [isFocussed, setIsFocussed] = useState(false);
   let textInput: TextInputComponent; // aka the ref
   const initialValue = 0;
