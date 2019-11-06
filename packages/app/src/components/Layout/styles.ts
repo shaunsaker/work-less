@@ -13,10 +13,9 @@ const HEADER_HEIGHT = 60;
 const styles = {
   wrapper: Styles.createViewStyle({
     minHeight: WINDOW_HEIGHT,
-  }),
-  container: Styles.createScrollViewStyle({
     backgroundColor: 'white',
   }),
+  container: Styles.createScrollViewStyle({}),
   headerBarContainer: Styles.createViewStyle({
     position: 'absolute',
     top: 0,

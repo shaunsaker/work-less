@@ -1,6 +1,6 @@
 import { DOMAIN } from '../config';
 
-export interface IAssets {
+export interface Assets {
   logo: string;
   home: string;
   selectCountry: string;
@@ -10,7 +10,7 @@ export interface IAssets {
 
 const getImageUrl = (image: string) => `${DOMAIN}/assets/images/${image}.png`;
 
-const Assets: IAssets = {
+const Assets: Assets = {
   logo: getImageUrl('logo'),
   home: getImageUrl('home'),
   selectCountry: getImageUrl('select-country'),

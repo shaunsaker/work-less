@@ -6,10 +6,15 @@ import Navigator, {
 } from 'reactxp-navigation';
 
 import Home from './pages/Home';
-import Test from './pages/Test';
+import SelectCountry from './pages/SelectCountry';
+import InputLeaveDays from './pages/InputLeaveDays';
+import Results from './pages/Results';
 
 export enum routeIds {
   Home,
+  SelectCountry,
+  InputLeaveDays,
+  Results,
   Support,
   Terms,
   Privacy,
@@ -58,14 +63,14 @@ export class App extends Component<CommonProps, Stateless> {
       case routeIds.Home:
         return <Home {...routeProps} />;
 
-      case routeIds.Support:
-        return <Test {...routeProps} />;
+      case routeIds.SelectCountry:
+        return <SelectCountry {...routeProps} />;
 
-      case routeIds.Terms:
-        return <Test {...routeProps} />;
+      case routeIds.InputLeaveDays:
+        return <InputLeaveDays {...routeProps} />;
 
-      case routeIds.Privacy:
-        return <Test {...routeProps} />;
+      case routeIds.Results:
+        return <Results {...routeProps} />;
     }
 
     return null;
