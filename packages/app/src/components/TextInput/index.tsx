@@ -9,7 +9,7 @@ import TextInput from './TextInput';
 
 interface Props {
   label: string;
-  value: string;
+  value?: string;
   handleChange: (value: string) => void;
   handleSubmit: (value: string) => void;
 }
