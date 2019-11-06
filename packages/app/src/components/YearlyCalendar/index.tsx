@@ -1,15 +1,10 @@
 import React from 'react';
 
 import YearlyCalendar from './YearlyCalendar';
-
-export interface SignificantDate {
-  date: Date;
-  isPrimary?: boolean;
-  isSecondary?: boolean;
-}
+import DateOfSignificance from '../../types/DateOfSignificance';
 
 interface Props {
-  datesOfSignificance?: SignificantDate[];
+  datesOfSignificance?: DateOfSignificance[];
 }
 
 const YearlyCalendarContainer: React.FC<Props> = ({ datesOfSignificance }) => {

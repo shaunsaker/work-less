@@ -5,11 +5,11 @@ import getTomorrowsDate from './getTomorrowsDate';
 import areDatesOnSameDay from './areDatesOnSameDay';
 import DAYS from '../../days';
 import { Props as Day } from '../../CalendarItem';
-import { DateObject } from '../..';
+import DateOfSignificance from '../../../../../types/DateOfSignificance';
 
 const WEEKEND_DAYS = [0, 6];
 
-const getWeeks = (date: Date, datesOfSignificance?: DateObject[]) => {
+const getWeeks = (date: Date, datesOfSignificance?: DateOfSignificance[]) => {
   const firstMonthDay = getFirstMonthDay(date);
   const lastMonthDay = getLastMonthDay(date);
   const numberOfWeeksTheMonthFallsInto = getNumberOfWeeksOfMonth(date);
@@ -38,7 +38,6 @@ const getWeeks = (date: Date, datesOfSignificance?: DateObject[]) => {
           const significantDate = datesOfSignificance.filter((item) =>
             areDatesOnSameDay(item.date, nextMonthDay),
           )[0];
-          // console.log({ datesOfSignificance, significantDate });
 
           if (significantDate) {
             extraProps = {

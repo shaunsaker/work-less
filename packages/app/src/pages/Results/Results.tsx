@@ -6,11 +6,12 @@ import styles from './styles';
 
 import Layout from '../../components/Layout';
 import YearlyCalendar from '../../components/YearlyCalendar';
+import DateOfSignificance from '../../types/DateOfSignificance';
 
 interface Props {
   daysOff: number;
-  datesOfSignificance: [];
-  handleSubmit: () => void;
+  datesOfSignificance: DateOfSignificance[];
+  handleShare: () => void;
   handleBack: () => void;
   handleFooterLinkPress: Function;
 }
@@ -18,18 +19,18 @@ interface Props {
 const Results: React.FC<Props> = ({
   daysOff,
   datesOfSignificance,
-  handleSubmit,
+  handleShare,
   handleBack,
   handleFooterLinkPress,
 }) => {
-  const titleHighlightText = `${daysOff}`;
-  const titleText = `Great success! ${titleHighlightText} days off!`;
+  const titleHighlightText = `${daysOff} consecutive days`;
+  const titleText = `Great success!\n${titleHighlightText}\noff!`;
   const paragraphText = 'You should take leave on the following days:';
   const imageSource = ASSETS.results;
   const buttons = [
     {
       text: 'SHARE THIS',
-      handlePress: handleSubmit,
+      handlePress: handleShare,
     },
     {
       text: 'GO BACK',

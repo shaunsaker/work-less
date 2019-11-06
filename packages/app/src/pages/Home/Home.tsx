@@ -10,7 +10,7 @@ interface Props {
 }
 
 const Home: React.FC<Props> = ({ handleSubmit, handleFooterLinkPress }) => {
-  const titleHighlightText = 'consecutive time-off';
+  const titleHighlightText = 'consecutive time off';
   const titleText = `Maximise your ${titleHighlightText}`;
   const paragraphText =
     'Our app will auto-magically calculate the best configuration of leave days to maximise your consecutive time off, based on your country’s leave days.\n\nAlso, it’s absolutely free. Sweet deal!';

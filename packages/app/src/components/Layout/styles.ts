@@ -62,12 +62,13 @@ const styles = {
   }),
   buttonsContainer: Styles.createViewStyle({
     alignItems: 'flex-start',
-    paddingBottom: VERTICAL_PADDING, // add it here for shadow
     flexDirection: 'row',
     flexWrap: 'wrap',
+    paddingBottom: VERTICAL_PADDING * 2, // add it here for shadow
   }),
   buttonContainer: Styles.createViewStyle({
     marginRight: rhythm.hz,
+    overflow: 'visible', // necessary for shadow to appear
   }),
 };
 
