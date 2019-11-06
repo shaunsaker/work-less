@@ -4,11 +4,11 @@ import { View } from 'reactxp';
 import styles from './styles';
 
 import Calendar from './Calendar';
-import { DateObject } from './Calendar';
+import DateOfSignificance from '../../types/DateOfSignificance';
 
 interface Props {
   months: Date[];
-  datesOfSignificance?: DateObject[];
+  datesOfSignificance?: DateOfSignificance[];
 }
 
 const YearlyCalendar: React.FC<Props> = ({ months, datesOfSignificance }) => {

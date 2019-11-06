@@ -3,16 +3,11 @@ import React from 'react';
 import Calendar from './Calendar';
 import getMonthYearString from './helpers/getMonthYearString';
 import getWeeks from './helpers/getWeeks';
-
-export interface DateObject {
-  date: Date;
-  isPrimary?: boolean;
-  isSecondary?: boolean;
-}
+import DateOfSignificance from '../../../types/DateOfSignificance';
 
 interface Props {
   date: Date;
-  datesOfSignificance?: DateObject[];
+  datesOfSignificance?: DateOfSignificance[];
 }
 
 const CalendarContainer: React.FC<Props> = ({ date, datesOfSignificance }) => {
