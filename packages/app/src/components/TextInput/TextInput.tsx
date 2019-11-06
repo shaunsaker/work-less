@@ -5,7 +5,7 @@ import styles from './styles';
 
 interface Props {
   label: string;
-  value: string;
+  value?: string;
   labelContainerStyles: Types.AnimatedViewStyleRuleSet;
   labelStyles: Types.AnimatedTextStyleRuleSet;
   handleRef: (element: TextInputComponent) => void;
