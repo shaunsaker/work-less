@@ -10,7 +10,7 @@ interface Props {
 
 const HomeContainer: React.FC<Props> = ({ handleNavigate }) => {
   const onSubmit = () => {
-    handleNavigate(routeIds.Home);
+    handleNavigate(routeIds.SelectCountry);
   };
 
   return <Home handleSubmit={onSubmit} handleFooterLinkPress={handleNavigate} />;

@@ -41,7 +41,7 @@ export class App extends Component<CommonProps, Stateless> {
   private onNavigate = (routeId: number) => {
     if (this.navigator) {
       this.navigator.push({
-        sceneConfigType: NavigatorTypes.NavigatorSceneConfigType.FloatFromBottom,
+        sceneConfigType: NavigatorTypes.NavigatorSceneConfigType.FloatFromRight,
         routeId,
       });
     }
