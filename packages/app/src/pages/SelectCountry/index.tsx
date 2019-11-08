@@ -5,12 +5,12 @@ import SelectCountry from './SelectCountry';
 import Country from '../../types/Country';
 
 interface Props {
-  countries: Country[];
+  countries?: Country[];
   handleNavigate: Function;
   handleBack?: () => void;
 }
 
-const SelectCountryContainer: React.FC<Props> = ({ countries, handleNavigate }) => {
+const SelectCountryContainer: React.FC<Props> = ({ countries = [], handleNavigate }) => {
   const [country, setCountry] = useState('');
   const onChangeCountry = (text: string) => {
     setCountry(text);
