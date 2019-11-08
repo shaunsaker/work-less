@@ -7,10 +7,14 @@ import Country from '../../types/Country';
 interface Props {
   countries?: Country[];
   handleNavigate: Function;
-  handleBack?: () => void;
+  handleBack: () => void;
 }
 
-const SelectCountryContainer: React.FC<Props> = ({ countries = [], handleNavigate }) => {
+const SelectCountryContainer: React.FC<Props> = ({
+  countries = [],
+  handleNavigate,
+  handleBack,
+}) => {
   const [country, setCountry] = useState('');
   const onChangeCountry = (text: string) => {
     setCountry(text);
@@ -52,6 +56,7 @@ const SelectCountryContainer: React.FC<Props> = ({ countries = [], handleNavigat
       handleChangeCountry={onChangeCountry}
       handleSelectCountry={onSelectCountry}
       handleSubmit={onSubmit}
+      handleBack={handleBack}
       handleFooterLinkPress={handleNavigate}
     />
   );

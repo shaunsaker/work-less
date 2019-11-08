@@ -16,6 +16,7 @@ interface Props {
   handleSelectCountry: (country: Country) => void;
   handleChangeCountry: (text: string) => void;
   handleSubmit: () => void;
+  handleBack: () => void;
   handleFooterLinkPress: Function;
 }
 
@@ -26,6 +27,7 @@ const SelectCountry: React.FC<Props> = ({
   handleChangeCountry,
   handleSelectCountry,
   handleSubmit,
+  handleBack,
   handleFooterLinkPress,
 }) => {
   const titleHighlightText = 'country';
@@ -37,6 +39,11 @@ const SelectCountry: React.FC<Props> = ({
       text: 'SUBMIT',
       isDisabled: isSubmitDisabled,
       handlePress: handleSubmit,
+    },
+    {
+      text: 'GO BACK',
+      isSecondary: true,
+      handlePress: handleBack,
     },
   ];
 
