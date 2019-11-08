@@ -17,10 +17,10 @@
     "env:dev": "firebase use development",
     "env:prod": "firebase use production",
     "copy-images": "cp -R ./src/assets/images ./dist-web",
-    "build:web": "cross-env platform=web webpack --config=web/webpack/prod.js --progress --colors --mode=production && yarn run copy-images",
+    "build:web": "cross-env platform=web webpack --config=web/webpack/prod.js --progress --colors --mode=production",
     "build:web:dev": "yarn run env:dev && yarn run build:web",
     "build:web:prod": "yarn run env:prod && yarn run build:web",
-    "deploy:web": "firebase deploy --only hosting",
+    "deploy:web": "yarn run copy-images && firebase deploy --only hosting",
     "deploy:web:dev": "yarn run env:dev && yarn run deploy:web",
     "deploy:web:prod": "yarn run env:prod && yarn run deploy:web"
   },

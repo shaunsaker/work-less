@@ -89,9 +89,10 @@ const getFiles = async (directoryPath: string, recursing?: boolean) => {
      */
     let index = '';
     index += "import Assets from './Assets'\n";
-    index += "import { DOMAIN } from '../config'\n";
+    index += "import { ASSETS_DOMAIN } from '../config'\n";
     index += '\n';
-    index += 'const getImageUrl = (relativePath: string) => `${DOMAIN}/images${relativePath}`;\n';
+    index +=
+      'const getImageUrl = (relativePath: string) => `${ASSETS_DOMAIN}/images${relativePath}`;\n';
     index += '\n';
     index += 'const assets: Assets = {\n';
 
