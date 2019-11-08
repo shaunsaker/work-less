@@ -29,7 +29,11 @@ const Button: React.FC<Props> = ({ text, isSecondary, isDisabled, handlePress })
     <ButtonWithBgHoverEffect
       color={color}
       amount={amount}
-      style={[styles.container, isSecondary ? styles.secondaryContainer : {}]}
+      style={[
+        styles.container,
+        isSecondary ? styles.secondaryContainer : {},
+        isDisabled ? styles.disabledContainer : {},
+      ]}
       accessibilityLabel={text}
       disabled={isDisabled}
       onPress={handlePress}
