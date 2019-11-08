@@ -1,7 +1,7 @@
 import Assets from './Assets'
-import { DOMAIN } from '../config'
+import { ASSETS_DOMAIN } from '../config'
 
-const getImageUrl = (relativePath: string) => `${DOMAIN}/images${relativePath}`;
+const getImageUrl = (relativePath: string) => `${ASSETS_DOMAIN}/images${relativePath}`;
 
 const assets: Assets = {
 'ad': getImageUrl('/countries/ad.png'),
