@@ -22,6 +22,7 @@
     "app:deploy:web:prod": "yarn workspace app deploy:web:prod",
     "app:test": "yarn workspace app test",
     "assets:start": "yarn workspace assets-generator start",
+    "assets:do": "yarn workspace assets-generator do",
     "database:backup": "yarn workspace database backup",
     "database:restore:dev": "yarn workspace database restore:dev",
     "database:restore:prod": "yarn workspace database restore:prod",

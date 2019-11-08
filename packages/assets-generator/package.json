@@ -6,7 +6,8 @@
     "build": "tsc",
     "build:watch": "tsc --watch",
     "watch": "nodemon ./dist/index.js",
-    "start": "concurrently \"yarn run build:watch\" \"sleep 1 && yarn run watch\""
+    "start": "concurrently \"yarn run build:watch\" \"sleep 1 && yarn run watch\"",
+    "do": "tsc && node ./dist/index.js"
   },
   "main": "dist/index.js",
   "dependencies": {},
