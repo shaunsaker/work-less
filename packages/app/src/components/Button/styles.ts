@@ -16,6 +16,9 @@ const styles = {
   secondaryContainer: Styles.createButtonStyle({
     ...shadows.small,
   }),
+  disabledContainer: Styles.createButtonStyle({
+    ...shadows.none,
+  }),
   text: Styles.createTextStyle({
     fontFamily: 'Roboto-Bold',
     fontSize: 16,
