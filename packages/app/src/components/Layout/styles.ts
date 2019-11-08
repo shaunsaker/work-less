@@ -14,6 +14,7 @@ const styles = {
   wrapper: Styles.createViewStyle({
     minHeight: WINDOW_HEIGHT,
     backgroundColor: 'white',
+    flex: 1,
   }),
   container: Styles.createScrollViewStyle({}),
   headerBarContainer: Styles.createViewStyle({
