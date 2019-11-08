@@ -257,7 +257,7 @@ const LOGO = require('./images/logo.png');
 const RESULTS = require('./images/results.png');
 const SELECT_COUNTRY = require('./images/select-country.png');
 
-const Assets: Assets = {
+const assets: Assets = {
 'ad': AD,
 'ae': AE,
 'af': AF,
@@ -516,4 +516,4 @@ const Assets: Assets = {
 'selectCountry': SELECT_COUNTRY,
 }
 
-export default Assets;
+export default assets;

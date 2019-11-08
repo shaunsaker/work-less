@@ -91,10 +91,9 @@ const getFiles = async (directoryPath: string, recursing?: boolean) => {
     index += "import Assets from './Assets'\n";
     index += "import { DOMAIN } from '../config'\n";
     index += '\n';
-    index +=
-      'const getImageUrl = (relativePath: string) => `${DOMAIN}/images/${relativePath}.png`;\n';
+    index += 'const getImageUrl = (relativePath: string) => `${DOMAIN}/images${relativePath}`;\n';
     index += '\n';
-    index += 'const Assets: Assets = {\n';
+    index += 'const assets: Assets = {\n';
 
     filesArray.forEach((file: File) => {
       const { id, relativePath } = file;
@@ -104,7 +103,7 @@ const getFiles = async (directoryPath: string, recursing?: boolean) => {
 
     index += '}\n';
     index += '\n';
-    index += 'export default Assets;\n';
+    index += 'export default assets;\n';
 
     let indexNative = '';
     indexNative += "import Assets from './Assets'\n";
@@ -117,7 +116,7 @@ const getFiles = async (directoryPath: string, recursing?: boolean) => {
     });
 
     indexNative += '\n';
-    indexNative += 'const Assets: Assets = {\n';
+    indexNative += 'const assets: Assets = {\n';
 
     filesArray.forEach((file: File) => {
       const { id } = file;
@@ -127,10 +126,14 @@ const getFiles = async (directoryPath: string, recursing?: boolean) => {
 
     indexNative += '}\n';
     indexNative += '\n';
-    indexNative += 'export default Assets;\n';
+    indexNative += 'export default assets;\n';
 
     let assets = '';
-    assets += 'interface Assets {\n';
+    assets += 'interface AssetField {\n';
+    assets += '[key: string]: string;\n';
+    assets += '}\n';
+    assets += '\n';
+    assets += 'interface Assets extends AssetField {\n';
 
     filesArray.forEach((file: File) => {
       const { id } = file;
