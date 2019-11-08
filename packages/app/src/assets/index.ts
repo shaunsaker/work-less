@@ -1,9 +1,9 @@
 import Assets from './Assets'
 import { DOMAIN } from '../config'
 
-const getImageUrl = (relativePath: string) => `${DOMAIN}/images/${relativePath}.png`;
+const getImageUrl = (relativePath: string) => `${DOMAIN}/images${relativePath}`;
 
-const Assets: Assets = {
+const assets: Assets = {
 'ad': getImageUrl('/countries/ad.png'),
 'ae': getImageUrl('/countries/ae.png'),
 'af': getImageUrl('/countries/af.png'),
@@ -262,4 +262,4 @@ const Assets: Assets = {
 'selectCountry': getImageUrl('/select-country.png'),
 }
 
-export default Assets;
+export default assets;

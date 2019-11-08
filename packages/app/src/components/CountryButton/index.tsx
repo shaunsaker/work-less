@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Image, Text } from 'reactxp';
 
 import styles from './styles';
-import COUNTRIES from '../../assets/images/countries';
+import ASSETS from '../../assets';
 import Country from '../../types/Country';
 
 import ButtonWithBgHoverEffect from '../ButtonWithBgHoverEffect';
@@ -12,7 +12,7 @@ export interface Props extends Country {
 }
 
 const CountryButton: React.FC<Props> = ({ id, name, handlePress }) => {
-  const imageSrc = COUNTRIES[id];
+  const imageSrc = ASSETS[id];
 
   return (
     <ButtonWithBgHoverEffect
