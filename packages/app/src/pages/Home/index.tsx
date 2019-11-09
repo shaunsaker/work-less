@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Home from './Home';
-import { routeIds } from '../../App';
+import routes from '../../Router/routes';
 
 interface Props {
   handleNavigate: Function;
@@ -10,7 +10,7 @@ interface Props {
 
 const HomeContainer: React.FC<Props> = ({ handleNavigate }) => {
   const onSubmit = () => {
-    handleNavigate(routeIds.SelectCountry);
+    handleNavigate(routes.selectCountry.id);
   };
 
   return <Home handleSubmit={onSubmit} handleFooterLinkPress={handleNavigate} />;
