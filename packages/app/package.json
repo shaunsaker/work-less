@@ -65,6 +65,7 @@
     "webpack-merge": "4.2.2"
   },
   "dependencies": {
+    "@reach/router": "^1.2.1",
     "@types/react-test-renderer": "^16.9.1",
     "color": "^3.1.2",
     "fuse.js": "^3.4.5",

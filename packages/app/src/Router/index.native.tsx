@@ -6,6 +6,7 @@ import Navigator, {
 } from 'reactxp-navigation';
 
 import routes from './routes';
+import Route from './types/Route';
 
 export class App extends Component<CommonProps, Stateless> {
   private navigator: Navigator | undefined;
@@ -25,11 +26,11 @@ export class App extends Component<CommonProps, Stateless> {
     }
   }
 
-  private onNavigate = (routeId: number) => {
+  private onNavigate = ({ id }: Route) => {
     if (this.navigator) {
       this.navigator.push({
         sceneConfigType: NavigatorTypes.NavigatorSceneConfigType.FloatFromRight,
-        routeId,
+        routeId: id,
       });
     }
   };
