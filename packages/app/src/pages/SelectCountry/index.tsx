@@ -3,11 +3,12 @@ import Fuse from 'fuse.js';
 
 import SelectCountry from './SelectCountry';
 import Country from '../../types/Country';
+import Page from '../../types/Page';
 
-interface Props {
+interface Props extends Page {}
+
+interface Props extends Page {
   countries?: Country[];
-  handleNavigate: Function;
-  handleBack: () => void;
 }
 
 const SelectCountryContainer: React.FC<Props> = ({

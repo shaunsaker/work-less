@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 
 import InputLeaveDays from './InputLeaveDays';
+import Page from '../../types/Page';
 
-interface Props {
-  handleNavigate: Function;
-  handleBack: () => void;
-}
+interface Props extends Page {}
 
 const InputLeaveDaysContainer: React.FC<Props> = ({ handleNavigate, handleBack }) => {
   const [leaveDays, setLeaveDays] = useState('');
