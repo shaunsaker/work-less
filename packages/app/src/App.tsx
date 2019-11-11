@@ -4,11 +4,12 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import { store, persistor } from './store';
 import Router from './Router';
+import Loading from './components/Loading';
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+      <PersistGate loading={Loading} persistor={persistor}>
         <Router />
       </PersistGate>
     </Provider>
