@@ -1,4 +1,5 @@
 interface Route {
+  name: string;
   component: any;
   path: string;
   id: number;

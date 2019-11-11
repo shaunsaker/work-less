@@ -1,21 +1,6 @@
-export interface Link {
-  text: string;
-  url: string;
-}
+import Route from '../../types/Route';
 
-const links: Link[] = [
-  {
-    text: 'Support',
-    url: '/support',
-  },
-  {
-    text: 'Terms',
-    url: '/terms',
-  },
-  {
-    text: 'Privacy',
-    url: '/privacy',
-  },
-];
+// TODO: routes is undefined here routes.support, routes.terms, routes.privacy
+const links: Route[] = [];
 
 export default links;
