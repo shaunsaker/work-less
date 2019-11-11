@@ -15,9 +15,11 @@ const FooterBar: React.FC<Props> = ({ handleLinkPress }) => {
     <View style={styles.container}>
       <View style={styles.linksContainer}>
         {LINKS.map((item) => {
+          const { name } = item;
+
           return (
-            <View key={item.text} style={styles.linkContainer}>
-              <Link text={item.text} handlePress={() => handleLinkPress(item.url)} />
+            <View key={name} style={styles.linkContainer}>
+              <Link text={name} handlePress={() => handleLinkPress(item)} />
             </View>
           );
         })}

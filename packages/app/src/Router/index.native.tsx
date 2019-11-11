@@ -6,7 +6,7 @@ import Navigator, {
 } from 'reactxp-navigation';
 
 import routes from './routes';
-import Route from './types/Route';
+import Route from '../types/Route';
 
 export class App extends Component<CommonProps, Stateless> {
   private navigator: Navigator | undefined;

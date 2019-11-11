@@ -2,7 +2,7 @@ import React from 'react';
 import { Router, navigate } from '@reach/router';
 
 import routes from './routes';
-import Route from './types/Route';
+import Route from '../types/Route';
 
 const RouterComponent: React.FC = () => {
   const onNavigate = (route: Route) => {
