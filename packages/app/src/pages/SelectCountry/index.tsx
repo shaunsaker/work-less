@@ -5,8 +5,6 @@ import SelectCountry from './SelectCountry';
 import Country from '../../types/Country';
 import Page from '../../types/Page';
 
-interface Props extends Page {}
-
 interface Props extends Page {
   countries?: Country[];
 }
