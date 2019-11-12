@@ -5,10 +5,9 @@ import Layout from '../../components/Layout';
 export interface Props {
   message: string;
   handleReloadPress: () => void;
-  handleFooterLinkPress: Function;
 }
 
-const Error: React.FC<Props> = ({ message, handleReloadPress, handleFooterLinkPress }) => {
+const Error: React.FC<Props> = ({ message, handleReloadPress }) => {
   return (
     <Layout
       titleText="Error"
@@ -21,7 +20,6 @@ const Error: React.FC<Props> = ({ message, handleReloadPress, handleFooterLinkPr
           handlePress: handleReloadPress,
         },
       ]}
-      handleFooterLinkPress={handleFooterLinkPress}
     />
   );
 };

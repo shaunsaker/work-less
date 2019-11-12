@@ -1,9 +1,9 @@
-interface Route {
+import { RouteProps } from 'react-router-dom';
+
+interface Route extends RouteProps {
   name: string;
-  component: any;
+  component: React.ComponentType<any>;
   path: string;
-  id: number;
-  default?: boolean; // Not sure if this actually works - it's supposed to be a "catch all" route
 }
 
 export default Route;

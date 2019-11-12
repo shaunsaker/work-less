@@ -1,12 +1,17 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import SelectCountry from '..';
+import SelectCountry from '../SelectCountry';
 import COUNTRIES from './countries';
 
-const handleNavigate = (link: string) => console.log(link);
-const handleBack = () => {};
+const func = () => {};
+const props = {
+  country: COUNTRIES[0].name,
+  countries: COUNTRIES,
+  handleSelectCountry: func,
+  handleChangeCountry: func,
+  handleSubmit: func,
+  handleBack: func,
+};
 
-storiesOf('Pages|SelectCountry', module).add('default', () => (
-  <SelectCountry countries={COUNTRIES} handleNavigate={handleNavigate} handleBack={handleBack} />
-));
+storiesOf('Pages|SelectCountry', module).add('default', () => <SelectCountry {...props} />);

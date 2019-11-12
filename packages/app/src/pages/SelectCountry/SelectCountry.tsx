@@ -12,12 +12,11 @@ import CountryButton from '../../components/CountryButton';
 interface Props {
   country: string;
   countries: Country[];
-  isSubmitDisabled: boolean;
+  isSubmitDisabled?: boolean;
   handleSelectCountry: (country: Country) => void;
   handleChangeCountry: (text: string) => void;
   handleSubmit: () => void;
   handleBack: () => void;
-  handleFooterLinkPress: Function;
 }
 
 const SelectCountry: React.FC<Props> = ({
@@ -28,7 +27,6 @@ const SelectCountry: React.FC<Props> = ({
   handleSelectCountry,
   handleSubmit,
   handleBack,
-  handleFooterLinkPress,
 }) => {
   const titleHighlightText = 'country';
   const titleText = `Select your ${titleHighlightText}`;
@@ -53,7 +51,6 @@ const SelectCountry: React.FC<Props> = ({
       titleHighlightText={titleHighlightText}
       imageSource={imageSource}
       buttons={buttons}
-      handleFooterLinkPress={handleFooterLinkPress}
     >
       <View style={styles.container}>
         <View style={styles.textInputContainer}>

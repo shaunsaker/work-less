@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
 import Fuse from 'fuse.js';
+import { withRouter, RouteComponentProps } from 'react-router';
 
 import SelectCountry from './SelectCountry';
 import Country from '../../types/Country';
 import Page from '../../types/Page';
+import routes from '../../Router/routes';
 
-interface Props extends Page {
+interface Props extends Page, RouteComponentProps {
   countries?: Country[];
 }
 
-const SelectCountryContainer: React.FC<Props> = ({
-  countries = [],
-  handleNavigate,
-  handleBack,
-}) => {
+const SelectCountryContainer: React.FC<Props> = ({ countries = [], history }) => {
   const [country, setCountry] = useState('');
   const onChangeCountry = (text: string) => {
     setCountry(text);
@@ -23,7 +21,12 @@ const SelectCountryContainer: React.FC<Props> = ({
 
     setCountry(name);
   };
-  const onSubmit = () => {};
+  const onSubmit = () => {
+    history.push(routes.inputLeaveDays.path);
+  };
+  const onBack = () => {
+    history.goBack();
+  };
 
   /*
    * Show all countries initially
@@ -55,10 +58,9 @@ const SelectCountryContainer: React.FC<Props> = ({
       handleChangeCountry={onChangeCountry}
       handleSelectCountry={onSelectCountry}
       handleSubmit={onSubmit}
-      handleBack={handleBack}
-      handleFooterLinkPress={handleNavigate}
+      handleBack={onBack}
     />
   );
 };
 
-export default SelectCountryContainer;
+export default withRouter(SelectCountryContainer);

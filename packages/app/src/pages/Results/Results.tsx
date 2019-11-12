@@ -13,16 +13,9 @@ interface Props {
   datesOfSignificance: DateOfSignificance[];
   handleShare: () => void;
   handleBack: () => void;
-  handleFooterLinkPress: Function;
 }
 
-const Results: React.FC<Props> = ({
-  daysOff,
-  datesOfSignificance,
-  handleShare,
-  handleBack,
-  handleFooterLinkPress,
-}) => {
+const Results: React.FC<Props> = ({ daysOff, datesOfSignificance, handleShare, handleBack }) => {
   const titleHighlightText = `${daysOff} consecutive days`;
   const titleText = `Great success!\n${titleHighlightText}\noff!`;
   const paragraphText = 'You should take leave on the following days:';
@@ -46,7 +39,6 @@ const Results: React.FC<Props> = ({
       paragraphText={paragraphText}
       imageSource={imageSource}
       buttons={buttons}
-      handleFooterLinkPress={handleFooterLinkPress}
     >
       <View style={styles.container}>
         <View style={styles.calendarContainer}>

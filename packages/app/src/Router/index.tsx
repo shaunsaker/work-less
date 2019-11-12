@@ -1,30 +1,24 @@
 import React from 'react';
-import { Router, navigate } from '@reach/router';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import routes from './routes';
-import Route from '../types/Route';
 
 const RouterComponent: React.FC = () => {
-  const onNavigate = (route: Route) => {
-    navigate(route.path);
-  };
-  const onBack = () => {
-    window.history.back();
-  };
-  const props = {
-    handleNavigate: onNavigate,
-    handleBack: onBack,
-  };
-
   return (
-    <Router style={{ width: '100%' }}>
-      {Object.keys(routes).map((key) => {
-        const routeInfo = routes[key];
-        const { component: Component } = routeInfo;
+    <BrowserRouter>
+      <Switch>
+        {Object.keys(routes).map((key) => {
+          const routeInfo = routes[key];
+          const { path, exact, component: Component } = routeInfo;
 
-        return <Component key={key} {...routeInfo} {...props} />;
-      })}
-    </Router>
+          return (
+            <Route key={key} path={path} exact={exact}>
+              <Component />
+            </Route>
+          );
+        })}
+      </Switch>
+    </BrowserRouter>
   );
 };
 

@@ -1,11 +1,14 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Results from '..';
+import Results from '../Results';
 
-const handleNavigate = (link: string) => console.log(link);
-const handleBack = () => {};
+const func = () => {};
+const props = {
+  daysOff: 42,
+  datesOfSignificance: [],
+  handleShare: func,
+  handleBack: func,
+};
 
-storiesOf('Pages|Results', module).add('default', () => (
-  <Results handleNavigate={handleNavigate} handleBack={handleBack} />
-));
+storiesOf('Pages|Results', module).add('default', () => <Results {...props} />);

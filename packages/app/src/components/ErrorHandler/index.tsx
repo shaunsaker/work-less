@@ -34,13 +34,7 @@ export class ErrorHandler extends React.Component<Props, State> {
     const { hasError, message } = this.state;
 
     if (hasError) {
-      return (
-        <Error
-          message={message}
-          handleReloadPress={this.onReloadPress}
-          handleFooterLinkPress={() => {}} // TODO: Need to pass in handleNavigate but can't do that on mobile
-        />
-      );
+      return <Error message={message} handleReloadPress={this.onReloadPress} />;
     }
 
     const { children } = this.props;

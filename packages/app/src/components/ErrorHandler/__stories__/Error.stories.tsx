@@ -5,12 +5,7 @@ import Error from '../Error';
 
 const message = 'We could not fetch your data.';
 const handleReloadPress = () => {};
-const handleFooterLinkPress = () => {};
 
-storiesOf('Pages|Error', module).add('default', () => (
-  <Error
-    message={message}
-    handleReloadPress={handleReloadPress}
-    handleFooterLinkPress={handleFooterLinkPress}
-  />
+storiesOf('Components|Error', module).add('default', () => (
+  <Error message={message} handleReloadPress={handleReloadPress} />
 ));
