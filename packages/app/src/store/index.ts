@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+import { Storage } from 'reactxp';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import { logger } from 'redux-logger';
 
@@ -20,7 +20,7 @@ const middleware = applyMiddleware(...middlewares);
 const persistConfig = {
   key: 'root',
   stateReconciler: autoMergeLevel2,
-  storage,
+  storage: Storage,
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
