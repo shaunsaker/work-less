@@ -255,6 +255,7 @@ const assets: Assets = {
 'za': getImageUrl('/countries/za.png'),
 'zm': getImageUrl('/countries/zm.png'),
 'zw': getImageUrl('/countries/zw.png'),
+'error': getImageUrl('/error.png'),
 'home': getImageUrl('/home.png'),
 'inputLeaveDays': getImageUrl('/input-leave-days.png'),
 'logo': getImageUrl('/logo.png'),

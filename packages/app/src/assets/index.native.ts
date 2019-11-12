@@ -251,6 +251,7 @@ const YT = require('./images/countries/yt.png');
 const ZA = require('./images/countries/za.png');
 const ZM = require('./images/countries/zm.png');
 const ZW = require('./images/countries/zw.png');
+const ERROR = require('./images/error.png');
 const HOME = require('./images/home.png');
 const INPUT_LEAVE_DAYS = require('./images/input-leave-days.png');
 const LOGO = require('./images/logo.png');
@@ -509,6 +510,7 @@ const assets: Assets = {
 'za': ZA,
 'zm': ZM,
 'zw': ZW,
+'error': ERROR,
 'home': HOME,
 'inputLeaveDays': INPUT_LEAVE_DAYS,
 'logo': LOGO,
