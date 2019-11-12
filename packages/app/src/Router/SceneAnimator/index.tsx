@@ -1,30 +1,19 @@
-import React, { useEffect } from 'react';
-import { Animated, Styles } from 'reactxp';
-
-import animate from '../../helpers/animate';
+import React from 'react';
 
 import styles from './styles';
 
+import Animator from '../../components/Animator';
+
 interface Props {
-  shouldAnimateIn: boolean;
   children: any;
 }
 
-const SceneAnimator: React.FC<Props> = ({ shouldAnimateIn, children }) => {
-  const initialOpacity = 0;
-  const finalOpacity = 1;
-  const animatedOpacityValue = Animated.createValue(initialOpacity);
-  const animatedStyle = Styles.createAnimatedViewStyle({
-    opacity: animatedOpacityValue,
-  });
-
-  useEffect(() => {
-    if (shouldAnimateIn) {
-      animate(animatedOpacityValue, finalOpacity);
-    }
-  }, [shouldAnimateIn]);
-
-  return <Animated.View style={[styles.container, animatedStyle]}>{children}</Animated.View>;
+const SceneAnimator: React.FC<Props> = ({ children }) => {
+  return (
+    <Animator type="opacity" shouldAnimateIn style={styles.container}>
+      {children}
+    </Animator>
+  );
 };
 
 export default SceneAnimator;

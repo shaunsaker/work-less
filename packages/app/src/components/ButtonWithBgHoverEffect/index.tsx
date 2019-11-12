@@ -1,8 +1,9 @@
-import React from 'react';
-import { Button, Animated, Styles, Types } from 'reactxp';
+import React, { useState } from 'react';
+import { Button, Types } from 'reactxp';
 
-import animate from '../../helpers/animate';
 import getFinalColor from './helpers/getFinalColor';
+
+import Animator from '../Animator';
 
 interface Props extends Types.ButtonProps {
   color: string;
@@ -13,29 +14,27 @@ const ButtonWithBgHoverEffect: React.FC<Props> = (props) => {
   const { color, amount, disabled, children } = props;
   const initialColor = color;
   const finalColor = getFinalColor(color, amount);
-  const initialValue = 0;
-  const finalValue = 1;
-  const animatedValue = Animated.createValue(initialValue);
-  const animatedBackgroundColor = Animated.interpolate(
-    animatedValue,
-    [initialValue, finalValue],
-    [initialColor, finalColor],
-  );
-  const animatedStyle = Styles.createAnimatedViewStyle({
-    backgroundColor: animatedBackgroundColor,
-  });
+  const [shouldAnimateIn, setShouldAnimateIn] = useState(false);
   const onHoverStart = () => {
     if (!disabled) {
-      animate(animatedValue, finalValue);
+      setShouldAnimateIn(true);
     }
   };
   const onHoverEnd = () => {
-    animate(animatedValue, initialValue);
+    setShouldAnimateIn(false);
   };
 
   return (
     <Button {...props} onHoverStart={onHoverStart} onHoverEnd={onHoverEnd}>
-      <Animated.View style={animatedStyle}>{children}</Animated.View>
+      <Animator
+        type="backgroundColor"
+        initialInterpolatedValue={initialColor}
+        finalInterpolatedValue={finalColor}
+        shouldAnimateIn={shouldAnimateIn}
+        shouldAnimateOut={!shouldAnimateIn}
+      >
+        {children}
+      </Animator>
     </Button>
   );
 };

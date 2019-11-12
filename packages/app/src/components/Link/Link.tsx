@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link as LinkComponent, Button, Types, Animated } from 'reactxp';
+import { Link as LinkComponent, Button, Types, Text } from 'reactxp';
 
 import styles from './styles';
 
@@ -10,7 +10,6 @@ export interface LinkType {
 }
 
 interface Props extends LinkType {
-  hoverStyles: Types.AnimatedTextStyleRuleSet;
   handleHoverStart?: () => void;
   handleHoverEnd?: () => void;
 }
@@ -18,12 +17,11 @@ interface Props extends LinkType {
 const Link: React.FC<Props> = ({
   url = '',
   text,
-  hoverStyles,
   handleHoverStart,
   handleHoverEnd,
   handlePress,
 }) => {
-  const textComponent = <Animated.Text style={[styles.text, hoverStyles]}>{text}</Animated.Text>;
+  const textComponent = <Text style={styles.text}>{text}</Text>;
   const sharedProps = {
     style: styles.container,
     accessibilityLabel: text,

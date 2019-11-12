@@ -1,33 +1,28 @@
-import React from 'react';
-import { Animated, Styles } from 'reactxp';
-
-import animate from '../../helpers/animate';
+import React, { useState } from 'react';
 
 import Link, { LinkType } from './Link';
+import Animator from '../Animator';
 
 interface Props extends LinkType {}
 
 const LinkContainer: React.FC<Props> = (props: Props) => {
-  const initialValue = 0.85;
-  const finalValue = 1;
-  const animatedValue = Animated.createValue(initialValue);
-  const animatedStyle = Styles.createAnimatedTextStyle({
-    opacity: animatedValue,
-  });
+  const [shouldAnimateIn, setShouldAnimateIn] = useState(false);
   const onHoverStart = () => {
-    animate(animatedValue, finalValue);
+    setShouldAnimateIn(true);
   };
   const onHoverEnd = () => {
-    animate(animatedValue, initialValue);
+    setShouldAnimateIn(false);
   };
 
   return (
-    <Link
-      {...props}
-      hoverStyles={animatedStyle}
-      handleHoverStart={onHoverStart}
-      handleHoverEnd={onHoverEnd}
-    />
+    <Animator
+      type="opacity"
+      initialValue={0.85}
+      shouldAnimateIn={shouldAnimateIn}
+      shouldAnimateOut={!shouldAnimateIn}
+    >
+      <Link {...props} handleHoverStart={onHoverStart} handleHoverEnd={onHoverEnd} />
+    </Animator>
   );
 };
 
