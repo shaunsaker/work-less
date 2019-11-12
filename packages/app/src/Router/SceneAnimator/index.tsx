@@ -6,21 +6,23 @@ import animate from '../../helpers/animate';
 import styles from './styles';
 
 interface Props {
-  shouldAnimate: boolean;
+  shouldAnimateIn: boolean;
   children: any;
 }
 
-const SceneAnimator: React.FC<Props> = ({ shouldAnimate, children }) => {
-  const animatedValue = Animated.createValue(0);
+const SceneAnimator: React.FC<Props> = ({ shouldAnimateIn, children }) => {
+  const initialOpacity = 0;
+  const finalOpacity = 1;
+  const animatedOpacityValue = Animated.createValue(initialOpacity);
   const animatedStyle = Styles.createAnimatedViewStyle({
-    opacity: animatedValue,
+    opacity: animatedOpacityValue,
   });
 
   useEffect(() => {
-    if (shouldAnimate) {
-      animate(animatedValue, 1);
+    if (shouldAnimateIn) {
+      animate(animatedOpacityValue, finalOpacity);
     }
-  }, [shouldAnimate]);
+  }, [shouldAnimateIn]);
 
   return <Animated.View style={[styles.container, animatedStyle]}>{children}</Animated.View>;
 };
