@@ -1,77 +1,23 @@
 import React from 'react';
-import { Component, CommonProps, Stateless } from 'reactxp';
-import Navigator, {
-  NavigatorDelegateSelector as DelegateSelector,
-  Types as NavigatorTypes,
-} from 'reactxp-navigation';
+import { NativeRouter, Route } from 'react-router-native';
 
 import routes from './routes';
-import Route from '../types/Route';
 
-export class App extends Component<CommonProps, Stateless> {
-  private navigator: Navigator | undefined;
+const RouterComponent: React.FC = () => {
+  return (
+    <NativeRouter>
+      {Object.keys(routes).map((key) => {
+        const routeInfo = routes[key];
+        const { path, exact, component: Component } = routeInfo;
 
-  private navigatorRef = (navigator: Navigator) => {
-    this.navigator = navigator;
-  };
+        return (
+          <Route key={key} path={path} exact={exact}>
+            <Component />
+          </Route>
+        );
+      })}
+    </NativeRouter>
+  );
+};
 
-  componentDidMount() {
-    if (this.navigator) {
-      this.navigator.immediatelyResetRouteStack([
-        {
-          routeId: routes.home.id,
-          sceneConfigType: NavigatorTypes.NavigatorSceneConfigType.Fade,
-        },
-      ]);
-    }
-  }
-
-  private onNavigate = ({ id }: Route) => {
-    if (this.navigator) {
-      this.navigator.push({
-        sceneConfigType: NavigatorTypes.NavigatorSceneConfigType.FloatFromRight,
-        routeId: id,
-      });
-    }
-  };
-
-  private onBack = () => {
-    if (this.navigator) {
-      this.navigator.pop();
-    }
-  };
-
-  private renderScene = (navigatorRoute: NavigatorTypes.NavigatorRoute) => {
-    const props = {
-      handleNavigate: this.onNavigate,
-      handleBack: this.onBack,
-    };
-    const routeKey = Object.keys(routes).filter(
-      (key) => routes[key].id === navigatorRoute.routeId,
-    )[0];
-
-    if (!routeKey) {
-      return null;
-    }
-
-    const { component: Component } = routes[routeKey];
-
-    if (Component) {
-      return <Component {...props} />;
-    }
-
-    return null;
-  };
-
-  render() {
-    return (
-      <Navigator
-        delegateSelector={DelegateSelector}
-        renderScene={this.renderScene}
-        ref={this.navigatorRef}
-      />
-    );
-  }
-}
-
-export default App;
+export default RouterComponent;

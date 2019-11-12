@@ -9,11 +9,10 @@ import TextInput from '../../components/TextInput';
 
 interface Props {
   leaveDays: string;
-  isSubmitDisabled: boolean;
+  isSubmitDisabled?: boolean;
   handleChangeLeaveDays: (text: string) => void;
   handleSubmit: () => void;
   handleBack: () => void;
-  handleFooterLinkPress: Function;
 }
 
 const InputLeaveDays: React.FC<Props> = ({
@@ -22,7 +21,6 @@ const InputLeaveDays: React.FC<Props> = ({
   handleChangeLeaveDays,
   handleSubmit,
   handleBack,
-  handleFooterLinkPress,
 }) => {
   const titleHighlightText = 'days of leave';
   const titleText = `How many ${titleHighlightText} do you have?`;
@@ -48,7 +46,6 @@ const InputLeaveDays: React.FC<Props> = ({
       imageSource={imageSource}
       buttons={buttons}
       alignCenter
-      handleFooterLinkPress={handleFooterLinkPress}
     >
       <View style={styles.container}>
         <View style={styles.textInputContainer}>

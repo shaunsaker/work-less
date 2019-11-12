@@ -6,10 +6,9 @@ import Layout from '../../components/Layout';
 
 interface Props {
   handleSubmit: () => void;
-  handleFooterLinkPress: Function;
 }
 
-const Home: React.FC<Props> = ({ handleSubmit, handleFooterLinkPress }) => {
+const Home: React.FC<Props> = ({ handleSubmit }) => {
   const titleHighlightText = 'consecutive time off';
   const titleText = `Maximise your ${titleHighlightText}`;
   const paragraphText =
@@ -30,7 +29,6 @@ const Home: React.FC<Props> = ({ handleSubmit, handleFooterLinkPress }) => {
       imageSource={imageSource}
       buttons={buttons}
       alignCenter
-      handleFooterLinkPress={handleFooterLinkPress}
     />
   );
 };

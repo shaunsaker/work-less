@@ -17,7 +17,6 @@ export interface Props {
   children?: Types.ReactNode;
   buttons?: ButtonProps[];
   alignCenter?: boolean;
-  handleFooterLinkPress: Function;
 }
 
 const Layout: React.FC<Props> = ({
@@ -28,7 +27,6 @@ const Layout: React.FC<Props> = ({
   children,
   buttons,
   alignCenter,
-  handleFooterLinkPress,
 }) => {
   const paragraphTextComponent = paragraphText ? (
     <View style={styles.paragraphTextContainer}>
@@ -66,7 +64,7 @@ const Layout: React.FC<Props> = ({
           </View>
         </View>
 
-        <FooterBar handleLinkPress={handleFooterLinkPress} />
+        <FooterBar />
       </ScrollView>
 
       <View style={styles.headerBarContainer}>

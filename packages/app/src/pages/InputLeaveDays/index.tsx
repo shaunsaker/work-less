@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
+import { withRouter, RouteComponentProps } from 'react-router';
 
 import InputLeaveDays from './InputLeaveDays';
 import Page from '../../types/Page';
+import routes from '../../Router/routes';
 
-interface Props extends Page {}
+interface Props extends Page, RouteComponentProps {}
 
-const InputLeaveDaysContainer: React.FC<Props> = ({ handleNavigate, handleBack }) => {
+const InputLeaveDaysContainer: React.FC<Props> = ({ history }) => {
   const [leaveDays, setLeaveDays] = useState('');
   const onChangeLeaveDays = (text: string) => {
     setLeaveDays(text);
   };
-  const onSubmit = () => {};
+  const onSubmit = () => {
+    history.push(routes.results.path);
+  };
+  const onBack = () => {
+    history.goBack();
+  };
 
   /*
    * Disable the submit button if leave days is not a number
@@ -23,10 +30,9 @@ const InputLeaveDaysContainer: React.FC<Props> = ({ handleNavigate, handleBack }
       isSubmitDisabled={isSubmitDisabled}
       handleChangeLeaveDays={onChangeLeaveDays}
       handleSubmit={onSubmit}
-      handleBack={handleBack}
-      handleFooterLinkPress={handleNavigate}
+      handleBack={onBack}
     />
   );
 };
 
-export default InputLeaveDaysContainer;
+export default withRouter(InputLeaveDaysContainer);

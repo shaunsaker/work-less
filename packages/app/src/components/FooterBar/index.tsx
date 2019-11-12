@@ -1,37 +1,17 @@
 import React from 'react';
-import { View, Text } from 'reactxp';
+import { withRouter, RouteComponentProps } from 'react-router';
 
-import styles from './styles';
-import LINKS from './links';
+import FooterBar from './FooterBar';
+import Route from '../../types/Route';
 
-import Link from '../Link';
+interface Props extends RouteComponentProps {}
 
-interface Props {
-  handleLinkPress: Function;
-}
+const FooterBarContainer: React.FC<Props> = ({ history }) => {
+  const onLinkPress = (link: Route) => {
+    history.push(link.path);
+  };
 
-const FooterBar: React.FC<Props> = ({ handleLinkPress }) => {
-  return (
-    <View style={styles.container}>
-      <View style={styles.linksContainer}>
-        {LINKS.map((item) => {
-          const { name } = item;
-
-          return (
-            <View key={name} style={styles.linkContainer}>
-              <Link text={name} handlePress={() => handleLinkPress(item)} />
-            </View>
-          );
-        })}
-      </View>
-
-      <View style={styles.illustrationTextContainer}>
-        <Text style={styles.text}>Illustration by </Text>
-
-        <Link url="https://icons8.com" text="Ouch.pics" />
-      </View>
-    </View>
-  );
+  return <FooterBar handleLinkPress={onLinkPress} />;
 };
 
-export default FooterBar;
+export default withRouter(FooterBarContainer);
