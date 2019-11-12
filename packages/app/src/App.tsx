@@ -10,7 +10,7 @@ import ErrorHandler from './components/ErrorHandler';
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <PersistGate loading={Loading} persistor={persistor}>
+      <PersistGate loading={<Loading />} persistor={persistor}>
         <ErrorHandler>
           <Router />
         </ErrorHandler>
