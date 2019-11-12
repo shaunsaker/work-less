@@ -15,7 +15,7 @@ const RouterComponent: React.FC = () => {
 
         return (
           <Route key={key} path={path} exact={exact}>
-            <SceneAnimator shouldAnimateIn>
+            <SceneAnimator>
               <Component />
             </SceneAnimator>
           </Route>
