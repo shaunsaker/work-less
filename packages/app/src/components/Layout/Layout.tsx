@@ -11,7 +11,7 @@ import FooterBar from '../../components/FooterBar';
 
 export interface Props {
   titleText: string;
-  titleHighlightText: string;
+  titleHighlightText?: string;
   paragraphText?: string;
   imageSource: string;
   children?: Types.ReactNode;
@@ -22,7 +22,7 @@ export interface Props {
 
 const Layout: React.FC<Props> = ({
   titleText,
-  titleHighlightText,
+  titleHighlightText = '',
   paragraphText,
   imageSource,
   children,

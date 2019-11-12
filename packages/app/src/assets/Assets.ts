@@ -254,6 +254,7 @@ interface Assets extends AssetField {
 'za': string;
 'zm': string;
 'zw': string;
+'error': string;
 'home': string;
 'inputLeaveDays': string;
 'logo': string;
