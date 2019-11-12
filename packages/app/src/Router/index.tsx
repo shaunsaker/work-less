@@ -14,18 +14,11 @@ const RouterComponent: React.FC = () => {
         const { path, exact, component: Component } = routeInfo;
 
         return (
-          <Route
-            key={key}
-            path={path}
-            exact={exact}
-            children={({ match }) => {
-              return (
-                <SceneAnimator shouldAnimate={!!match}>
-                  <Component />
-                </SceneAnimator>
-              );
-            }}
-          />
+          <Route key={key} path={path} exact={exact}>
+            <SceneAnimator shouldAnimateIn>
+              <Component />
+            </SceneAnimator>
+          </Route>
         );
       })}
     </RouterWrapper>
