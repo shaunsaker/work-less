@@ -102,7 +102,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.app"
+        applicationId "co.za.shaunsaker.workless"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
