@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link as LinkComponent, Button, Types, Text } from 'reactxp';
+import { Link as LinkComponent, Button, Text } from 'reactxp';
 
 import styles from './styles';
 

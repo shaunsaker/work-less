@@ -1,12 +1,22 @@
 import React, { useEffect } from 'react';
-import { Animated, Styles, Types } from 'reactxp';
+import { Animated, Styles } from 'reactxp';
 
 import animate from './animate';
 
-// TODO: width, height etc?
-type TransformTypes = 'translateY' | 'translateX' | 'scale' | 'rotate' | 'perspective';
-type StyleTypes = 'opacity' | 'backgroundColor';
-type Type = StyleTypes | TransformTypes;
+type Type =
+  | 'opacity'
+  | 'backgroundColor'
+  | 'width'
+  | 'height'
+  | 'top'
+  | 'right'
+  | 'bottom'
+  | 'left'
+  | 'translateY'
+  | 'translateX'
+  | 'scale'
+  | 'rotate'
+  | 'perspective';
 
 interface Props {
   type: Type;
@@ -14,13 +24,18 @@ interface Props {
   finalValue?: number;
   initialInterpolatedValue?: string;
   finalInterpolatedValue?: string;
+  duration?: number;
   shouldAnimateIn?: boolean;
   shouldAnimateOut?: boolean;
-  style?: Types.ViewStyle;
-  children: any;
+  style?: any; // FIXME:
+  children: any; // FIXME:
   handleAnimateIn?: () => void;
   handleAnimateOut?: () => void;
 }
+
+const TRANSFORM_TYPES = ['translateY', 'translateX', 'scale', 'rotate', 'perspective'];
+
+const NATIVELY_SUPPORTED_TYPES = ['opacity', ...TRANSFORM_TYPES]; // types that can use the native driver
 
 const Animator: React.FC<Props> = ({
   type,
@@ -28,6 +43,7 @@ const Animator: React.FC<Props> = ({
   finalValue = 1,
   initialInterpolatedValue,
   finalInterpolatedValue,
+  duration = 250,
   shouldAnimateIn,
   shouldAnimateOut,
   style,
@@ -35,8 +51,6 @@ const Animator: React.FC<Props> = ({
   handleAnimateIn,
   handleAnimateOut,
 }) => {
-  // TODO: isTransform
-  // TODO: useNativeDriver?
   const animatedValue = Animated.createValue(initialValue);
   const styleObject: { [key: string]: any } = {}; // FIXME: Key can only be one of type and result object could be an array if type is a transform
   const interpolatedValue =
@@ -47,19 +61,40 @@ const Animator: React.FC<Props> = ({
       [initialValue, finalValue],
       [initialInterpolatedValue, finalInterpolatedValue],
     );
-  styleObject[type] = interpolatedValue || animatedValue; // TODO: transform
+
+  if (TRANSFORM_TYPES.includes(type)) {
+    const transformObject: { [key: string]: any } = {}; // FIXME: Key can only be one of type and result object could be an array if type is a transform
+    transformObject[type] = animatedValue;
+    styleObject.transform = [transformObject];
+  } else {
+    styleObject[type] = interpolatedValue || animatedValue;
+  }
+
   const animatedStyle = Styles.createAnimatedViewStyle(styleObject);
+  const useNativeDriver = Boolean(NATIVELY_SUPPORTED_TYPES.includes(type));
 
   useEffect(() => {
     if (shouldAnimateIn) {
-      animate(animatedValue, finalValue, true, handleAnimateIn);
+      animate({
+        animatedValue,
+        toValue: finalValue,
+        useNativeDriver,
+        duration,
+        handleAnimateEnd: handleAnimateIn,
+      });
     }
   }, [shouldAnimateIn]);
 
   useEffect(() => {
     if (shouldAnimateOut) {
       animatedValue.setValue(finalValue); // for some reason it resets to initialValue by itself
-      animate(animatedValue, initialValue, true, handleAnimateOut);
+      animate({
+        animatedValue,
+        toValue: initialValue,
+        useNativeDriver,
+        duration,
+        handleAnimateEnd: handleAnimateOut,
+      });
     }
   }, [shouldAnimateOut]);
 
