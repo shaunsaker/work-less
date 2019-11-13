@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'reactxp';
+import { Button } from 'reactxp';
 
 import styles from './styles';
 import { rhythm } from '../../styleConstants';
@@ -9,9 +9,17 @@ import ParagraphText from '../ParagraphText';
 
 interface Props {
   message: string;
+  shouldAnimateOut?: boolean;
+  handlePress: () => void;
+  handleAnimateOut: () => void;
 }
 
-const Snackbar: React.FC<Props> = ({ message }) => {
+const Snackbar: React.FC<Props> = ({
+  message,
+  shouldAnimateOut,
+  handlePress,
+  handleAnimateOut,
+}) => {
   const bottom = rhythm.vt;
   const initialValue = 51 + bottom; // FIXME: height of snackbar could be different
 
@@ -21,13 +29,15 @@ const Snackbar: React.FC<Props> = ({ message }) => {
       initialValue={initialValue}
       finalValue={0}
       shouldAnimateIn
+      shouldAnimateOut={shouldAnimateOut}
       style={[styles.wrapper, { bottom }]}
+      handleAnimateOut={handleAnimateOut}
     >
-      <View style={styles.container}>
+      <Button onPress={handlePress} style={styles.container}>
         <ParagraphText bold style={styles.text}>
           {message}
         </ParagraphText>
-      </View>
+      </Button>
     </Animator>
   );
 };
