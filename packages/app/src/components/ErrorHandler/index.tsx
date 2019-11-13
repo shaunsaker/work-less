@@ -1,5 +1,6 @@
 import React from 'react';
 
+import RouterWrapper from '../../Router/RouterWrapper';
 import Error from './Error';
 import reloadApp from './helpers/reloadApp';
 
@@ -34,7 +35,11 @@ export class ErrorHandler extends React.Component<Props, State> {
     const { hasError, message } = this.state;
 
     if (hasError) {
-      return <Error message={message} handleReloadPress={this.onReloadPress} />;
+      return (
+        <RouterWrapper>
+          <Error message={message} handleReloadPress={this.onReloadPress} />
+        </RouterWrapper>
+      );
     }
 
     const { children } = this.props;
