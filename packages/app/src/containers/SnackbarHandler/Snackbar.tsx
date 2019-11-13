@@ -4,8 +4,8 @@ import { Button } from 'reactxp';
 import styles from './styles';
 import { rhythm } from '../../styleConstants';
 
-import Animator from '../Animator';
-import ParagraphText from '../ParagraphText';
+import Animator from '../../components/Animator';
+import ParagraphText from '../../components/ParagraphText';
 
 interface Props {
   message: string;
