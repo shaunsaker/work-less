@@ -1,31 +1,22 @@
 import React from 'react';
 import { withRouter, RouteComponentProps } from 'react-router';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import Home from './Home';
 import routes from '../../Router/routes';
 import Page from '../../types/Page';
-import { setSnackbarMessage } from '../../reducers/snackbar/actions';
+import { setSnackbarMessage } from '../../store/reducers/snackbar/actions';
 
-interface Props extends Page, RouteComponentProps {
-  handleSetSnackbarMessage: (message: string) => void;
-}
+interface Props extends Page, RouteComponentProps {}
 
-const HomeContainer: React.FC<Props> = ({ history, handleSetSnackbarMessage }) => {
+const HomeContainer: React.FC<Props> = ({ history }) => {
+  const dispatch = useDispatch();
+
   const onSubmit = () => {
-    handleSetSnackbarMessage('Testing');
+    dispatch(setSnackbarMessage(Date.now().toString()));
   };
 
   return <Home handleSubmit={onSubmit} />;
 };
 
-const mapDispatchToProps = {
-  handleSetSnackbarMessage: setSnackbarMessage,
-};
-
-export default withRouter(
-  connect(
-    null,
-    mapDispatchToProps,
-  )(HomeContainer),
-);
+export default withRouter(HomeContainer);

@@ -5,7 +5,7 @@ import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import { logger } from 'redux-logger';
 
 import { DEV } from '../config';
-import reducers from '../reducers';
+import reducers from './reducers';
 
 // add the middlewares
 const middlewares = [];
@@ -21,6 +21,7 @@ const persistConfig = {
   key: 'root',
   stateReconciler: autoMergeLevel2,
   storage: Storage,
+  blacklist: ['snackbar'],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
