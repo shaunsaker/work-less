@@ -5,8 +5,8 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './store';
 import Router from './Router';
 import Loading from './components/Loading';
-import ErrorHandler from './components/ErrorHandler';
-import SnackbarHandler from './components/SnackbarHandler';
+import ErrorHandler from './containers/ErrorHandler';
+import SnackbarHandler from './containers/SnackbarHandler';
 
 const App: React.FC = () => {
   return (
