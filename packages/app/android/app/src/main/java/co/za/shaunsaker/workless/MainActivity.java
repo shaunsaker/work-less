@@ -1,4 +1,4 @@
-package com.app;
+package co.za.shaunsaker.workless;
 
 import com.facebook.react.ReactActivity;
 
