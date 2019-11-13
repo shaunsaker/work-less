@@ -1,26 +1,9 @@
 import { combineReducers } from 'redux';
 
-import userReducer, { UserState, initialUserState } from './user';
-import Action from '../types/Action';
+import snackbar from './snackbar';
 
-interface State {
-  user: UserState;
-}
-
-const appReducer = combineReducers({
-  user: userReducer,
+const reducers = combineReducers({
+  snackbar,
 });
 
-const rootReducer = (state: State, action: Action) => {
-  let newState = state;
-
-  if (action.type === 'PURGE_STORE') {
-    newState = {
-      user: initialUserState,
-    };
-  }
-
-  return appReducer(newState, action);
-};
-
-export default rootReducer;
+export default reducers;

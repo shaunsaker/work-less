@@ -1,18 +1,31 @@
 import React from 'react';
 import { withRouter, RouteComponentProps } from 'react-router';
+import { connect } from 'react-redux';
 
 import Home from './Home';
 import routes from '../../Router/routes';
 import Page from '../../types/Page';
+import { setSnackbarMessage } from '../../reducers/snackbar/actions';
 
-interface Props extends Page, RouteComponentProps {}
+interface Props extends Page, RouteComponentProps {
+  handleSetSnackbarMessage: (message: string) => void;
+}
 
-const HomeContainer: React.FC<Props> = ({ history }) => {
+const HomeContainer: React.FC<Props> = ({ history, handleSetSnackbarMessage }) => {
   const onSubmit = () => {
-    history.push(routes.selectCountry.path);
+    handleSetSnackbarMessage('Testing');
   };
 
   return <Home handleSubmit={onSubmit} />;
 };
 
-export default withRouter(HomeContainer);
+const mapDispatchToProps = {
+  handleSetSnackbarMessage: setSnackbarMessage,
+};
+
+export default withRouter(
+  connect(
+    null,
+    mapDispatchToProps,
+  )(HomeContainer),
+);
