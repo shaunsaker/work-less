@@ -10,8 +10,8 @@ import ParagraphText from '../../components/ParagraphText';
 interface Props {
   message: string;
   shouldAnimateOut?: boolean;
-  handlePress: () => void;
-  handleAnimateOut: () => void;
+  handlePress?: () => void;
+  handleAnimateOut?: () => void;
 }
 
 const Snackbar: React.FC<Props> = ({
