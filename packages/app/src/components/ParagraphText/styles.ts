@@ -9,6 +9,9 @@ const styles = {
     color: colors.primaryText,
     fontWeight: '500',
   }),
+  boldText: Styles.createTextStyle({
+    fontFamily: 'Roboto-Bold',
+  }),
 };
 
 export default styles;

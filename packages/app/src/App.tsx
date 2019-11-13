@@ -6,13 +6,16 @@ import { store, persistor } from './store';
 import Router from './Router';
 import Loading from './components/Loading';
 import ErrorHandler from './components/ErrorHandler';
+import SnackbarHandler from './components/SnackbarHandler';
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
       <PersistGate loading={<Loading />} persistor={persistor}>
         <ErrorHandler>
-          <Router />
+          <SnackbarHandler>
+            <Router />
+          </SnackbarHandler>
         </ErrorHandler>
       </PersistGate>
     </Provider>
