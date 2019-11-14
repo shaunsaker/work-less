@@ -21,4 +21,4 @@ const getWindowResponsiveClass = () => {
   }
 };
 
-export default getWindowResponsiveClass;
+export { getWindowResponsiveClass };

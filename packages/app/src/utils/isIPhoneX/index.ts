@@ -16,4 +16,4 @@ const isIPhoneX = () => {
   );
 };
 
-export default isIPhoneX;
+export { isIPhoneX };

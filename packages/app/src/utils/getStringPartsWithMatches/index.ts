@@ -63,4 +63,4 @@ const getStringPartsWithMatches = ({ string, match }: IArguments) => {
   return parts;
 };
 
-export default getStringPartsWithMatches;
+export { getStringPartsWithMatches };

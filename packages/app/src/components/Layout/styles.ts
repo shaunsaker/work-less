@@ -1,7 +1,7 @@
 import { Styles, Platform, UserInterface } from 'reactxp';
 
 import { rhythm } from '../../styleConstants';
-import isIPhoneX from '../../helpers/isIPhoneX';
+import { isIPhoneX } from '../../utils';
 
 const isIOS = Platform.getType() === 'ios';
 const STATUS_BAR_HEIGHT = isIPhoneX() ? 44 : isIOS ? 22 : 0; // status bar height
