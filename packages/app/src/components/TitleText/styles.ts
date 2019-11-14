@@ -1,7 +1,7 @@
 import { Styles } from 'reactxp';
 
 import { colors } from '../../styleConstants';
-import getWindowResponsiveClass from '../../helpers/getWindowResponsiveClass';
+import { getWindowResponsiveClass } from '../../utils';
 
 const windowResponsiveClass = getWindowResponsiveClass();
 const FONT_SIZE = windowResponsiveClass === 'sm' ? 36 : 48;

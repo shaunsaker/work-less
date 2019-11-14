@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text } from 'reactxp';
 
 import styles from './styles';
-import getStringPartsWithMatches from './helpers/getStringPartsWithMatches';
+import { getStringPartsWithMatches } from '../../utils';
 
 interface IProps {
   text: string;

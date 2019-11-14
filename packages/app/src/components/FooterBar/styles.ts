@@ -1,7 +1,7 @@
 import { Styles } from 'reactxp';
 
 import { colors, rhythm } from '../../styleConstants';
-import isIPhoneX from '../../helpers/isIPhoneX';
+import { isIPhoneX } from '../../utils';
 
 const PADDING_BOTTOM = isIPhoneX() ? 22 : rhythm.vt; // in case of wrap
 

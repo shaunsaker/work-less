@@ -1,7 +1,3 @@
-import cloneObject from './cloneObject';
-
-export { cloneObject };
-
-export default {
-  cloneObject,
-};
+export * from './getStringPartsWithMatches';
+export * from './getWindowResponsiveClass';
+export * from './isIPhoneX';
