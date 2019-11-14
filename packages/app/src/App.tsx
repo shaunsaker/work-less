@@ -1,23 +1,27 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
 
-import { store, persistor } from './store';
+import { model } from './model';
 import Router from './Router';
-import Loading from './components/Loading';
 import ErrorHandler from './containers/ErrorHandler';
 import SnackbarHandler from './containers/SnackbarHandler';
 
+const { store, Provider } = model.createStore({
+  logger: true,
+  initState: {
+    snackbar: {},
+  },
+});
+
+console.log({ store });
+
 const App: React.FC = () => {
   return (
-    <Provider store={store}>
-      <PersistGate loading={<Loading />} persistor={persistor}>
-        <ErrorHandler>
-          <SnackbarHandler>
-            <Router />
-          </SnackbarHandler>
-        </ErrorHandler>
-      </PersistGate>
+    <Provider>
+      <ErrorHandler>
+        <SnackbarHandler>
+          <Router />
+        </SnackbarHandler>
+      </ErrorHandler>
     </Provider>
   );
 };
