@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "540950562559",
+    "firebase_url": "https://work-less-production.firebaseio.com",
+    "project_id": "work-less-production",
+    "storage_bucket": "work-less-production.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:540950562559:android:2ee756f4e572c2bed3eeca",
+        "android_client_info": {
+          "package_name": "co.za.shaunsaker.workless"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "540950562559-qqfbekir7q8uenfu7vvq84u9f50s5mvb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUa3pD-jgkjR2fK0Eb8LhwL3P_brq4ps0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "540950562559-qqfbekir7q8uenfu7vvq84u9f50s5mvb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
