@@ -3,7 +3,7 @@ module.exports = function(api) {
 
   const presets = [['module:metro-react-native-babel-preset']];
 
-  const plugins = [['@babel/proposal-decorators', { legacy: true }]];
+  const plugins = [['@babel/proposal-decorators', { legacy: true }], ['@prodo']];
 
   if (process.env.platform === 'web') {
     return {

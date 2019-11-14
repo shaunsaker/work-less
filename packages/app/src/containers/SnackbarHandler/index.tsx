@@ -1,26 +1,25 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import { connect, useDispatch } from 'react-redux';
 
 import Snackbar from './Snackbar';
-import { ApplicationState } from '../../store/reducers';
-import { resetSnackbarMessage } from '../../store/reducers/snackbar/actions';
+import { state, watch, dispatch } from '../../model';
+import * as actions from '../../actions';
 
 interface Props {
-  message?: string;
   children: any; // FIXME:
 }
 
-const SnackbarHandler: React.FC<Props> = ({ message, children }) => {
+const SnackbarHandler: React.FC<Props> = ({ children }) => {
+  const message = watch(state.snackbar.message);
+  let interval: number;
   const [shouldAnimateOut, setShouldAnimateOut] = useState(false);
   const [seconds, setSeconds] = useState(0);
-  let interval: number;
-  const dispatch = useDispatch();
+
   const onPress = () => {
     hide();
   };
   const onAnimateOut = () => {
     setShouldAnimateOut(false);
-    dispatch(resetSnackbarMessage());
+    dispatch(actions.resetSnackbarMessage)();
   };
 
   const hide = () => {
@@ -79,10 +78,4 @@ const SnackbarHandler: React.FC<Props> = ({ message, children }) => {
   );
 };
 
-const mapStateToProps = (state: ApplicationState) => {
-  return {
-    message: state.snackbar.message,
-  };
-};
-
-export default connect(mapStateToProps)(SnackbarHandler);
+export default SnackbarHandler;
