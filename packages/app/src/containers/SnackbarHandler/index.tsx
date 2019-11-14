@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 
 import Snackbar from './Snackbar';
 import { state, watch, dispatch } from '../../model';
-import * as actions from '../../actions';
+import { resetSnackbarMessage } from '../../actions';
 
 interface Props {
   children: any; // FIXME:
@@ -19,7 +19,7 @@ const SnackbarHandler: React.FC<Props> = ({ children }) => {
   };
   const onAnimateOut = () => {
     setShouldAnimateOut(false);
-    dispatch(actions.resetSnackbarMessage)();
+    dispatch(resetSnackbarMessage)();
   };
 
   const hide = () => {

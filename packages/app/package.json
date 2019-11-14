@@ -14,15 +14,15 @@
     "build:types": "tsc --emitDeclarationOnly",
     "start:storybook": "start-storybook -p 6006 -s ./src",
     "build:storybook": "build-storybook",
-    "env:dev": "cp ./config/firebase/development/config.ts ./src/config/firebase.ts && firebase use development",
-    "env:prod": "cp ./config/firebase/development/config.ts ./src/config/firebase.ts && firebase use production",
+    "env:dev": "cp ./config/firebase/development/config.ts ./src/config/firebase.ts",
+    "env:prod": "cp ./config/firebase/development/config.ts ./src/config/firebase.ts",
     "copy-images": "cp -R ./src/assets/images ./dist-web",
     "build:web": "cross-env platform=web webpack --config=web/webpack/prod.js --progress --colors --mode=production",
     "build:web:dev": "yarn run env:dev && yarn run build:web",
     "build:web:prod": "yarn run env:prod && yarn run build:web",
     "deploy:web": "yarn run copy-images && firebase deploy --only hosting",
-    "deploy:web:dev": "yarn run env:dev && yarn run deploy:web",
-    "deploy:web:prod": "yarn run env:prod && yarn run deploy:web"
+    "deploy:web:dev": "yarn run env:dev && firebase use development && yarn run deploy:web",
+    "deploy:web:prod": "yarn run env:prod && firebase use production && yarn run deploy:web"
   },
   "devDependencies": {
     "@babel/core": "7.5.5",
@@ -74,6 +74,7 @@
     "@prodo/core": "^0.1.2",
     "@prodo/logger": "^0.1.2",
     "color": "^3.1.2",
+    "firebase": "^7.3.0",
     "fuse.js": "^3.4.5",
     "react": "16.8.6",
     "react-dom": "16.8.6",
