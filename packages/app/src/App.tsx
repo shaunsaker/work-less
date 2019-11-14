@@ -5,14 +5,13 @@ import Router from './Router';
 import ErrorHandler from './containers/ErrorHandler';
 import SnackbarHandler from './containers/SnackbarHandler';
 
-const { store, Provider } = model.createStore({
+const { Provider } = model.createStore({
   logger: true,
   initState: {
     snackbar: {},
+    user: null,
   },
 });
-
-console.log({ store });
 
 const App: React.FC = () => {
   return (
