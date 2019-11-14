@@ -11,4 +11,4 @@ const colors = {
   accent: '#1A68A5',
 };
 
-export default colors;
+export { colors };
