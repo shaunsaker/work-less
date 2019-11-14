@@ -5,4 +5,4 @@ const rhythm = {
   bw: 2, // border-width
 };
 
-export default rhythm;
+export { rhythm };

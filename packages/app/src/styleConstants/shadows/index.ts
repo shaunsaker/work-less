@@ -17,4 +17,4 @@ const shadows = {
   large: getShadowProps(8, 0.9),
 };
 
-export default shadows;
+export { shadows };
