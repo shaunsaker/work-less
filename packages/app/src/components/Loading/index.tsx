@@ -1,17 +1,12 @@
 import React from 'react';
-import { View, ActivityIndicator } from 'reactxp';
+import { ActivityIndicator } from 'reactxp';
 
-import styles from './styles';
 import { colors } from '../../styleConstants';
 
 interface Props {}
 
 const Loading: React.FC<Props> = () => {
-  return (
-    <View style={styles.container}>
-      <ActivityIndicator color={colors.primary} />
-    </View>
-  );
+  return <ActivityIndicator color={colors.primary} size="medium" />;
 };
 
 export default Loading;

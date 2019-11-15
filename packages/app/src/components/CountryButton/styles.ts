@@ -12,6 +12,9 @@ const styles = {
     borderRadius: rhythm.br,
     ...shadows.small,
   }),
+  activeContainer: {
+    backgroundColor: colors.secondary,
+  },
   contentContainer: Styles.createViewStyle({
     flexDirection: 'row',
     justifyContent: 'flex-start',
@@ -34,6 +37,9 @@ const styles = {
     fontSize: 16,
     color: colors.primaryText,
   }),
+  activeText: {
+    color: 'white',
+  },
 };
 
 export default styles;

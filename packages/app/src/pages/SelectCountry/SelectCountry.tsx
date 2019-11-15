@@ -8,10 +8,12 @@ import Country from '../../types/Country';
 import Layout from '../../components/Layout';
 import TextInput from '../../components/TextInput';
 import CountryButton from '../../components/CountryButton';
+import Loading from '../../components/Loading';
 
 interface Props {
   country: string;
   countries: Country[];
+  isLoading?: boolean;
   isSubmitDisabled?: boolean;
   handleSelectCountry: (country: Country) => void;
   handleChangeCountry: (text: string) => void;
@@ -22,6 +24,7 @@ interface Props {
 const SelectCountry: React.FC<Props> = ({
   country,
   countries,
+  isLoading,
   isSubmitDisabled,
   handleChangeCountry,
   handleSelectCountry,
@@ -63,14 +66,23 @@ const SelectCountry: React.FC<Props> = ({
         </View>
 
         <View style={styles.resultsContainer}>
-          {countries &&
+          {isLoading ? (
+            <Loading />
+          ) : (
             countries.map((item) => {
+              const isActive = Boolean(item.name.toLowerCase() === country.toLowerCase());
+
               return (
-                <View style={styles.countryButtonContainer}>
-                  <CountryButton {...item} handlePress={() => handleSelectCountry(item)} />
+                <View key={item.id} style={styles.countryButtonContainer}>
+                  <CountryButton
+                    {...item}
+                    isActive={isActive}
+                    handlePress={() => handleSelectCountry(item)}
+                  />
                 </View>
               );
-            })}
+            })
+          )}
         </View>
       </View>
     </Layout>

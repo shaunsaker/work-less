@@ -1,24 +1,21 @@
 import React from 'react';
-import { View, Image, Text } from 'reactxp';
+import { View, Image, Text, Button } from 'reactxp';
 
 import styles from './styles';
 import ASSETS from '../../assets';
 import Country from '../../types/Country';
 
-import ButtonWithBgHoverEffect from '../ButtonWithBgHoverEffect';
-
 export interface Props extends Country {
+  isActive?: boolean;
   handlePress: () => void;
 }
 
-const CountryButton: React.FC<Props> = ({ id, name, handlePress }) => {
+const CountryButton: React.FC<Props> = ({ id, name, isActive, handlePress }) => {
   const imageSrc = ASSETS[id];
 
   return (
-    <ButtonWithBgHoverEffect
-      color="white"
-      amount={0.1}
-      style={styles.container}
+    <Button
+      style={[styles.container, isActive ? styles.activeContainer : {}]}
       accessibilityLabel={name}
       onPress={handlePress}
     >
@@ -28,10 +25,10 @@ const CountryButton: React.FC<Props> = ({ id, name, handlePress }) => {
         </View>
 
         <View style={styles.textContainer}>
-          <Text style={styles.text}>{name}</Text>
+          <Text style={[styles.text, isActive ? styles.activeText : {}]}>{name}</Text>
         </View>
       </View>
-    </ButtonWithBgHoverEffect>
+    </Button>
   );
 };
 

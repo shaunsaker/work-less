@@ -8,11 +8,12 @@ import Page from '../../types/Page';
 import routes from '../../Router/routes';
 import { watch, state, dispatch } from '../../model';
 import { getCountries } from '../../actions';
+import { sortArrayOfObjectsByKey } from '../../utils';
 
 interface Props extends Page, RouteComponentProps {}
 
 const SelectCountryContainer: React.FC<Props> = ({ history }) => {
-  const countries = watch(state.countries);
+  const countries = sortArrayOfObjectsByKey(watch(state.countries), 'name');
   const [country, setCountry] = useState('');
   const onChangeCountry = (text: string) => {
     setCountry(text);
@@ -30,8 +31,13 @@ const SelectCountryContainer: React.FC<Props> = ({ history }) => {
   };
 
   useEffect(() => {
-    dispatch(getCountries)();
-  });
+    /*
+     * If we don't have countries in the store, go and fetch them
+     */
+    if (!countries.length) {
+      dispatch(getCountries)();
+    }
+  }, [true]); // Only run once
 
   /*
    * Show all countries initially
@@ -50,6 +56,11 @@ const SelectCountryContainer: React.FC<Props> = ({ history }) => {
   }
 
   /*
+   * Display loading state if we don't have countries yey
+   */
+  const isLoading = Boolean(!countries.length);
+
+  /*
    * Disable the submit button if there is a country match
    * in countries (case sensitive)
    */
@@ -59,6 +70,7 @@ const SelectCountryContainer: React.FC<Props> = ({ history }) => {
     <SelectCountry
       country={country}
       countries={countryResults}
+      isLoading={isLoading}
       isSubmitDisabled={isSubmitDisabled}
       handleChangeCountry={onChangeCountry}
       handleSelectCountry={onSelectCountry}
