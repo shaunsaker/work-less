@@ -1,4 +1,4 @@
-import getStringPartsWithMatches from '..';
+import { getStringPartsWithMatches } from '..';
 
 describe('getStringPartsWithMatches()', () => {
   const string = 'This is a string that I am going to test for matches';
