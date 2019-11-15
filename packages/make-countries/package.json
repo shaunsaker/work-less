@@ -6,16 +6,26 @@
     "build": "tsc",
     "build:watch": "tsc --watch",
     "watch": "nodemon ./dist/index.js",
-    "start": "concurrently \"yarn run build:watch\" \"sleep 1 && yarn run watch\"",
-    "do": "tsc && node ./dist/index.js"
+    "env:dev": "firebase use development && cp ../keys/firebase/development/credentials.json ./dist/credentials.json",
+    "env:prod": "firebase use production && cp ../keys/firebase/development/credentials.json ./dist/credentials.json",
+    "start": "yarn run env:dev && concurrently \"yarn run build:watch\" \"sleep 1 && yarn run watch\"",
+    "do:dev": "yarn run env:dev && tsc && node ./dist/index.js",
+    "do:prod": "yarn run env:prod && tsc && node ./dist/index.js"
   },
   "main": "dist/index.js",
-  "dependencies": {},
+  "dependencies": {
+    "firebase-admin": "^8.7.0"
+  },
   "devDependencies": {
     "concurrently": "^5.0.0",
     "nodemon": "^1.19.3",
     "tslint": "^5.12.0",
     "typescript": "^3.2.2"
   },
-  "private": true
+  "private": true,
+  "workspaces": {
+    "nohoist": [
+      "**"
+    ]
+  }
 }

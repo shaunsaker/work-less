@@ -28,6 +28,9 @@
     "database:restore:prod": "yarn workspace database restore:prod",
     "functions:start": "yarn workspace functions start",
     "functions:deploy:dev": "yarn workspace functions deploy:dev",
-    "functions:deploy:prod": "yarn workspace functions deploy:prod"
+    "functions:deploy:prod": "yarn workspace functions deploy:prod",
+    "countries:start": "yarn workspace make-countries start",
+    "countries:do:env": "yarn workspace make-countries do:env",
+    "countries:do:prod": "yarn workspace make-countries do:prod"
   }
 }
