@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Fuse from 'fuse.js';
 import { withRouter, RouteComponentProps } from 'react-router';
 
@@ -6,12 +6,13 @@ import SelectCountry from './SelectCountry';
 import Country from '../../types/Country';
 import Page from '../../types/Page';
 import routes from '../../Router/routes';
+import { watch, state, dispatch } from '../../model';
+import { getCountries } from '../../actions';
 
-interface Props extends Page, RouteComponentProps {
-  countries?: Country[];
-}
+interface Props extends Page, RouteComponentProps {}
 
-const SelectCountryContainer: React.FC<Props> = ({ countries = [], history }) => {
+const SelectCountryContainer: React.FC<Props> = ({ history }) => {
+  const countries = watch(state.countries);
   const [country, setCountry] = useState('');
   const onChangeCountry = (text: string) => {
     setCountry(text);
@@ -27,6 +28,10 @@ const SelectCountryContainer: React.FC<Props> = ({ countries = [], history }) =>
   const onBack = () => {
     history.goBack();
   };
+
+  useEffect(() => {
+    dispatch(getCountries)();
+  });
 
   /*
    * Show all countries initially
