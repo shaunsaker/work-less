@@ -18,6 +18,7 @@ const TextInput: React.FC<Props> = ({ label, value, handleChangeText, handleSubm
         placeholder={label}
         style={styles.input}
         accessibilityLabel={label}
+        autoFocus
         onChangeText={handleChangeText}
         onSubmitEditing={handleSubmitEditing}
       />
