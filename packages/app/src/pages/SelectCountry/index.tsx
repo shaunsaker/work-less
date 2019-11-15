@@ -9,6 +9,7 @@ import routes from '../../Router/routes';
 import { watch, state, dispatch } from '../../model';
 import { getCountries } from '../../actions';
 import { sortArrayOfObjectsByKey } from '../../utils';
+import setCountry from '../../actions/form/setCountry';
 
 interface Props extends Page, RouteComponentProps {}
 
@@ -27,16 +28,21 @@ const SelectCountryContainer: React.FC<Props> = ({ history }) => {
     }
   }
 
-  const [country, setCountry] = useState('');
+  const [country, setCountryText] = useState('');
   const onChangeCountry = (text: string) => {
-    setCountry(text);
+    setCountryText(text);
   };
   const onSelectCountry = (country: Country) => {
     const { name } = country;
 
-    setCountry(name);
+    setCountryText(name);
   };
   const onSubmit = () => {
+    const selectedCountry = countries.filter(
+      ({ name }) => name.toLowerCase() === country.toLowerCase(),
+    )[0];
+
+    dispatch(setCountry)(selectedCountry);
     history.push(routes.inputLeaveDays.path);
   };
   const onBack = () => {

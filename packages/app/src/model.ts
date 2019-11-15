@@ -6,6 +6,10 @@ import Country from './types/Country';
 
 export interface State {
   countries: Country[];
+  form: {
+    country: Country | null;
+    leaveDays: number | null;
+  };
   location: {
     position: Position | null;
     countryCode: string | null;
@@ -22,6 +26,10 @@ export const { Provider } = model.createStore({
   logger: true,
   initState: {
     countries: [],
+    form: {
+      leaveDays: null,
+      country: null,
+    },
     location: {
       position: null,
       countryCode: null,
