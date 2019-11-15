@@ -3,19 +3,27 @@ import { View } from 'reactxp';
 
 import ASSETS from '../../assets';
 import styles from './styles';
+import DateOfSignificance from '../../types/DateOfSignificance';
 
 import Layout from '../../components/Layout';
 import YearlyCalendar from '../../components/YearlyCalendar';
-import DateOfSignificance from '../../types/DateOfSignificance';
+import Loading from '../../components/Loading';
 
 interface Props {
   daysOff: number;
   datesOfSignificance: DateOfSignificance[];
+  isLoading?: boolean;
   handleShare: () => void;
   handleBack: () => void;
 }
 
-const Results: React.FC<Props> = ({ daysOff, datesOfSignificance, handleShare, handleBack }) => {
+const Results: React.FC<Props> = ({
+  daysOff,
+  datesOfSignificance,
+  isLoading,
+  handleShare,
+  handleBack,
+}) => {
   const titleHighlightText = `${daysOff} consecutive days`;
   const titleText = `Great success!\n${titleHighlightText}\noff!`;
   const paragraphText = 'You should take leave on the following days:';
@@ -41,9 +49,13 @@ const Results: React.FC<Props> = ({ daysOff, datesOfSignificance, handleShare, h
       buttons={buttons}
     >
       <View style={styles.container}>
-        <View style={styles.calendarContainer}>
-          <YearlyCalendar datesOfSignificance={datesOfSignificance} />
-        </View>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <View style={styles.calendarContainer}>
+            <YearlyCalendar datesOfSignificance={datesOfSignificance} />
+          </View>
+        )}
       </View>
     </Layout>
   );
