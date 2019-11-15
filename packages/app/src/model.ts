@@ -5,11 +5,15 @@ import { User } from 'firebase';
 import Country from './types/Country';
 
 export interface State {
+  countries: Country[];
+  location: {
+    position: Position | null;
+    countryCode: string | null;
+  };
   snackbar: {
     message?: string;
   };
   user: User | null;
-  countries: Country[];
 }
 
 export const model = createModel<State>().with(loggerPlugin);
@@ -17,9 +21,13 @@ export const model = createModel<State>().with(loggerPlugin);
 export const { Provider } = model.createStore({
   logger: true,
   initState: {
+    countries: [],
+    location: {
+      position: null,
+      countryCode: null,
+    },
     snackbar: {},
     user: null,
-    countries: [],
   },
 });
 

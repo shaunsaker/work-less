@@ -1,4 +1,4 @@
-const config = {
+const firebase = {
   apiKey: 'AIzaSyAv9kphXCNAeYFJAMla3uC_Iva9GgnPSwk',
   authDomain: 'work-less-production.firebaseapp.com',
   databaseURL: 'https://work-less-production.firebaseio.com',
@@ -9,4 +9,8 @@ const config = {
   measurementId: 'G-64RYLZQXD2',
 };
 
-export default config;
+const googleMaps = {
+  apiKey: 'AIzaSyAv9kphXCNAeYFJAMla3uC_Iva9GgnPSwk',
+};
+
+export { firebase, googleMaps };
