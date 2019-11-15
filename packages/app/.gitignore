@@ -62,7 +62,7 @@ buck-out/
 dist-*
 
 # Firebase
-firebase.ts
+env.ts
 
 # Cocoapods
 ios/Pods

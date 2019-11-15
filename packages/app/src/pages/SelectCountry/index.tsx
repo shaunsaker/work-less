@@ -13,7 +13,20 @@ import { sortArrayOfObjectsByKey } from '../../utils';
 interface Props extends Page, RouteComponentProps {}
 
 const SelectCountryContainer: React.FC<Props> = ({ history }) => {
-  const countries = sortArrayOfObjectsByKey(watch(state.countries), 'name');
+  let countries = watch(state.countries);
+
+  if (countries.length) {
+    countries = sortArrayOfObjectsByKey(countries, 'name');
+
+    const countryCodeByLocation = watch(state.location.countryCode);
+
+    if (countryCodeByLocation) {
+      const countryByLocation = countries.filter(({ id }) => id === countryCodeByLocation)[0];
+      countries = countries.filter(({ id }) => id !== countryCodeByLocation);
+      countries.unshift(countryByLocation);
+    }
+  }
+
   const [country, setCountry] = useState('');
   const onChangeCountry = (text: string) => {
     setCountry(text);

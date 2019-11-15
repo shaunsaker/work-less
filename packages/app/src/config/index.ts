@@ -1,3 +1,5 @@
+export * from './env';
+
 declare const __DEV__: boolean;
 
 export const DEBUG = __DEV__;
