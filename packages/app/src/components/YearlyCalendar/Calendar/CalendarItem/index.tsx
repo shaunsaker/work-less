@@ -36,7 +36,7 @@ const CalendarItem: React.FC<Props> = ({
           styles.text,
           isPrimary ? styles.primaryText : {},
           isSecondary ? styles.secondaryText : {},
-          isDisabled ? styles.disabledText : {},
+          isDisabled && !isPrimary && !isSecondary ? styles.disabledText : {},
         ]}
       >
         {day}

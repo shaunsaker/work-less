@@ -14,7 +14,7 @@ const styles = {
   }),
   text: Styles.createTextStyle({
     fontFamily: 'Roboto-Bold',
-    fontSize: 10,
+    fontSize: 12,
     color: 'white',
   }),
 };

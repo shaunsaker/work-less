@@ -3,6 +3,7 @@ import loggerPlugin from '@prodo/logger';
 import { User } from 'firebase';
 
 import Country from './types/Country';
+import PublicHoliday from './types/PublicHoliday';
 
 export interface State {
   countries: Country[];
@@ -14,6 +15,7 @@ export interface State {
     position: Position | null;
     countryCode: string | null;
   };
+  publicHolidays: PublicHoliday[];
   snackbar: {
     message?: string;
   };
@@ -34,6 +36,7 @@ export const { Provider } = model.createStore({
       position: null,
       countryCode: null,
     },
+    publicHolidays: [],
     snackbar: {},
     user: null,
   },
