@@ -1,0 +1,21 @@
+{
+  "name": "make-countries",
+  "version": "0.0.1",
+  "scripts": {
+    "lint": "tslint --project tsconfig.json",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "watch": "nodemon ./dist/index.js",
+    "start": "concurrently \"yarn run build:watch\" \"sleep 1 && yarn run watch\"",
+    "do": "tsc && node ./dist/index.js"
+  },
+  "main": "dist/index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^5.0.0",
+    "nodemon": "^1.19.3",
+    "tslint": "^5.12.0",
+    "typescript": "^3.2.2"
+  },
+  "private": true
+}
