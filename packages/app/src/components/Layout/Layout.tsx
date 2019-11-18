@@ -17,6 +17,8 @@ export interface Props {
   children?: Types.ReactNode;
   buttons?: ButtonProps[];
   alignCenter?: boolean;
+  showHeaderShadow?: boolean;
+  handleScroll?: (newScrollTop: number) => void;
 }
 
 const Layout: React.FC<Props> = ({
@@ -27,6 +29,8 @@ const Layout: React.FC<Props> = ({
   children,
   buttons,
   alignCenter,
+  showHeaderShadow,
+  handleScroll,
 }) => {
   const paragraphTextComponent = paragraphText ? (
     <View style={styles.paragraphTextContainer}>
@@ -36,7 +40,7 @@ const Layout: React.FC<Props> = ({
 
   return (
     <View style={styles.wrapper}>
-      <ScrollView style={styles.container}>
+      <ScrollView bounces={false} onScroll={handleScroll && handleScroll} style={styles.container}>
         <View style={[styles.contentContainer, alignCenter ? styles.centeredContentContainer : {}]}>
           <View style={[styles.imageContainer, alignCenter ? styles.centeredImageContainer : {}]}>
             <Image source={imageSource} resizeMode="contain" style={styles.image} />
@@ -68,7 +72,7 @@ const Layout: React.FC<Props> = ({
       </ScrollView>
 
       <View style={styles.headerBarContainer}>
-        <HeaderBar />
+        <HeaderBar showShadow={showHeaderShadow} />
       </View>
     </View>
   );
