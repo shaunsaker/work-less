@@ -30,7 +30,7 @@ const ResultsContainer: React.FC<Props> = ({ history }) => {
     if (countryCode && !publicHolidays.length) {
       dispatch(getPublicHolidays)(countryCode);
     }
-  }, [true]); // only run once
+  });
 
   /*
    * We're loading if we don't have public holidays yet
