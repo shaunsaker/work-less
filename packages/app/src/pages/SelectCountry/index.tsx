@@ -61,7 +61,7 @@ const SelectCountryContainer: React.FC<Props> = ({ history }) => {
     if (!countries.length) {
       dispatch(getCountries)();
     }
-  }, [true]); // Only run once
+  });
 
   /*
    * Show all countries initially
