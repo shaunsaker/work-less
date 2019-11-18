@@ -1,14 +1,10 @@
-import { Styles, Platform, UserInterface } from 'reactxp';
+import { Styles, UserInterface } from 'reactxp';
 
-import { rhythm } from '../../styleConstants';
-import { isIPhoneX } from '../../utils';
+import { rhythm, sizes } from '../../styleConstants';
 
-const isIOS = Platform.getType() === 'ios';
-const STATUS_BAR_HEIGHT = isIPhoneX() ? 44 : isIOS ? 22 : 0; // status bar height
 const VERTICAL_PADDING = rhythm.vt * 2;
 const IMAGE_SIZE = 1216 / 1.5; // up the resolution by 50%
 const { width: WINDOW_WIDTH, height: WINDOW_HEIGHT } = UserInterface.measureWindow();
-const HEADER_HEIGHT = 60;
 
 const styles = {
   wrapper: Styles.createViewStyle({
@@ -22,12 +18,11 @@ const styles = {
     top: 0,
     right: 0,
     left: 0,
-    paddingTop: STATUS_BAR_HEIGHT,
-    backgroundColor: 'white',
+    overflow: 'visible',
   }),
   contentContainer: Styles.createViewStyle({
     minHeight: WINDOW_HEIGHT,
-    paddingTop: VERTICAL_PADDING + HEADER_HEIGHT, // paddingBottom comes from buttonContainer
+    paddingTop: VERTICAL_PADDING + sizes.headerHeight, // paddingBottom comes from buttonContainer
     flexDirection: 'row',
   }),
   centeredContentContainer: Styles.createViewStyle({
