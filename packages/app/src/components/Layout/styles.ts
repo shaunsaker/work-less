@@ -23,6 +23,7 @@ const styles = {
     right: 0,
     left: 0,
     paddingTop: STATUS_BAR_HEIGHT,
+    backgroundColor: 'white',
   }),
   contentContainer: Styles.createViewStyle({
     minHeight: WINDOW_HEIGHT,
