@@ -70,7 +70,7 @@ const SelectCountry: React.FC<Props> = ({
             <Loading />
           ) : (
             countries.map((item) => {
-              const isActive = Boolean(item.name.toLowerCase() === country.toLowerCase());
+              const isActive = Boolean(item.name === country);
 
               return (
                 <View key={item.id} style={styles.countryButtonContainer}>
