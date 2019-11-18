@@ -41,7 +41,7 @@
 		36811F8B551E432D90C89269 /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DD9D05F1974E9A8C553E9B /* libRNFirebase.a */; };
 		4B97F8CFF94DBB96BD8CFD40 /* libPods-WorkLessTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E167F83AA462211D3733F368 /* libPods-WorkLessTests.a */; };
 		507183A8528403DB8150BAFB /* Pods_WorkLess_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB0A42E0FEFBA056C94C99C1 /* Pods_WorkLess_tvOS.framework */; };
-		7A51980D237D63A00087C2CD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A5197E7237D63A00087C2CD /* GoogleService-Info.plist */; };
+		7A60E8ED237FBEE600F26A1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A60E8EC237FBEE600F26A1B /* GoogleService-Info.plist */; };
 		7AE4FDEF237C19FE00605F98 /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AE4FDC7237C19FD00605F98 /* Raleway-Bold.ttf */; };
 		7AE4FDF0237C19FE00605F98 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AE4FDED237C19FD00605F98 /* Roboto-Bold.ttf */; };
 		7AE4FDF1237C19FE00605F98 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AE4FDEE237C19FE00605F98 /* Roboto-Regular.ttf */; };
@@ -366,7 +366,7 @@
 		5118E1F256001D1A6BD0C4DB /* Pods-WorkLessTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkLessTests.debug.xcconfig"; path = "Target Support Files/Pods-WorkLessTests/Pods-WorkLessTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
-		7A5197E7237D63A00087C2CD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../config/firebase/development/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7A60E8EC237FBEE600F26A1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../config/development/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7AE4FDC7237C19FD00605F98 /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Raleway-Bold.ttf"; path = "../src/assets/fonts/Raleway-Bold.ttf"; sourceTree = "<group>"; };
 		7AE4FDED237C19FD00605F98 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Bold.ttf"; path = "../src/assets/fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		7AE4FDEE237C19FE00605F98 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "../src/assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -536,7 +536,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
-				7A5197E7237D63A00087C2CD /* GoogleService-Info.plist */,
+				7A60E8EC237FBEE600F26A1B /* GoogleService-Info.plist */,
 			);
 			name = WorkLess;
 			sourceTree = "<group>";
@@ -1161,7 +1161,7 @@
 				7AE4FDF1237C19FE00605F98 /* Roboto-Regular.ttf in Resources */,
 				7AE4FDF0237C19FE00605F98 /* Roboto-Bold.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				7A51980D237D63A00087C2CD /* GoogleService-Info.plist in Resources */,
+				7A60E8ED237FBEE600F26A1B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
