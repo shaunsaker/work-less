@@ -6,6 +6,7 @@ import ErrorHandler from './containers/ErrorHandler';
 import AuthHandler from './containers/AuthHandler';
 import LocationHandler from './containers/LocationHandler';
 import SnackbarHandler from './containers/SnackbarHandler';
+import StatusBarHandler from './containers/StatusBarHandler';
 
 const App: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const App: React.FC = () => {
       <ErrorHandler>
         <AuthHandler />
         <LocationHandler />
+        <StatusBarHandler />
         <SnackbarHandler>
           <Router />
         </SnackbarHandler>
