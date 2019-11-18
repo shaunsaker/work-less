@@ -15,17 +15,22 @@ const InputLeaveDaysContainer: React.FC<Props> = ({ history }) => {
     setLeaveDaysText(text);
   };
   const onSubmit = () => {
-    dispatch(setLeaveDays)(Number(leaveDays));
-    history.push(routes.results.path);
+    if (hasValidInput()) {
+      dispatch(setLeaveDays)(Number(leaveDays));
+      history.push(routes.results.path);
+    }
   };
   const onBack = () => {
     history.goBack();
+  };
+  const hasValidInput = () => {
+    return Boolean(leaveDays && Number(leaveDays));
   };
 
   /*
    * Disable the submit button if leave days is not a number
    */
-  const isSubmitDisabled = !Boolean(leaveDays && Number(leaveDays));
+  const isSubmitDisabled = !hasValidInput();
 
   return (
     <InputLeaveDays

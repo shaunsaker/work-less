@@ -38,15 +38,20 @@ const SelectCountryContainer: React.FC<Props> = ({ history }) => {
     setCountryText(name);
   };
   const onSubmit = () => {
-    const selectedCountry = countries.filter(
-      ({ name }) => name.toLowerCase() === country.toLowerCase(),
-    )[0];
+    if (hasValidInput()) {
+      const selectedCountry = countries.filter(
+        ({ name }) => name.toLowerCase() === country.toLowerCase(),
+      )[0];
 
-    dispatch(setCountry)(selectedCountry);
-    history.push(routes.inputLeaveDays.path);
+      dispatch(setCountry)(selectedCountry);
+      history.push(routes.inputLeaveDays.path);
+    }
   };
   const onBack = () => {
     history.goBack();
+  };
+  const hasValidInput = () => {
+    return Boolean(countries.filter((item) => item.name === country).length);
   };
 
   useEffect(() => {
@@ -83,7 +88,7 @@ const SelectCountryContainer: React.FC<Props> = ({ history }) => {
    * Disable the submit button if there is a country match
    * in countries (case sensitive)
    */
-  const isSubmitDisabled = Boolean(!countries.filter((item) => item.name === country).length);
+  const isSubmitDisabled = !hasValidInput();
 
   return (
     <SelectCountry
