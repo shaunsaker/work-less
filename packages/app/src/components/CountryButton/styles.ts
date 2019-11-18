@@ -10,6 +10,7 @@ const styles = {
     borderWidth: rhythm.bw,
     borderColor: colors.primaryText,
     borderRadius: rhythm.br,
+    backgroundColor: 'white',
     ...shadows.small,
   }),
   activeContainer: {
