@@ -16,13 +16,13 @@ const styles = {
     borderWidth: 1,
     borderColor: colors.mediumPrimaryText,
   }),
-  primaryContainer: Styles.createViewStyle({
+  leaveDayContainer: Styles.createViewStyle({
     backgroundColor: colors.secondary,
   }),
-  secondaryContainer: Styles.createViewStyle({
+  publicHolidayContainer: Styles.createViewStyle({
     backgroundColor: colors.accent,
   }),
-  disabledContainer: Styles.createViewStyle({
+  weekendContainer: Styles.createViewStyle({
     opacity: 0.65,
   }),
   text: Styles.createTextStyle({
@@ -30,13 +30,13 @@ const styles = {
     fontFamily: 'Roboto-Bold',
     color: colors.primaryText,
   }),
-  primaryText: Styles.createTextStyle({
+  leaveDayText: Styles.createTextStyle({
     color: 'white',
   }),
-  secondaryText: Styles.createTextStyle({
+  publicHolidayText: Styles.createTextStyle({
     color: 'white',
   }),
-  disabledText: Styles.createTextStyle({
+  weekendText: Styles.createTextStyle({
     color: getPrimaryTextColor(0.33),
   }),
 };

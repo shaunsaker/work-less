@@ -4,39 +4,24 @@ import { View, Text } from 'reactxp';
 import styles from './styles';
 
 import Tooltip from './Tooltip';
+import CalendarDayInterface from '../../../../types/CalendarDay';
 
-export interface Props {
-  day: number | null;
-  tooltip?: string;
-  isPrimary?: boolean;
-  isSecondary?: boolean;
-  isDisabled?: boolean;
-}
-
-const CalendarItem: React.FC<Props> = ({
-  day,
-  tooltip,
-  isPrimary,
-  isSecondary,
-  isDisabled,
-  ...props
-}: Props) => {
+const CalendarDay: React.FC<CalendarDayInterface> = ({ day, name, type }: CalendarDayInterface) => {
   const calendarItemComponent = (
     <View
-      {...props}
       style={[
         styles.container,
-        isPrimary ? styles.primaryContainer : {},
-        isSecondary ? styles.secondaryContainer : {},
-        isDisabled ? styles.disabledContainer : {},
+        type === 'publicHoliday' ? styles.publicHolidayContainer : {},
+        type === 'leaveDay' ? styles.leaveDayContainer : {},
+        type === 'weekend' ? styles.weekendContainer : {},
       ]}
     >
       <Text
         style={[
           styles.text,
-          isPrimary ? styles.primaryText : {},
-          isSecondary ? styles.secondaryText : {},
-          isDisabled && !isPrimary && !isSecondary ? styles.disabledText : {},
+          type === 'publicHoliday' ? styles.publicHolidayText : {},
+          type === 'leaveDay' ? styles.leaveDayText : {},
+          type === 'weekend' ? styles.weekendText : {},
         ]}
       >
         {day}
@@ -44,11 +29,11 @@ const CalendarItem: React.FC<Props> = ({
     </View>
   );
 
-  if (tooltip) {
-    return <Tooltip text={tooltip}>{calendarItemComponent}</Tooltip>;
+  if (name) {
+    return <Tooltip text={name}>{calendarItemComponent}</Tooltip>;
   }
 
   return calendarItemComponent;
 };
 
-export default CalendarItem;
+export default CalendarDay;

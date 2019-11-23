@@ -4,8 +4,8 @@ import getNumberOfWeeksOfMonth from '../getNumberOfWeeksOfMonth';
 import getTomorrowsDate from './getTomorrowsDate';
 import areDatesOnSameDay from './areDatesOnSameDay';
 import DAYS from '../../days';
-import { Props as Day } from '../../CalendarItem';
 import DateOfSignificance from '../../../../../types/DateOfSignificance';
+import CalendarDay from '../../../../../types/CalendarDay';
 
 const WEEKEND_DAYS = [0, 6];
 
@@ -15,20 +15,22 @@ const getWeeks = (date: Date, datesOfSignificance?: DateOfSignificance[]) => {
   const numberOfWeeksTheMonthFallsInto = getNumberOfWeeksOfMonth(date);
   let nextMonthDay = firstMonthDay;
   const weeks = Array.from(Array(numberOfWeeksTheMonthFallsInto)).map(() => {
-    const week: Day[] = DAYS.map((_, dayIndex) => {
+    const week: CalendarDay[] = DAYS.map((_, dayIndex) => {
       const nextMonthDayIndex = nextMonthDay.getDay();
-      let day;
-      let isDisabled;
-      let extraProps = {};
+      let day = null;
+      const calendarDay: CalendarDay = {
+        type: 'default',
+        day,
+      };
 
       if (nextMonthDayIndex === dayIndex) {
         day = nextMonthDay.getDate();
 
         /*
-         * If they day is a weekend day, it should be disabled
+         * If they day is a weekend day, set it's type
          */
         if (WEEKEND_DAYS.includes(nextMonthDayIndex)) {
-          isDisabled = true;
+          calendarDay.type = 'weekend';
         }
 
         /*
@@ -40,9 +42,13 @@ const getWeeks = (date: Date, datesOfSignificance?: DateOfSignificance[]) => {
           )[0];
 
           if (significantDate) {
-            extraProps = {
-              ...significantDate,
-            };
+            const { type, name } = significantDate;
+
+            calendarDay.type = type;
+
+            if (name) {
+              calendarDay.name = name;
+            }
           }
         }
 
@@ -57,9 +63,8 @@ const getWeeks = (date: Date, datesOfSignificance?: DateOfSignificance[]) => {
       }
 
       return {
+        ...calendarDay,
         day,
-        isDisabled,
-        ...extraProps,
       };
     });
 
