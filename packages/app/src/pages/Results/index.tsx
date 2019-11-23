@@ -12,13 +12,20 @@ interface Props extends Page, RouteComponentProps {}
 const ResultsContainer: React.FC<Props> = ({ history }) => {
   const publicHolidays = watch(state.publicHolidays);
   const daysOff = 31; // TODO:
-  const datesOfSignificance: DateOfSignificance[] = publicHolidays.map((item) => {
-    return {
-      ...item,
-      isSecondary: true,
-      tooltip: item.name,
-    };
+  const datesOfSignificance: DateOfSignificance[] = [];
+
+  publicHolidays.forEach((item) => {
+    const { date, name } = item;
+
+    datesOfSignificance.push({
+      date,
+      type: 'publicHoliday',
+      name,
+    });
   });
+
+  // TODO: Attach other days of significance (leave, weekend)
+
   const onShare = () => {};
   const onBack = () => {
     history.goBack();

@@ -1,12 +1,14 @@
-const datesOfSignificance = [
+import DateOfSignificance from '../../../types/DateOfSignificance';
+
+const datesOfSignificance: DateOfSignificance[] = [
   {
     date: new Date(2019, 9, 1),
-    isPrimary: true,
+    type: 'leaveDay',
   },
   {
     date: new Date(2019, 9, 3),
-    tooltip: 'Heritage Day',
-    isSecondary: true,
+    type: 'publicHoliday',
+    name: 'Heritage Day',
   },
 ];
 

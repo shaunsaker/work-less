@@ -4,13 +4,14 @@ import { View, Text } from 'reactxp';
 import styles from './styles';
 import DAYS from './days';
 
-import CalendarItem, { Props as Day } from './CalendarItem';
+import CalendarItem from './CalendarItem';
+import CalendarDay from '../../../types/CalendarDay';
 
 const CALENDAR_ITEM_SIZE = 32;
 
 export interface Props {
   title: string;
-  weeks: Day[][];
+  weeks: CalendarDay[][];
 }
 
 const Calendar: React.FC<Props> = ({ title, weeks }) => {

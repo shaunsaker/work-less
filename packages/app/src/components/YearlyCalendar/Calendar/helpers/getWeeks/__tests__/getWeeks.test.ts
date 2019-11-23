@@ -1,4 +1,5 @@
 import getWeeks from '..';
+import DateOfSignificance from '../../../../../../types/DateOfSignificance';
 
 describe('getWeeks()', () => {
   it('should work correctly without dates of significance', () => {
@@ -9,14 +10,23 @@ describe('getWeeks()', () => {
 
   it('should work correctly with dates of significance', () => {
     const date = new Date('23 June 1988');
-    const datesOfSignificance = [
+    const datesOfSignificance: DateOfSignificance[] = [
+      {
+        date: new Date('22 June 1988'),
+        type: 'default',
+      },
       {
         date,
-        isPrimary: true,
+        type: 'publicHoliday',
+        name: 'Heritage Day',
       },
       {
         date: new Date('24 June 1988'),
-        isSecondary: true,
+        type: 'leaveDay',
+      },
+      {
+        date: new Date('25 June 1988'),
+        type: 'weekend',
       },
     ];
 
