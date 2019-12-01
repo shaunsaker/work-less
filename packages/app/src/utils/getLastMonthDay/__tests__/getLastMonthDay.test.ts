@@ -1,4 +1,4 @@
-import getLastMonthDay from '..';
+import { getLastMonthDay } from '..';
 
 describe('getLastMonthDay()', () => {
   it('should work correctly (1)', () => {

@@ -1,5 +1,5 @@
 import getFirstMonthDay from '../getFirstMonthDay';
-import getLastMonthDay from '../getLastMonthDay';
+import { getLastMonthDay } from '../../../../../utils';
 import getNumberOfWeeksOfMonth from '../getNumberOfWeeksOfMonth';
 import getTomorrowsDate from './getTomorrowsDate';
 import areDatesOnSameDay from './areDatesOnSameDay';
