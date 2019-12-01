@@ -4,4 +4,4 @@ const getLastMonthDay = (date: Date) => {
   return lastMonthDay;
 };
 
-export default getLastMonthDay;
+export { getLastMonthDay };
