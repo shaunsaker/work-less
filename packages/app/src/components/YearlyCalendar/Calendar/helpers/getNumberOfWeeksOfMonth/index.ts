@@ -1,5 +1,5 @@
 import getFirstMonthDay from '../getFirstMonthDay';
-import getLastMonthDay from '../getLastMonthDay';
+import { getLastMonthDay } from '../../../../../utils';
 import getNumberOfDaysBetweenDates from '../getNumberOfDaysBetweenDates';
 
 const getNumberOfWeeksOfMonth = (date: Date) => {
