@@ -34,3 +34,6 @@ credentials.json
 
 # Firebase
 .firebase
+google-services.json
+GoogleService-Info.plist
+config.ts
